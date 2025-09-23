@@ -1,4 +1,4 @@
 configured_endpoints: 25
 openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/legalesign%2Flegalesign-sdk-3bf301e758f245c1c30c849b8372902b9c1a4385050a04a0119effc4107dde07.yml
 openapi_spec_hash: 45411f5fe25671475b12a5a85a060ad9
-config_hash: c8a82845f2203ecc0ccc237f74f562b6
+config_hash: c63fae4d2f35d6499f5aaeb35acf8a3b
