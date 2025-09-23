@@ -117,7 +117,6 @@ use Legalesign\RequestOptions;
 $client = new Client(maxRetries: 0);
 
 // Or, configure per-request:
-
 $result = $client->group->list(
   requestOptions: RequestOptions::with(maxRetries: 5)
 );
