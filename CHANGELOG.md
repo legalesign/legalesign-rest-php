@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.3 (2025-09-23)
+
+Full Changelog: [v0.0.2...v0.0.3](https://github.com/legalesign/legalesign-rest-php/compare/v0.0.2...v0.0.3)
+
+### Chores
+
+* **docs:** update readme formatting ([a0730ae](https://github.com/legalesign/legalesign-rest-php/commit/a0730aee4521c60914a1203aa3a40be99aae6dd3))
+
 ## 0.0.2 (2025-09-19)
 
 Full Changelog: [v0.0.1...v0.0.2](https://github.com/legalesign/legalesign-rest-php/compare/v0.0.1...v0.0.2)
