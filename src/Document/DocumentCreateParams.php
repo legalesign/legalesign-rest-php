@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Document;
+namespace LegalesignSDK\Document;
 
-use Legalesign\Core\Attributes\Api;
-use Legalesign\Core\Concerns\SdkModel;
-use Legalesign\Core\Concerns\SdkParams;
-use Legalesign\Core\Contracts\BaseModel;
-use Legalesign\Document\DocumentCreateParams\PdfPasswordType;
-use Legalesign\Document\DocumentCreateParams\Signer;
+use LegalesignSDK\Core\Attributes\Api;
+use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkParams;
+use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Document\DocumentCreateParams\PdfPasswordType;
+use LegalesignSDK\Document\DocumentCreateParams\Signer;
 
 /**
  * An object containing the method's parameters.
@@ -25,7 +25,7 @@ use Legalesign\Document\DocumentCreateParams\Signer;
  *
  *   `$client->document->create(...$params->toArray());`
  *
- * @see Legalesign\Document->create
+ * @see LegalesignSDK\Document->create
  *
  * @phpstan-type document_create_params = array{
  *   group: string,

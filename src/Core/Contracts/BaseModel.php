@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core\Contracts;
+namespace LegalesignSDK\Core\Contracts;
 
-use Legalesign\Core\Conversion\Contracts\ConverterSource;
+use LegalesignSDK\Core\Conversion\Contracts\ConverterSource;
 
 /**
  * @internal

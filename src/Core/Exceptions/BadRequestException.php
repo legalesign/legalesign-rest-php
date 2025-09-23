@@ -1,9 +1,9 @@
 <?php
 
-namespace Legalesign\Core\Exceptions;
+namespace LegalesignSDK\Core\Exceptions;
 
 class BadRequestException extends APIStatusException
 {
     /** @var string */
-    protected const DESC = 'Legalesign Bad Request Exception';
+    protected const DESC = 'LegalesignSDK Bad Request Exception';
 }

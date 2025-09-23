@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core;
+namespace LegalesignSDK\Core;
 
-use Legalesign\Core\Implementation\Omit;
+use LegalesignSDK\Core\Implementation\Omit;
 
 const OMIT = Omit::omit;

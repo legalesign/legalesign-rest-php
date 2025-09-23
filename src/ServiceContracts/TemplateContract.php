@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\ServiceContracts;
+namespace LegalesignSDK\ServiceContracts;
 
-use Legalesign\Core\Exceptions\APIException;
-use Legalesign\Core\Implementation\HasRawResponse;
-use Legalesign\RequestOptions;
-use Legalesign\Template\TemplateGetResponse;
-use Legalesign\Template\TemplateListResponse;
+use LegalesignSDK\Core\Exceptions\APIException;
+use LegalesignSDK\Core\Implementation\HasRawResponse;
+use LegalesignSDK\RequestOptions;
+use LegalesignSDK\Template\TemplateGetResponse;
+use LegalesignSDK\Template\TemplateListResponse;
 
-use const Legalesign\Core\OMIT as omit;
+use const LegalesignSDK\Core\OMIT as omit;
 
 interface TemplateContract
 {
@@ -128,25 +128,4 @@ interface TemplateContract
         array $params,
         ?RequestOptions $requestOptions = null
     ): TemplateListResponse;
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function archive(
-        string $templateID,
-        ?RequestOptions $requestOptions = null
-    ): mixed;
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function archiveRaw(
-        string $templateID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null,
-    ): mixed;
 }

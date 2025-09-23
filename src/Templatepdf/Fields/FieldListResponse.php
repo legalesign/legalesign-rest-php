@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Templatepdf\Fields;
+namespace LegalesignSDK\Templatepdf\Fields;
 
-use Legalesign\Attachment\ListMeta;
-use Legalesign\Core\Attributes\Api;
-use Legalesign\Core\Concerns\SdkModel;
-use Legalesign\Core\Contracts\BaseModel;
-use Legalesign\Templatepdf\Fields\FieldListResponse\Object1;
+use LegalesignSDK\Core\Attributes\Api;
+use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Document\ListMeta;
+use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1;
 
 /**
  * @phpstan-type field_list_response = array{

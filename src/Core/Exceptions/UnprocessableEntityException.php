@@ -1,9 +1,9 @@
 <?php
 
-namespace Legalesign\Core\Exceptions;
+namespace LegalesignSDK\Core\Exceptions;
 
 class UnprocessableEntityException extends APIStatusException
 {
     /** @var string */
-    protected const DESC = 'Legalesign Unprocessable Entity Exception';
+    protected const DESC = 'LegalesignSDK Unprocessable Entity Exception';
 }

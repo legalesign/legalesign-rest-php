@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core\Attributes;
+namespace LegalesignSDK\Core\Attributes;
 
-use Legalesign\Core\Conversion\Contracts\Converter;
-use Legalesign\Core\Conversion\Contracts\ConverterSource;
-use Legalesign\Core\Conversion\EnumOf;
-use Legalesign\Core\Conversion\ListOf;
-use Legalesign\Core\Conversion\MapOf;
+use LegalesignSDK\Core\Conversion\Contracts\Converter;
+use LegalesignSDK\Core\Conversion\Contracts\ConverterSource;
+use LegalesignSDK\Core\Conversion\EnumOf;
+use LegalesignSDK\Core\Conversion\ListOf;
+use LegalesignSDK\Core\Conversion\MapOf;
 
 /**
  * @internal

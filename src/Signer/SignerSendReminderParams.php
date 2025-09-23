@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Signer;
+namespace LegalesignSDK\Signer;
 
-use Legalesign\Core\Attributes\Api;
-use Legalesign\Core\Concerns\SdkModel;
-use Legalesign\Core\Concerns\SdkParams;
-use Legalesign\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Attributes\Api;
+use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkParams;
+use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
  * An object containing the method's parameters.
@@ -23,7 +23,7 @@ use Legalesign\Core\Contracts\BaseModel;
  *
  *   `$client->signer->sendReminder(...$params->toArray());`
  *
- * @see Legalesign\Signer->sendReminder
+ * @see LegalesignSDK\Signer->sendReminder
  *
  * @phpstan-type signer_send_reminder_params = array{text?: string}
  */

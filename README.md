@@ -1,13 +1,13 @@
-# Legalesign PHP API library
+# Legalesign SDK PHP API library
 
 > [!NOTE]
-> The Legalesign PHP API Library is currently in **beta** and we're excited for you to experiment with it!
+> The Legalesign SDK PHP API Library is currently in **beta** and we're excited for you to experiment with it!
 >
 > This library has not yet been exhaustively tested in production environments and may be missing some features you'd expect in a stable release. As we continue development, there may be breaking changes that require updates to your code.
 >
 > **We'd love your feedback!** Please share any suggestions, bug reports, feature requests, or general thoughts by [filing an issue](https://www.github.com/legalesign/legalesign-rest-php/issues/new).
 
-The Legalesign PHP library provides convenient access to the Legalesign REST API from any PHP 8.1.0+ application.
+The Legalesign SDK PHP library provides convenient access to the Legalesign SDK REST API from any PHP 8.1.0+ application.
 
 It is generated with [Stainless](https://www.stainless.com/).
 
@@ -30,7 +30,7 @@ To use this package, install via Composer by adding the following to your applic
     }
   ],
   "require": {
-    "org-placeholder/legalesign": "dev-main"
+    "org-placeholder/legalesign-sdk": "dev-main"
   }
 }
 ```
@@ -45,13 +45,13 @@ Parameters with a default value must be set by name.
 ```php
 <?php
 
-use Legalesign\Client;
+use LegalesignSDK\Client;
 
-$client = new Client(apiKey: getenv("LEGALESIGN_API_KEY") ?: "My API Key");
+$client = new Client(apiKey: getenv("LEGALESIGN_SDK_API_KEY") ?: "My API Key");
 
-$groups = $client->group->list();
+$documents = $client->document->list(group: "REPLACE_ME");
 
-var_dump($groups->meta);
+var_dump($documents->meta);
 ```
 
 ### Value Objects
@@ -63,15 +63,15 @@ However, builders are also provided `(new Dog)->withName("Joey")`.
 
 ### Handling errors
 
-When the library is unable to connect to the API, or if the API returns a non-success status code (i.e., 4xx or 5xx response), a subclass of `Legalesign\Core\Exceptions\APIException` will be thrown:
+When the library is unable to connect to the API, or if the API returns a non-success status code (i.e., 4xx or 5xx response), a subclass of `LegalesignSDK\Core\Exceptions\APIException` will be thrown:
 
 ```php
 <?php
 
-use Legalesign\Core\Exceptions\APIConnectionException;
+use LegalesignSDK\Core\Exceptions\APIConnectionException;
 
 try {
-  $groups = $client->group->list();
+  $documents = $client->document->list(group: "REPLACE_ME");
 } catch (APIConnectionException $e) {
   echo "The server could not be reached", PHP_EOL;
   var_dump($e->getPrevious());
@@ -110,16 +110,15 @@ You can use the `maxRetries` option to configure or disable this:
 ```php
 <?php
 
-use Legalesign\Client;
-use Legalesign\RequestOptions;
+use LegalesignSDK\Client;
+use LegalesignSDK\RequestOptions;
 
 // Configure the default for all requests:
 $client = new Client(maxRetries: 0);
 
 // Or, configure per-request:
-
-$result = $client->group->list(
-  requestOptions: RequestOptions::with(maxRetries: 5)
+$result = $client->document->list(
+  group: "REPLACE_ME", requestOptions: RequestOptions::with(maxRetries: 5)
 );
 ```
 
@@ -136,9 +135,10 @@ Note: the `extra*` parameters of the same name overrides the documented paramete
 ```php
 <?php
 
-use Legalesign\RequestOptions;
+use LegalesignSDK\RequestOptions;
 
-$groups = $client->group->list(
+$documents = $client->document->list(
+  group: "REPLACE_ME",
   requestOptions: RequestOptions::with(
     extraQueryParams: ["my_query_parameter" => "value"],
     extraBodyParams: ["my_body_parameter" => "value"],
@@ -146,7 +146,7 @@ $groups = $client->group->list(
   ),
 );
 
-var_dump($groups["my_undocumented_property"]);
+var_dump($documents["my_undocumented_property"]);
 ```
 
 #### Undocumented request params

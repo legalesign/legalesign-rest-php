@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core\Conversion\Concerns;
+namespace LegalesignSDK\Core\Conversion\Concerns;
 
-use Legalesign\Core\Conversion;
-use Legalesign\Core\Conversion\CoerceState;
-use Legalesign\Core\Conversion\Contracts\Converter;
-use Legalesign\Core\Conversion\Contracts\ConverterSource;
-use Legalesign\Core\Conversion\DumpState;
+use LegalesignSDK\Core\Conversion;
+use LegalesignSDK\Core\Conversion\CoerceState;
+use LegalesignSDK\Core\Conversion\Contracts\Converter;
+use LegalesignSDK\Core\Conversion\Contracts\ConverterSource;
+use LegalesignSDK\Core\Conversion\DumpState;
 
 /**
  * @internal

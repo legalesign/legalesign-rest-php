@@ -2,20 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Services;
+namespace LegalesignSDK\Services;
 
-use Legalesign\Client;
-use Legalesign\Core\Exceptions\APIException;
-use Legalesign\Core\Implementation\HasRawResponse;
-use Legalesign\Group\GroupCreateParams;
-use Legalesign\Group\GroupGetResponse;
-use Legalesign\Group\GroupListParams;
-use Legalesign\Group\GroupListResponse;
-use Legalesign\Group\GroupUpdateParams;
-use Legalesign\RequestOptions;
-use Legalesign\ServiceContracts\GroupContract;
+use LegalesignSDK\Client;
+use LegalesignSDK\Core\Exceptions\APIException;
+use LegalesignSDK\Core\Implementation\HasRawResponse;
+use LegalesignSDK\Group\GroupCreateParams;
+use LegalesignSDK\Group\GroupGetResponse;
+use LegalesignSDK\Group\GroupListParams;
+use LegalesignSDK\Group\GroupListResponse;
+use LegalesignSDK\RequestOptions;
+use LegalesignSDK\ServiceContracts\GroupContract;
 
-use const Legalesign\Core\OMIT as omit;
+use const LegalesignSDK\Core\OMIT as omit;
 
 final class GroupService implements GroupContract
 {
@@ -106,52 +105,6 @@ final class GroupService implements GroupContract
             path: ['group/%1$s/', $groupID],
             options: $requestOptions,
             convert: GroupGetResponse::class,
-        );
-    }
-
-    /**
-     * @api
-     *
-     * Update group
-     *
-     * @param string $publicName
-     *
-     * @throws APIException
-     */
-    public function update(
-        string $groupID,
-        $publicName = omit,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        $params = ['publicName' => $publicName];
-
-        return $this->updateRaw($groupID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @param array<string, mixed> $params
-     *
-     * @throws APIException
-     */
-    public function updateRaw(
-        string $groupID,
-        array $params,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        [$parsed, $options] = GroupUpdateParams::parseRequest(
-            $params,
-            $requestOptions
-        );
-
-        // @phpstan-ignore-next-line;
-        return $this->client->request(
-            method: 'patch',
-            path: ['group/%1$s/', $groupID],
-            body: (object) $parsed,
-            options: $options,
-            convert: null,
         );
     }
 

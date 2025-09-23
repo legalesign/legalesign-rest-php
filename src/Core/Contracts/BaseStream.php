@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core\Contracts;
+namespace LegalesignSDK\Core\Contracts;
 
-use Legalesign\Core\Conversion\Contracts\Converter;
-use Legalesign\Core\Conversion\Contracts\ConverterSource;
+use LegalesignSDK\Core\Conversion\Contracts\Converter;
+use LegalesignSDK\Core\Conversion\Contracts\ConverterSource;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 

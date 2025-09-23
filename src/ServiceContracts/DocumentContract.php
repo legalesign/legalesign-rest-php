@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\ServiceContracts;
+namespace LegalesignSDK\ServiceContracts;
 
-use Legalesign\Core\Exceptions\APIException;
-use Legalesign\Core\Implementation\HasRawResponse;
-use Legalesign\Document\DocumentCreateParams\PdfPasswordType;
-use Legalesign\Document\DocumentCreateParams\Signer;
-use Legalesign\Document\DocumentGetFieldsResponseItem;
-use Legalesign\Document\DocumentGetResponse;
-use Legalesign\Document\DocumentListResponse;
-use Legalesign\Document\DocumentNewResponse;
-use Legalesign\RequestOptions;
+use LegalesignSDK\Core\Exceptions\APIException;
+use LegalesignSDK\Core\Implementation\HasRawResponse;
+use LegalesignSDK\Document\DocumentCreateParams\PdfPasswordType;
+use LegalesignSDK\Document\DocumentCreateParams\Signer;
+use LegalesignSDK\Document\DocumentGetFieldsResponseItem;
+use LegalesignSDK\Document\DocumentGetResponse;
+use LegalesignSDK\Document\DocumentListResponse;
+use LegalesignSDK\Document\DocumentNewResponse;
+use LegalesignSDK\RequestOptions;
 
-use const Legalesign\Core\OMIT as omit;
+use const LegalesignSDK\Core\OMIT as omit;
 
 interface DocumentContract
 {
@@ -197,48 +197,6 @@ interface DocumentContract
     /**
      * @api
      *
-     * @throws APIException
-     */
-    public function deletePermanently(
-        string $docID,
-        ?RequestOptions $requestOptions = null
-    ): mixed;
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function deletePermanentlyRaw(
-        string $docID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): mixed;
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function downloadAuditLog(
-        string $docID,
-        ?RequestOptions $requestOptions = null
-    ): string;
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function downloadAuditLogRaw(
-        string $docID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): string;
-
-    /**
-     * @api
-     *
      * @return list<DocumentGetFieldsResponseItem>
      *
      * @throws APIException
@@ -264,30 +222,21 @@ interface DocumentContract
     /**
      * @api
      *
-     * @param string $group
-     * @param int $signeeCount
-     * @param string $text
-     * @param string $title
-     *
      * @throws APIException
      */
-    public function preview(
-        $group = omit,
-        $signeeCount = omit,
-        $text = omit,
-        $title = omit,
-        ?RequestOptions $requestOptions = null,
+    public function permanentlyDelete(
+        string $docID,
+        ?RequestOptions $requestOptions = null
     ): mixed;
 
     /**
      * @api
      *
-     * @param array<string, mixed> $params
-     *
      * @throws APIException
      */
-    public function previewRaw(
-        array $params,
+    public function permanentlyDeleteRaw(
+        string $docID,
+        mixed $params,
         ?RequestOptions $requestOptions = null
     ): mixed;
 }

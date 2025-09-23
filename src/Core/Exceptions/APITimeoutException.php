@@ -1,13 +1,13 @@
 <?php
 
-namespace Legalesign\Core\Exceptions;
+namespace LegalesignSDK\Core\Exceptions;
 
 use Psr\Http\Message\RequestInterface;
 
 class APITimeoutException extends APIConnectionException
 {
     /** @var string */
-    protected const DESC = 'Legalesign API Timeout Exception';
+    protected const DESC = 'LegalesignSDK API Timeout Exception';
 
     public function __construct(
         public RequestInterface $request,

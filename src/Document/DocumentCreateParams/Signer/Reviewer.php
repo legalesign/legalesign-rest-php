@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Document\DocumentCreateParams\Signer;
+namespace LegalesignSDK\Document\DocumentCreateParams\Signer;
 
-use Legalesign\Core\Attributes\Api;
-use Legalesign\Core\Concerns\SdkModel;
-use Legalesign\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Attributes\Api;
+use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
  * Create a reviewer. A reviewer is linked to a signer and  receives emailed copies of draft and signed documents. N.B. they only receive them if their associated signer does. Therefore make sure your admin/experience settings are set to attach PDFs to your signer emails. You can set to include the signing link to a reviewer, and thereby hit the use case to send a document to a group of people where the first who signs, signs.

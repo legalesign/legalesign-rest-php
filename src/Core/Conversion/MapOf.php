@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core\Conversion;
+namespace LegalesignSDK\Core\Conversion;
 
-use Legalesign\Core\Conversion\Concerns\ArrayOf;
-use Legalesign\Core\Conversion\Contracts\Converter;
+use LegalesignSDK\Core\Conversion\Concerns\ArrayOf;
+use LegalesignSDK\Core\Conversion\Contracts\Converter;
 
 /**
  * @internal

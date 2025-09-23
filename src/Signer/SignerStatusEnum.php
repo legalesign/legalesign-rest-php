@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Signer;
+namespace LegalesignSDK\Signer;
 
 /**
  * Signer status options:

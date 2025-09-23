@@ -1,15 +1,15 @@
 <?php
 
-namespace Legalesign\Core\Exceptions;
+namespace LegalesignSDK\Core\Exceptions;
 
-use Legalesign\Core\Util;
+use LegalesignSDK\Core\Util;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
 class APIStatusException extends APIException
 {
     /** @var string */
-    protected const DESC = 'Legalesign API Status Error';
+    protected const DESC = 'LegalesignSDK API Status Error';
 
     public ?int $status;
 

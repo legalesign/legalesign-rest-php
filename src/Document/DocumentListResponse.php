@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Document;
+namespace LegalesignSDK\Document;
 
-use Legalesign\Attachment\ListMeta;
-use Legalesign\Core\Attributes\Api;
-use Legalesign\Core\Concerns\SdkModel;
-use Legalesign\Core\Contracts\BaseModel;
-use Legalesign\Document\DocumentListResponse\Object1;
+use LegalesignSDK\Core\Attributes\Api;
+use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Document\DocumentListResponse\Object1;
 
 /**
  * @phpstan-type document_list_response = array{

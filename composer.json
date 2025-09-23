@@ -3,7 +3,7 @@
   "autoload": {
     "files": ["src/Core.php", "src/Client.php"],
     "psr-4": {
-      "Legalesign\\": "src/"
+      "LegalesignSDK\\": "src/"
     }
   },
   "autoload-dev": {
@@ -23,8 +23,8 @@
     "preferred-install": "dist",
     "sort-packages": true
   },
-  "description": "Legalesign PHP SDK",
-  "name": "org-placeholder/legalesign",
+  "description": "Legalesign SDK PHP SDK",
+  "name": "org-placeholder/legalesign-sdk",
   "require": {
     "php": "^8.1",
     "php-http/discovery": "^1",

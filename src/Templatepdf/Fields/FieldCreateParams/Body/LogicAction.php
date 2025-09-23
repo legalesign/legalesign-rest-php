@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Templatepdf\Fields\FieldCreateParams\Body;
+namespace LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body;
 
 /**
  * offers options for more advanced forms

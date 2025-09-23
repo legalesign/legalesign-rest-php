@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Template\TemplateListResponse;
+namespace LegalesignSDK\Template\TemplateListResponse;
 
-use Legalesign\Core\Attributes\Api;
-use Legalesign\Core\Concerns\SdkModel;
-use Legalesign\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Attributes\Api;
+use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
  * @phpstan-type object1_alias = array{

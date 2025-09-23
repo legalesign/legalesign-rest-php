@@ -2,7 +2,7 @@
 
 namespace Tests\Services;
 
-use Legalesign\Client;
+use LegalesignSDK\Client;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -110,20 +110,6 @@ final class TemplateTest extends TestCase
         }
 
         $result = $this->client->template->list();
-
-        $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
-    }
-
-    #[Test]
-    public function testArchive(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
-        }
-
-        $result = $this->client->template->archive(
-            '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e'
-        );
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }

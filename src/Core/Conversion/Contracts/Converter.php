@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core\Conversion\Contracts;
+namespace LegalesignSDK\Core\Conversion\Contracts;
 
-use Legalesign\Core\Conversion\CoerceState;
-use Legalesign\Core\Conversion\DumpState;
+use LegalesignSDK\Core\Conversion\CoerceState;
+use LegalesignSDK\Core\Conversion\DumpState;
 
 /**
  * @internal

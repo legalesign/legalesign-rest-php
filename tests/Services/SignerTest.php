@@ -2,7 +2,7 @@
 
 namespace Tests\Services;
 
-use Legalesign\Client;
+use LegalesignSDK\Client;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -46,42 +46,6 @@ final class SignerTest extends TestCase
         }
 
         $result = $this->client->signer->getAccessLink('signerId');
-
-        $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
-    }
-
-    #[Test]
-    public function testGetRejectionReason(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
-        }
-
-        $result = $this->client->signer->getRejectionReason('signerId');
-
-        $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
-    }
-
-    #[Test]
-    public function testReset(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
-        }
-
-        $result = $this->client->signer->reset('signerId', email: 'email');
-
-        $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
-    }
-
-    #[Test]
-    public function testResetWithOptionalParams(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
-        }
-
-        $result = $this->client->signer->reset('signerId', email: 'email');
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }

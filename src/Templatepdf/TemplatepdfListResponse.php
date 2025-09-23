@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Templatepdf;
+namespace LegalesignSDK\Templatepdf;
 
-use Legalesign\Attachment\ListMeta;
-use Legalesign\Core\Attributes\Api;
-use Legalesign\Core\Concerns\SdkModel;
-use Legalesign\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Attributes\Api;
+use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Document\ListMeta;
 
 /**
  * @phpstan-type templatepdf_list_response = array{

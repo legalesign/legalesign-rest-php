@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core\Concerns;
+namespace LegalesignSDK\Core\Concerns;
 
-use Legalesign\Core\Conversion;
-use Legalesign\Core\Conversion\DumpState;
-use Legalesign\Core\Util;
-use Legalesign\RequestOptions;
+use LegalesignSDK\Core\Conversion;
+use LegalesignSDK\Core\Conversion\DumpState;
+use LegalesignSDK\Core\Util;
+use LegalesignSDK\RequestOptions;
 
 /**
  * @internal

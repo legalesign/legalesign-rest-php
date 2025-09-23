@@ -1,6 +1,6 @@
 <?php
 
-namespace Legalesign\Core\Implementation;
+namespace LegalesignSDK\Core\Implementation;
 
 use Psr\Http\Message\ResponseInterface;
 

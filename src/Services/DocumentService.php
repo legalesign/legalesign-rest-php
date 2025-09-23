@@ -2,25 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Services;
+namespace LegalesignSDK\Services;
 
-use Legalesign\Client;
-use Legalesign\Core\Conversion\ListOf;
-use Legalesign\Core\Exceptions\APIException;
-use Legalesign\Core\Implementation\HasRawResponse;
-use Legalesign\Document\DocumentCreateParams;
-use Legalesign\Document\DocumentCreateParams\PdfPasswordType;
-use Legalesign\Document\DocumentCreateParams\Signer;
-use Legalesign\Document\DocumentGetFieldsResponseItem;
-use Legalesign\Document\DocumentGetResponse;
-use Legalesign\Document\DocumentListParams;
-use Legalesign\Document\DocumentListResponse;
-use Legalesign\Document\DocumentNewResponse;
-use Legalesign\Document\DocumentPreviewParams;
-use Legalesign\RequestOptions;
-use Legalesign\ServiceContracts\DocumentContract;
+use LegalesignSDK\Client;
+use LegalesignSDK\Core\Conversion\ListOf;
+use LegalesignSDK\Core\Exceptions\APIException;
+use LegalesignSDK\Core\Implementation\HasRawResponse;
+use LegalesignSDK\Document\DocumentCreateParams;
+use LegalesignSDK\Document\DocumentCreateParams\PdfPasswordType;
+use LegalesignSDK\Document\DocumentCreateParams\Signer;
+use LegalesignSDK\Document\DocumentGetFieldsResponseItem;
+use LegalesignSDK\Document\DocumentGetResponse;
+use LegalesignSDK\Document\DocumentListParams;
+use LegalesignSDK\Document\DocumentListResponse;
+use LegalesignSDK\Document\DocumentNewResponse;
+use LegalesignSDK\RequestOptions;
+use LegalesignSDK\ServiceContracts\DocumentContract;
 
-use const Legalesign\Core\OMIT as omit;
+use const LegalesignSDK\Core\OMIT as omit;
 
 final class DocumentService implements DocumentContract
 {
@@ -316,77 +315,6 @@ final class DocumentService implements DocumentContract
     /**
      * @api
      *
-     * Permanently deletes data and files. You must enable group automated deletion. We recommend archiveDocument.
-     *
-     * @throws APIException
-     */
-    public function deletePermanently(
-        string $docID,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        $params = [];
-
-        return $this->deletePermanentlyRaw($docID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function deletePermanentlyRaw(
-        string $docID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        // @phpstan-ignore-next-line;
-        return $this->client->request(
-            method: 'delete',
-            path: ['document/%1$s/delete/', $docID],
-            options: $requestOptions,
-            convert: null,
-        );
-    }
-
-    /**
-     * @api
-     *
-     * Download pdf of audit log
-     *
-     * @throws APIException
-     */
-    public function downloadAuditLog(
-        string $docID,
-        ?RequestOptions $requestOptions = null
-    ): string {
-        $params = [];
-
-        return $this->downloadAuditLogRaw($docID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function downloadAuditLogRaw(
-        string $docID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): string {
-        // @phpstan-ignore-next-line;
-        return $this->client->request(
-            method: 'get',
-            path: ['document/%1$s/auditlog/', $docID],
-            headers: ['Accept' => 'application/pdf'],
-            options: $requestOptions,
-            convert: 'string',
-        );
-    }
-
-    /**
-     * @api
-     *
      * Get document fields
      *
      * @return list<DocumentGetFieldsResponseItem>
@@ -426,54 +354,34 @@ final class DocumentService implements DocumentContract
     /**
      * @api
      *
-     * Returns a redirect response (302) with link in the Location header to a one-use temporary URL you can redirect to, to see a preview of the signing page. Follow the redirect immediately since it expires after a few seconds.
-     *
-     * @param string $group
-     * @param int $signeeCount
-     * @param string $text
-     * @param string $title
+     * Permanently deletes data and files. You must enable group automated deletion. We recommend archiveDocument.
      *
      * @throws APIException
      */
-    public function preview(
-        $group = omit,
-        $signeeCount = omit,
-        $text = omit,
-        $title = omit,
-        ?RequestOptions $requestOptions = null,
+    public function permanentlyDelete(
+        string $docID,
+        ?RequestOptions $requestOptions = null
     ): mixed {
-        $params = [
-            'group' => $group,
-            'signeeCount' => $signeeCount,
-            'text' => $text,
-            'title' => $title,
-        ];
+        $params = [];
 
-        return $this->previewRaw($params, $requestOptions);
+        return $this->permanentlyDeleteRaw($docID, $params, $requestOptions);
     }
 
     /**
      * @api
      *
-     * @param array<string, mixed> $params
-     *
      * @throws APIException
      */
-    public function previewRaw(
-        array $params,
+    public function permanentlyDeleteRaw(
+        string $docID,
+        mixed $params,
         ?RequestOptions $requestOptions = null
     ): mixed {
-        [$parsed, $options] = DocumentPreviewParams::parseRequest(
-            $params,
-            $requestOptions
-        );
-
         // @phpstan-ignore-next-line;
         return $this->client->request(
-            method: 'post',
-            path: 'document/preview/',
-            body: (object) $parsed,
-            options: $options,
+            method: 'delete',
+            path: ['document/%1$s/delete/', $docID],
+            options: $requestOptions,
             convert: null,
         );
     }

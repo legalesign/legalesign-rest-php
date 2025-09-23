@@ -2,16 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\ServiceContracts;
+namespace LegalesignSDK\ServiceContracts;
 
-use Legalesign\Core\Exceptions\APIException;
-use Legalesign\Core\Implementation\HasRawResponse;
-use Legalesign\RequestOptions;
-use Legalesign\Signer\SignerGetFieldsResponseItem;
-use Legalesign\Signer\SignerGetRejectionReasonResponse;
-use Legalesign\Signer\SignerGetResponse;
+use LegalesignSDK\Core\Exceptions\APIException;
+use LegalesignSDK\Core\Implementation\HasRawResponse;
+use LegalesignSDK\RequestOptions;
+use LegalesignSDK\Signer\SignerGetFieldsResponseItem;
+use LegalesignSDK\Signer\SignerGetResponse;
 
-use const Legalesign\Core\OMIT as omit;
+use const LegalesignSDK\Core\OMIT as omit;
 
 interface SignerContract
 {
@@ -58,59 +57,6 @@ interface SignerContract
     public function getAccessLinkRaw(
         string $signerID,
         mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): mixed;
-
-    /**
-     * @api
-     *
-     * @return SignerGetRejectionReasonResponse<HasRawResponse>
-     *
-     * @throws APIException
-     */
-    public function getRejectionReason(
-        string $signerID,
-        ?RequestOptions $requestOptions = null
-    ): SignerGetRejectionReasonResponse;
-
-    /**
-     * @api
-     *
-     * @return SignerGetRejectionReasonResponse<HasRawResponse>
-     *
-     * @throws APIException
-     */
-    public function getRejectionReasonRaw(
-        string $signerID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): SignerGetRejectionReasonResponse;
-
-    /**
-     * @api
-     *
-     * @param string $email email of signer to revert to
-     * @param bool $notify Email notify current signer access is being withdrawn
-     *
-     * @throws APIException
-     */
-    public function reset(
-        string $signerID,
-        $email,
-        $notify = omit,
-        ?RequestOptions $requestOptions = null,
-    ): mixed;
-
-    /**
-     * @api
-     *
-     * @param array<string, mixed> $params
-     *
-     * @throws APIException
-     */
-    public function resetRaw(
-        string $signerID,
-        array $params,
         ?RequestOptions $requestOptions = null
     ): mixed;
 

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Document\DocumentCreateParams;
+namespace LegalesignSDK\Document\DocumentCreateParams;
 
-use Legalesign\Core\Attributes\Api;
-use Legalesign\Core\Concerns\SdkModel;
-use Legalesign\Core\Contracts\BaseModel;
-use Legalesign\Document\DocumentCreateParams\Signer\Reviewer;
-use Legalesign\Document\DocumentCreateParams\Signer\Role;
+use LegalesignSDK\Core\Attributes\Api;
+use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Document\DocumentCreateParams\Signer\Reviewer;
+use LegalesignSDK\Document\DocumentCreateParams\Signer\Role;
 
 /**
  * @phpstan-type signer_alias = array{

@@ -2,7 +2,7 @@
 
 namespace Tests\Services;
 
-use Legalesign\Client;
+use LegalesignSDK\Client;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -34,18 +34,6 @@ final class StatusTest extends TestCase
         }
 
         $result = $this->client->status->retrieve('docId');
-
-        $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
-    }
-
-    #[Test]
-    public function testRetrieveAll(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
-        }
-
-        $result = $this->client->status->retrieveAll();
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }

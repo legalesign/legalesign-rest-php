@@ -2,21 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Services;
+namespace LegalesignSDK\Services;
 
-use Legalesign\Client;
-use Legalesign\Core\Conversion\ListOf;
-use Legalesign\Core\Exceptions\APIException;
-use Legalesign\Core\Implementation\HasRawResponse;
-use Legalesign\RequestOptions;
-use Legalesign\ServiceContracts\SignerContract;
-use Legalesign\Signer\SignerGetFieldsResponseItem;
-use Legalesign\Signer\SignerGetRejectionReasonResponse;
-use Legalesign\Signer\SignerGetResponse;
-use Legalesign\Signer\SignerResetParams;
-use Legalesign\Signer\SignerSendReminderParams;
+use LegalesignSDK\Client;
+use LegalesignSDK\Core\Conversion\ListOf;
+use LegalesignSDK\Core\Exceptions\APIException;
+use LegalesignSDK\Core\Implementation\HasRawResponse;
+use LegalesignSDK\RequestOptions;
+use LegalesignSDK\ServiceContracts\SignerContract;
+use LegalesignSDK\Signer\SignerGetFieldsResponseItem;
+use LegalesignSDK\Signer\SignerGetResponse;
+use LegalesignSDK\Signer\SignerSendReminderParams;
 
-use const Legalesign\Core\OMIT as omit;
+use const LegalesignSDK\Core\OMIT as omit;
 
 final class SignerService implements SignerContract
 {
@@ -95,93 +93,6 @@ final class SignerService implements SignerContract
             method: 'get',
             path: ['signer/%1$s/new-link/', $signerID],
             options: $requestOptions,
-            convert: null,
-        );
-    }
-
-    /**
-     * @api
-     *
-     * Returns reason signer gave for rejecting a document, if given
-     *
-     * @return SignerGetRejectionReasonResponse<HasRawResponse>
-     *
-     * @throws APIException
-     */
-    public function getRejectionReason(
-        string $signerID,
-        ?RequestOptions $requestOptions = null
-    ): SignerGetRejectionReasonResponse {
-        $params = [];
-
-        return $this->getRejectionReasonRaw($signerID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @return SignerGetRejectionReasonResponse<HasRawResponse>
-     *
-     * @throws APIException
-     */
-    public function getRejectionReasonRaw(
-        string $signerID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): SignerGetRejectionReasonResponse {
-        // @phpstan-ignore-next-line;
-        return $this->client->request(
-            method: 'get',
-            path: ['signer/%1$s/rejection/', $signerID],
-            options: $requestOptions,
-            convert: SignerGetRejectionReasonResponse::class,
-        );
-    }
-
-    /**
-     * @api
-     *
-     * Reset to an earlier signer if forwarded
-     *
-     * @param string $email email of signer to revert to
-     * @param bool $notify Email notify current signer access is being withdrawn
-     *
-     * @throws APIException
-     */
-    public function reset(
-        string $signerID,
-        $email,
-        $notify = omit,
-        ?RequestOptions $requestOptions = null,
-    ): mixed {
-        $params = ['email' => $email, 'notify' => $notify];
-
-        return $this->resetRaw($signerID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @param array<string, mixed> $params
-     *
-     * @throws APIException
-     */
-    public function resetRaw(
-        string $signerID,
-        array $params,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        [$parsed, $options] = SignerResetParams::parseRequest(
-            $params,
-            $requestOptions
-        );
-
-        // @phpstan-ignore-next-line;
-        return $this->client->request(
-            method: 'post',
-            path: ['signer/%1$s/reset/', $signerID],
-            body: (object) $parsed,
-            options: $options,
             convert: null,
         );
     }

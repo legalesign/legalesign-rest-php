@@ -1,11 +1,11 @@
 <?php
 
-namespace Legalesign\Core\Exceptions;
+namespace LegalesignSDK\Core\Exceptions;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class APIException extends LegalesignException
+class APIException extends LegalesignSDKException
 {
     public ?int $status = null;
 

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core\Contracts;
+namespace LegalesignSDK\Core\Contracts;
 
-use Legalesign\Client;
-use Legalesign\Core\Conversion\Contracts\Converter;
-use Legalesign\Core\Conversion\Contracts\ConverterSource;
-use Legalesign\RequestOptions;
+use LegalesignSDK\Client;
+use LegalesignSDK\Core\Conversion\Contracts\Converter;
+use LegalesignSDK\Core\Conversion\Contracts\ConverterSource;
+use LegalesignSDK\RequestOptions;
 
 /**
  * @internal
  *
- * @phpstan-import-type normalized_request from \Legalesign\Core\BaseClient
+ * @phpstan-import-type normalized_request from \LegalesignSDK\Core\BaseClient
  *
  * @template Item
  *
