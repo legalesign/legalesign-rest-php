@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Status;
+namespace LegalesignSDK\Status;
 
-use Legalesign\Core\Attributes\Api;
-use Legalesign\Core\Concerns\SdkModel;
-use Legalesign\Core\Contracts\BaseModel;
-use Legalesign\Signer\SignerStatusEnum;
+use LegalesignSDK\Core\Attributes\Api;
+use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Signer\SignerStatusEnum;
 
 /**
- * @phpstan-type status_response = array{
+ * @phpstan-type status_get_response = array{
  *   archived?: bool,
  *   downloadFinal?: bool,
  *   resourceUri?: string,
@@ -24,9 +24,9 @@ use Legalesign\Signer\SignerStatusEnum;
  *
  * @mixin TRawResponse
  */
-final class StatusResponse implements BaseModel
+final class StatusGetResponse implements BaseModel
 {
-    /** @use SdkModel<status_response> */
+    /** @use SdkModel<status_get_response> */
     use SdkModel;
 
     #[Api(optional: true)]

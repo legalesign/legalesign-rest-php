@@ -2,9 +2,9 @@
 
 namespace Tests\Services\Templatepdf;
 
-use Legalesign\Client;
-use Legalesign\Document\PdfFieldValidationEnum;
-use Legalesign\Templatepdf\Fields\FieldCreateParams\Body;
+use LegalesignSDK\Client;
+use LegalesignSDK\Document\PdfFieldValidationEnum;
+use LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core;
+namespace LegalesignSDK\Core;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;

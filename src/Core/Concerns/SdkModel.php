@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core\Concerns;
+namespace LegalesignSDK\Core\Concerns;
 
-use Legalesign\Core\Contracts\BaseModel;
-use Legalesign\Core\Conversion;
-use Legalesign\Core\Conversion\CoerceState;
-use Legalesign\Core\Conversion\Contracts\Converter;
-use Legalesign\Core\Conversion\ModelOf;
-use Legalesign\Core\Util;
+use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion;
+use LegalesignSDK\Core\Conversion\CoerceState;
+use LegalesignSDK\Core\Conversion\Contracts\Converter;
+use LegalesignSDK\Core\Conversion\ModelOf;
+use LegalesignSDK\Core\Util;
 
 /**
  * @internal

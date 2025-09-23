@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core\Concerns;
+namespace LegalesignSDK\Core\Concerns;
 
-use Legalesign\Client;
-use Legalesign\Core\Conversion\Contracts\Converter;
-use Legalesign\Core\Conversion\Contracts\ConverterSource;
-use Legalesign\Core\Exceptions\APIStatusException;
-use Legalesign\RequestOptions;
+use LegalesignSDK\Client;
+use LegalesignSDK\Core\Conversion\Contracts\Converter;
+use LegalesignSDK\Core\Conversion\Contracts\ConverterSource;
+use LegalesignSDK\Core\Exceptions\APIStatusException;
+use LegalesignSDK\RequestOptions;
 
 /**
  * @internal
  *
  * @template Item
  *
- * @phpstan-import-type normalized_request from \Legalesign\Core\BaseClient
+ * @phpstan-import-type normalized_request from \LegalesignSDK\Core\BaseClient
  */
 trait SdkPage
 {

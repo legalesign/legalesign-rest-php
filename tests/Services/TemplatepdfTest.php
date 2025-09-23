@@ -2,7 +2,7 @@
 
 namespace Tests\Services;
 
-use Legalesign\Client;
+use LegalesignSDK\Client;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -78,30 +78,6 @@ final class TemplatepdfTest extends TestCase
         }
 
         $result = $this->client->templatepdf->list();
-
-        $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
-    }
-
-    #[Test]
-    public function testArchive(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
-        }
-
-        $result = $this->client->templatepdf->archive('pdfId');
-
-        $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
-    }
-
-    #[Test]
-    public function testConvertTags(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
-        }
-
-        $result = $this->client->templatepdf->convertTags('pdfId');
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\ServiceContracts;
+namespace LegalesignSDK\ServiceContracts;
 
-use Legalesign\Core\Exceptions\APIException;
-use Legalesign\Core\Implementation\HasRawResponse;
-use Legalesign\Group\GroupGetResponse;
-use Legalesign\Group\GroupListResponse;
-use Legalesign\RequestOptions;
+use LegalesignSDK\Core\Exceptions\APIException;
+use LegalesignSDK\Core\Implementation\HasRawResponse;
+use LegalesignSDK\Group\GroupGetResponse;
+use LegalesignSDK\Group\GroupListResponse;
+use LegalesignSDK\RequestOptions;
 
-use const Legalesign\Core\OMIT as omit;
+use const LegalesignSDK\Core\OMIT as omit;
 
 interface GroupContract
 {
@@ -64,32 +64,6 @@ interface GroupContract
         mixed $params,
         ?RequestOptions $requestOptions = null
     ): GroupGetResponse;
-
-    /**
-     * @api
-     *
-     * @param string $publicName
-     *
-     * @throws APIException
-     */
-    public function update(
-        string $groupID,
-        $publicName = omit,
-        ?RequestOptions $requestOptions = null,
-    ): mixed;
-
-    /**
-     * @api
-     *
-     * @param array<string, mixed> $params
-     *
-     * @throws APIException
-     */
-    public function updateRaw(
-        string $groupID,
-        array $params,
-        ?RequestOptions $requestOptions = null
-    ): mixed;
 
     /**
      * @api

@@ -1,9 +1,9 @@
 <?php
 
-namespace Legalesign\Core\Exceptions;
+namespace LegalesignSDK\Core\Exceptions;
 
 class AuthenticationException extends APIStatusException
 {
     /** @var string */
-    protected const DESC = 'Legalesign Authentication Exception';
+    protected const DESC = 'LegalesignSDK Authentication Exception';
 }

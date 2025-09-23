@@ -1,9 +1,9 @@
 <?php
 
-namespace Legalesign\Core\Exceptions;
+namespace LegalesignSDK\Core\Exceptions;
 
 class APIConnectionException extends APIException
 {
     /** @var string */
-    protected const DESC = 'Legalesign API Connection Error';
+    protected const DESC = 'LegalesignSDK API Connection Error';
 }

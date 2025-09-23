@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core;
+namespace LegalesignSDK\Core;
 
-use Legalesign\Core\Contracts\BasePage;
-use Legalesign\Core\Contracts\BaseStream;
-use Legalesign\Core\Conversion\Contracts\Converter;
-use Legalesign\Core\Conversion\Contracts\ConverterSource;
-use Legalesign\Core\Exceptions\APIConnectionException;
-use Legalesign\Core\Exceptions\APIStatusException;
-use Legalesign\RequestOptions;
+use LegalesignSDK\Core\Contracts\BasePage;
+use LegalesignSDK\Core\Contracts\BaseStream;
+use LegalesignSDK\Core\Conversion\Contracts\Converter;
+use LegalesignSDK\Core\Conversion\Contracts\ConverterSource;
+use LegalesignSDK\Core\Exceptions\APIConnectionException;
+use LegalesignSDK\Core\Exceptions\APIStatusException;
+use LegalesignSDK\RequestOptions;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;

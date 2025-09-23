@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Templatepdf;
+namespace LegalesignSDK\Templatepdf;
 
-use Legalesign\Core\Attributes\Api;
-use Legalesign\Core\Concerns\SdkModel;
-use Legalesign\Core\Concerns\SdkParams;
-use Legalesign\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Attributes\Api;
+use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkParams;
+use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
  * An object containing the method's parameters.
@@ -23,7 +23,7 @@ use Legalesign\Core\Contracts\BaseModel;
  *
  *   `$client->templatepdf->list(...$params->toArray());`
  *
- * @see Legalesign\Templatepdf->list
+ * @see LegalesignSDK\Templatepdf->list
  *
  * @phpstan-type templatepdf_list_params = array{
  *   archive?: string, group?: string, limit?: int, offset?: int

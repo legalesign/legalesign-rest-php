@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Templatepdf\Fields;
+namespace LegalesignSDK\Templatepdf\Fields;
 
-use Legalesign\Core\Attributes\Api;
-use Legalesign\Core\Concerns\SdkModel;
-use Legalesign\Core\Concerns\SdkParams;
-use Legalesign\Core\Contracts\BaseModel;
-use Legalesign\Templatepdf\Fields\FieldCreateParams\Body;
+use LegalesignSDK\Core\Attributes\Api;
+use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkParams;
+use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body;
 
 /**
  * An object containing the method's parameters.
@@ -24,7 +24,7 @@ use Legalesign\Templatepdf\Fields\FieldCreateParams\Body;
  *
  *   `$client->templatepdf.fields->create(...$params->toArray());`
  *
- * @see Legalesign\Templatepdf\Fields->create
+ * @see LegalesignSDK\Templatepdf\Fields->create
  *
  * @phpstan-type field_create_params = array{body: list<Body>}
  */

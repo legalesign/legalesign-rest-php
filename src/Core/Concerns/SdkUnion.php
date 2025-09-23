@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core\Concerns;
+namespace LegalesignSDK\Core\Concerns;
 
-use Legalesign\Core\Conversion\Contracts\Converter;
-use Legalesign\Core\Conversion\Contracts\ConverterSource;
-use Legalesign\Core\Conversion\UnionOf;
+use LegalesignSDK\Core\Conversion\Contracts\Converter;
+use LegalesignSDK\Core\Conversion\Contracts\ConverterSource;
+use LegalesignSDK\Core\Conversion\UnionOf;
 
 /**
  * @internal

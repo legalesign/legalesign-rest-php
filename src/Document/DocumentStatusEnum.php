@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Document;
+namespace LegalesignSDK\Document;
 
 /**
  * Document status options:

@@ -1,4 +1,4 @@
-configured_endpoints: 51
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/legalesign%2Flegalesign-02fb3694e91878cba7b53d16f6b33ba47616ab801054c588d42dec73fb85712f.yml
-openapi_spec_hash: 6d22b59d456c50501b509289f6c53c22
-config_hash: 2a48657025f84b77076d80a336dd6c65
+configured_endpoints: 25
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/legalesign%2Flegalesign-sdk-3bf301e758f245c1c30c849b8372902b9c1a4385050a04a0119effc4107dde07.yml
+openapi_spec_hash: 45411f5fe25671475b12a5a85a060ad9
+config_hash: c8a82845f2203ecc0ccc237f74f562b6

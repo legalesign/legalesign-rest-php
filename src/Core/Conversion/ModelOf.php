@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core\Conversion;
+namespace LegalesignSDK\Core\Conversion;
 
-use Legalesign\Core\Attributes\Api;
-use Legalesign\Core\Contracts\BaseModel;
-use Legalesign\Core\Conversion;
-use Legalesign\Core\Conversion\Contracts\Converter;
+use LegalesignSDK\Core\Attributes\Api;
+use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion;
+use LegalesignSDK\Core\Conversion\Contracts\Converter;
 
 /**
  * @internal

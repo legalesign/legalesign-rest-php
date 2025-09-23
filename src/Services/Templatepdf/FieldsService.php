@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Services\Templatepdf;
+namespace LegalesignSDK\Services\Templatepdf;
 
-use Legalesign\Client;
-use Legalesign\Core\Exceptions\APIException;
-use Legalesign\Core\Implementation\HasRawResponse;
-use Legalesign\RequestOptions;
-use Legalesign\ServiceContracts\Templatepdf\FieldsContract;
-use Legalesign\Templatepdf\Fields\FieldCreateParams;
-use Legalesign\Templatepdf\Fields\FieldCreateParams\Body;
-use Legalesign\Templatepdf\Fields\FieldListResponse;
+use LegalesignSDK\Client;
+use LegalesignSDK\Core\Exceptions\APIException;
+use LegalesignSDK\Core\Implementation\HasRawResponse;
+use LegalesignSDK\RequestOptions;
+use LegalesignSDK\ServiceContracts\Templatepdf\FieldsContract;
+use LegalesignSDK\Templatepdf\Fields\FieldCreateParams;
+use LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body;
+use LegalesignSDK\Templatepdf\Fields\FieldListResponse;
 
 final class FieldsService implements FieldsContract
 {

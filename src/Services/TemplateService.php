@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Services;
+namespace LegalesignSDK\Services;
 
-use Legalesign\Client;
-use Legalesign\Core\Exceptions\APIException;
-use Legalesign\Core\Implementation\HasRawResponse;
-use Legalesign\RequestOptions;
-use Legalesign\ServiceContracts\TemplateContract;
-use Legalesign\Template\TemplateCreateParams;
-use Legalesign\Template\TemplateGetResponse;
-use Legalesign\Template\TemplateListParams;
-use Legalesign\Template\TemplateListResponse;
-use Legalesign\Template\TemplateUpdateParams;
+use LegalesignSDK\Client;
+use LegalesignSDK\Core\Exceptions\APIException;
+use LegalesignSDK\Core\Implementation\HasRawResponse;
+use LegalesignSDK\RequestOptions;
+use LegalesignSDK\ServiceContracts\TemplateContract;
+use LegalesignSDK\Template\TemplateCreateParams;
+use LegalesignSDK\Template\TemplateGetResponse;
+use LegalesignSDK\Template\TemplateListParams;
+use LegalesignSDK\Template\TemplateListResponse;
+use LegalesignSDK\Template\TemplateUpdateParams;
 
-use const Legalesign\Core\OMIT as omit;
+use const LegalesignSDK\Core\OMIT as omit;
 
 final class TemplateService implements TemplateContract
 {
@@ -220,41 +220,6 @@ final class TemplateService implements TemplateContract
             query: $parsed,
             options: $options,
             convert: TemplateListResponse::class,
-        );
-    }
-
-    /**
-     * @api
-     *
-     * Archives a template (is recoverable, i.e. not fully deleted, if you need true data deletion contact us).
-     *
-     * @throws APIException
-     */
-    public function archive(
-        string $templateID,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        $params = [];
-
-        return $this->archiveRaw($templateID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function archiveRaw(
-        string $templateID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        // @phpstan-ignore-next-line;
-        return $this->client->request(
-            method: 'delete',
-            path: ['template/%1$s/', $templateID],
-            options: $requestOptions,
-            convert: null,
         );
     }
 }

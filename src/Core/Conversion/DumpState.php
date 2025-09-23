@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core\Conversion;
+namespace LegalesignSDK\Core\Conversion;
 
 /**
  * @internal

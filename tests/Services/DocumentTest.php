@@ -2,9 +2,9 @@
 
 namespace Tests\Services;
 
-use Legalesign\Client;
-use Legalesign\Document\DocumentCreateParams\Signer;
-use Legalesign\Document\DocumentCreateParams\Signer\Reviewer;
+use LegalesignSDK\Client;
+use LegalesignSDK\Document\DocumentCreateParams\Signer;
+use LegalesignSDK\Document\DocumentCreateParams\Signer\Reviewer;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -143,34 +143,6 @@ final class DocumentTest extends TestCase
     }
 
     #[Test]
-    public function testDeletePermanently(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped('Prism tests are disabled');
-        }
-
-        $result = $this->client->document->deletePermanently(
-            '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e'
-        );
-
-        $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
-    }
-
-    #[Test]
-    public function testDownloadAuditLog(): void
-    {
-        if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped("Prism doesn't support application/pdf responses");
-        }
-
-        $result = $this->client->document->downloadAuditLog(
-            '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e'
-        );
-
-        $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
-    }
-
-    #[Test]
     public function testGetFields(): void
     {
         if (UnsupportedMockTests::$skip) {
@@ -185,13 +157,15 @@ final class DocumentTest extends TestCase
     }
 
     #[Test]
-    public function testPreview(): void
+    public function testPermanentlyDelete(): void
     {
         if (UnsupportedMockTests::$skip) {
-            $this->markTestSkipped("Prism doesn't properly handle redirects");
+            $this->markTestSkipped('Prism tests are disabled');
         }
 
-        $result = $this->client->document->preview();
+        $result = $this->client->document->permanentlyDelete(
+            '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e'
+        );
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }

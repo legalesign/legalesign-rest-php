@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Document\DocumentCreateParams;
+namespace LegalesignSDK\Document\DocumentCreateParams;
 
 /**
  * 1 to store password, 2 for to delete from our records upon final signing.

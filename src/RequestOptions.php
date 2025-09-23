@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Legalesign;
+namespace LegalesignSDK;
 
-use Legalesign\Core\Attributes\Api as Property;
-use Legalesign\Core\Concerns\SdkModel;
-use Legalesign\Core\Contracts\BaseModel;
-use Legalesign\Core\Implementation\Omit;
+use LegalesignSDK\Core\Attributes\Api as Property;
+use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Implementation\Omit;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Message\UriFactoryInterface;
 
-use const Legalesign\Core\OMIT as omit;
+use const LegalesignSDK\Core\OMIT as omit;
 
 /**
  * @phpstan-type request_options = array{

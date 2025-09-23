@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\ServiceContracts;
+namespace LegalesignSDK\ServiceContracts;
 
-use Legalesign\Core\Exceptions\APIException;
-use Legalesign\Core\Implementation\HasRawResponse;
-use Legalesign\RequestOptions;
-use Legalesign\Templatepdf\TemplatePdf;
-use Legalesign\Templatepdf\TemplatepdfListResponse;
+use LegalesignSDK\Core\Exceptions\APIException;
+use LegalesignSDK\Core\Implementation\HasRawResponse;
+use LegalesignSDK\RequestOptions;
+use LegalesignSDK\Templatepdf\TemplatePdf;
+use LegalesignSDK\Templatepdf\TemplatepdfListResponse;
 
-use const Legalesign\Core\OMIT as omit;
+use const LegalesignSDK\Core\OMIT as omit;
 
 interface TemplatepdfContract
 {
@@ -106,48 +106,6 @@ interface TemplatepdfContract
         array $params,
         ?RequestOptions $requestOptions = null
     ): TemplatepdfListResponse;
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function archive(
-        string $pdfID,
-        ?RequestOptions $requestOptions = null
-    ): mixed;
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function archiveRaw(
-        string $pdfID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): mixed;
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function convertTags(
-        string $pdfID,
-        ?RequestOptions $requestOptions = null
-    ): mixed;
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function convertTagsRaw(
-        string $pdfID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): mixed;
 
     /**
      * @api

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Templatepdf\Fields\FieldCreateParams;
+namespace LegalesignSDK\Templatepdf\Fields\FieldCreateParams;
 
-use Legalesign\Core\Attributes\Api;
-use Legalesign\Core\Concerns\SdkModel;
-use Legalesign\Core\Contracts\BaseModel;
-use Legalesign\Document\PdfFieldValidationEnum;
-use Legalesign\Templatepdf\Fields\FieldCreateParams\Body\Align;
-use Legalesign\Templatepdf\Fields\FieldCreateParams\Body\ElementType;
-use Legalesign\Templatepdf\Fields\FieldCreateParams\Body\FontName;
-use Legalesign\Templatepdf\Fields\FieldCreateParams\Body\LogicAction;
+use LegalesignSDK\Core\Attributes\Api;
+use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Document\PdfFieldValidationEnum;
+use LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body\Align;
+use LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body\ElementType;
+use LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body\FontName;
+use LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body\LogicAction;
 
 /**
  * @phpstan-type body_alias = array{

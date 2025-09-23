@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Document\DocumentListResponse;
+namespace LegalesignSDK\Document\DocumentListResponse;
 
-use Legalesign\Core\Attributes\Api;
-use Legalesign\Core\Concerns\SdkModel;
-use Legalesign\Core\Contracts\BaseModel;
-use Legalesign\Core\Conversion\ListOf;
-use Legalesign\Document\DocumentListResponse\Object1\SignersInOrder;
-use Legalesign\Document\DocumentStatusEnum;
+use LegalesignSDK\Core\Attributes\Api;
+use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion\ListOf;
+use LegalesignSDK\Document\DocumentListResponse\Object1\SignersInOrder;
+use LegalesignSDK\Document\DocumentStatusEnum;
 
 /**
  * @phpstan-type object1_alias = array{

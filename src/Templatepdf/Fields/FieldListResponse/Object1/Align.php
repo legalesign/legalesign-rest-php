@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Templatepdf\Fields\FieldListResponse\Object1;
+namespace LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1;
 
 /**
  * one of the following:

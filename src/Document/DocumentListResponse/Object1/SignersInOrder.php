@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Document\DocumentListResponse\Object1;
+namespace LegalesignSDK\Document\DocumentListResponse\Object1;
 
 enum SignersInOrder: int
 {

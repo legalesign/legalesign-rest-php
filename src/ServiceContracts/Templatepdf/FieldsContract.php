@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\ServiceContracts\Templatepdf;
+namespace LegalesignSDK\ServiceContracts\Templatepdf;
 
-use Legalesign\Core\Exceptions\APIException;
-use Legalesign\Core\Implementation\HasRawResponse;
-use Legalesign\RequestOptions;
-use Legalesign\Templatepdf\Fields\FieldCreateParams\Body;
-use Legalesign\Templatepdf\Fields\FieldListResponse;
+use LegalesignSDK\Core\Exceptions\APIException;
+use LegalesignSDK\Core\Implementation\HasRawResponse;
+use LegalesignSDK\RequestOptions;
+use LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body;
+use LegalesignSDK\Templatepdf\Fields\FieldListResponse;
 
 interface FieldsContract
 {

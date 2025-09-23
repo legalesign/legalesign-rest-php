@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Services;
+namespace LegalesignSDK\Services;
 
-use Legalesign\Client;
-use Legalesign\Core\Exceptions\APIException;
-use Legalesign\Core\Implementation\HasRawResponse;
-use Legalesign\RequestOptions;
-use Legalesign\ServiceContracts\TemplatepdfContract;
-use Legalesign\Services\Templatepdf\FieldsService;
-use Legalesign\Templatepdf\TemplatePdf;
-use Legalesign\Templatepdf\TemplatepdfCreateParams;
-use Legalesign\Templatepdf\TemplatepdfListParams;
-use Legalesign\Templatepdf\TemplatepdfListResponse;
+use LegalesignSDK\Client;
+use LegalesignSDK\Core\Exceptions\APIException;
+use LegalesignSDK\Core\Implementation\HasRawResponse;
+use LegalesignSDK\RequestOptions;
+use LegalesignSDK\ServiceContracts\TemplatepdfContract;
+use LegalesignSDK\Services\Templatepdf\FieldsService;
+use LegalesignSDK\Templatepdf\TemplatePdf;
+use LegalesignSDK\Templatepdf\TemplatepdfCreateParams;
+use LegalesignSDK\Templatepdf\TemplatepdfListParams;
+use LegalesignSDK\Templatepdf\TemplatepdfListResponse;
 
-use const Legalesign\Core\OMIT as omit;
+use const LegalesignSDK\Core\OMIT as omit;
 
 final class TemplatepdfService implements TemplatepdfContract
 {
@@ -188,76 +188,6 @@ final class TemplatepdfService implements TemplatepdfContract
             query: $parsed,
             options: $options,
             convert: TemplatepdfListResponse::class,
-        );
-    }
-
-    /**
-     * @api
-     *
-     * Delists the PDF
-     *
-     * @throws APIException
-     */
-    public function archive(
-        string $pdfID,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        $params = [];
-
-        return $this->archiveRaw($pdfID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function archiveRaw(
-        string $pdfID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        // @phpstan-ignore-next-line;
-        return $this->client->request(
-            method: 'post',
-            path: ['templatepdf/%1$s/archive/', $pdfID],
-            options: $requestOptions,
-            convert: null,
-        );
-    }
-
-    /**
-     * @api
-     *
-     * Convert any text tags in the PDF into fields
-     *
-     * @throws APIException
-     */
-    public function convertTags(
-        string $pdfID,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        $params = [];
-
-        return $this->convertTagsRaw($pdfID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function convertTagsRaw(
-        string $pdfID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        // @phpstan-ignore-next-line;
-        return $this->client->request(
-            method: 'post',
-            path: ['templatepdf/%1$s/tags/', $pdfID],
-            options: $requestOptions,
-            convert: null,
         );
     }
 

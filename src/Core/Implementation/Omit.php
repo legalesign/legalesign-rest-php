@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Core\Implementation;
+namespace LegalesignSDK\Core\Implementation;
 
 /**
  * @internal

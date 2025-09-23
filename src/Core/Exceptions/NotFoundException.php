@@ -1,9 +1,9 @@
 <?php
 
-namespace Legalesign\Core\Exceptions;
+namespace LegalesignSDK\Core\Exceptions;
 
 class NotFoundException extends APIStatusException
 {
     /** @var string */
-    protected const DESC = 'Legalesign Not Found Exception';
+    protected const DESC = 'LegalesignSDK Not Found Exception';
 }

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Templatepdf\Fields\FieldListResponse;
+namespace LegalesignSDK\Templatepdf\Fields\FieldListResponse;
 
-use Legalesign\Core\Attributes\Api;
-use Legalesign\Core\Concerns\SdkModel;
-use Legalesign\Core\Contracts\BaseModel;
-use Legalesign\Document\PdfFieldValidationEnum;
-use Legalesign\Templatepdf\Fields\FieldListResponse\Object1\Align;
-use Legalesign\Templatepdf\Fields\FieldListResponse\Object1\ElementType;
-use Legalesign\Templatepdf\Fields\FieldListResponse\Object1\FontName;
-use Legalesign\Templatepdf\Fields\FieldListResponse\Object1\LogicAction;
+use LegalesignSDK\Core\Attributes\Api;
+use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Document\PdfFieldValidationEnum;
+use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1\Align;
+use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1\ElementType;
+use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1\FontName;
+use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1\LogicAction;
 
 /**
  * @phpstan-type object1_alias = array{

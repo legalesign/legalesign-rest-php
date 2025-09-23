@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Legalesign\Document\DocumentGetFieldsResponseItem;
+namespace LegalesignSDK\Document\DocumentGetFieldsResponseItem;
 
 enum ElementType: string
 {
