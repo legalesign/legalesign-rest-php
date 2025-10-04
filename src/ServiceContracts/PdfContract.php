@@ -18,15 +18,4 @@ interface PdfContract
         string $docID,
         ?RequestOptions $requestOptions = null
     ): string;
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function retrieveRaw(
-        string $docID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): string;
 }

@@ -8,7 +8,6 @@ use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
 use LegalesignSDK\Core\Contracts\BaseModel;
 use LegalesignSDK\Core\Conversion\ListOf;
-use LegalesignSDK\Document\DocumentListResponse\Object1\SignersInOrder;
 use LegalesignSDK\Document\DocumentStatusEnum;
 
 /**
@@ -27,8 +26,8 @@ use LegalesignSDK\Document\DocumentStatusEnum;
  *   resourceUri?: string,
  *   returnSignerLinks?: bool,
  *   signers?: list<list<string>>,
- *   signersInOrder?: value-of<SignersInOrder>,
- *   status?: value-of<DocumentStatusEnum>,
+ *   signersInOrder?: 0|1,
+ *   status?: 10|20|30|40|50,
  *   tag?: string,
  *   tag1?: string,
  *   tag2?: string,
@@ -91,8 +90,8 @@ final class Object1 implements BaseModel
     #[Api(list: new ListOf('string'), optional: true)]
     public ?array $signers;
 
-    /** @var value-of<SignersInOrder>|null $signersInOrder */
-    #[Api('signers_in_order', enum: SignersInOrder::class, optional: true)]
+    /** @var 0|1|null $signersInOrder */
+    #[Api('signers_in_order', optional: true)]
     public ?int $signersInOrder;
 
     /**
@@ -103,7 +102,7 @@ final class Object1 implements BaseModel
      *   * 40 - Removed (before signing)
      *   * 50 - Rejected
      *
-     * @var value-of<DocumentStatusEnum>|null $status
+     * @var 10|20|30|40|50|null $status
      */
     #[Api(enum: DocumentStatusEnum::class, optional: true)]
     public ?int $status;
@@ -143,8 +142,8 @@ final class Object1 implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      *
      * @param list<list<string>> $signers
-     * @param SignersInOrder|value-of<SignersInOrder> $signersInOrder
-     * @param DocumentStatusEnum|value-of<DocumentStatusEnum> $status
+     * @param 0|1 $signersInOrder
+     * @param 10|20|30|40|50 $status
      */
     public static function with(
         ?bool $archived = null,
@@ -161,8 +160,8 @@ final class Object1 implements BaseModel
         ?string $resourceUri = null,
         ?bool $returnSignerLinks = null,
         ?array $signers = null,
-        SignersInOrder|int|null $signersInOrder = null,
-        DocumentStatusEnum|int|null $status = null,
+        ?int $signersInOrder = null,
+        ?int $status = null,
         ?string $tag = null,
         ?string $tag1 = null,
         ?string $tag2 = null,
@@ -188,8 +187,8 @@ final class Object1 implements BaseModel
         null !== $resourceUri && $obj->resourceUri = $resourceUri;
         null !== $returnSignerLinks && $obj->returnSignerLinks = $returnSignerLinks;
         null !== $signers && $obj->signers = $signers;
-        null !== $signersInOrder && $obj->signersInOrder = $signersInOrder instanceof SignersInOrder ? $signersInOrder->value : $signersInOrder;
-        null !== $status && $obj->status = $status instanceof DocumentStatusEnum ? $status->value : $status;
+        null !== $signersInOrder && $obj->signersInOrder = $signersInOrder;
+        null !== $status && $obj->status = $status;
         null !== $tag && $obj->tag = $tag;
         null !== $tag1 && $obj->tag1 = $tag1;
         null !== $tag2 && $obj->tag2 = $tag2;
@@ -320,12 +319,12 @@ final class Object1 implements BaseModel
     }
 
     /**
-     * @param SignersInOrder|value-of<SignersInOrder> $signersInOrder
+     * @param 0|1 $signersInOrder
      */
-    public function withSignersInOrder(SignersInOrder|int $signersInOrder): self
+    public function withSignersInOrder(int $signersInOrder): self
     {
         $obj = clone $this;
-        $obj->signersInOrder = $signersInOrder instanceof SignersInOrder ? $signersInOrder->value : $signersInOrder;
+        $obj->signersInOrder = $signersInOrder;
 
         return $obj;
     }
@@ -338,12 +337,12 @@ final class Object1 implements BaseModel
      *   * 40 - Removed (before signing)
      *   * 50 - Rejected
      *
-     * @param DocumentStatusEnum|value-of<DocumentStatusEnum> $status
+     * @param 10|20|30|40|50 $status
      */
-    public function withStatus(DocumentStatusEnum|int $status): self
+    public function withStatus(int $status): self
     {
         $obj = clone $this;
-        $obj->status = $status instanceof DocumentStatusEnum ? $status->value : $status;
+        $obj->status = $status;
 
         return $obj;
     }

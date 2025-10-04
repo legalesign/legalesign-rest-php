@@ -6,19 +6,19 @@ namespace LegalesignSDK\Document;
 
 use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkResponse;
 use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 
 /**
  * @phpstan-type document_new_response = array{signer1?: string}
- * When used in a response, this type parameter can define a $rawResponse property.
- * @template TRawResponse of object = object{}
- *
- * @mixin TRawResponse
  */
-final class DocumentNewResponse implements BaseModel
+final class DocumentNewResponse implements BaseModel, ResponseConverter
 {
     /** @use SdkModel<document_new_response> */
     use SdkModel;
+
+    use SdkResponse;
 
     #[Api('signer_1', optional: true)]
     public ?string $signer1;

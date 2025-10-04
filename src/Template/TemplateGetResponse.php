@@ -6,7 +6,9 @@ namespace LegalesignSDK\Template;
 
 use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkResponse;
 use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 
 /**
  * @phpstan-type template_get_response = array{
@@ -22,15 +24,13 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  *   user?: string,
  *   uuid?: string,
  * }
- * When used in a response, this type parameter can define a $rawResponse property.
- * @template TRawResponse of object = object{}
- *
- * @mixin TRawResponse
  */
-final class TemplateGetResponse implements BaseModel
+final class TemplateGetResponse implements BaseModel, ResponseConverter
 {
     /** @use SdkModel<template_get_response> */
     use SdkModel;
+
+    use SdkResponse;
 
     #[Api(optional: true)]
     public ?bool $archive;

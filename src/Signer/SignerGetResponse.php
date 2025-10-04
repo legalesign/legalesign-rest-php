@@ -6,7 +6,9 @@ namespace LegalesignSDK\Signer;
 
 use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkResponse;
 use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 
 /**
  * @phpstan-type signer_get_response = array{
@@ -17,17 +19,15 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  *   lastName?: string,
  *   order?: int,
  *   resourceUri?: string,
- *   status?: value-of<SignerStatusEnum>,
+ *   status?: 4|5|10|15|20|30|35|39|40|50|60,
  * }
- * When used in a response, this type parameter can define a $rawResponse property.
- * @template TRawResponse of object = object{}
- *
- * @mixin TRawResponse
  */
-final class SignerGetResponse implements BaseModel
+final class SignerGetResponse implements BaseModel, ResponseConverter
 {
     /** @use SdkModel<signer_get_response> */
     use SdkModel;
+
+    use SdkResponse;
 
     #[Api(optional: true)]
     public ?string $document;
@@ -64,7 +64,7 @@ final class SignerGetResponse implements BaseModel
      *  * 50 - downloaded
      *  * 60 - rejected
      *
-     * @var value-of<SignerStatusEnum>|null $status
+     * @var 4|5|10|15|20|30|35|39|40|50|60|null $status
      */
     #[Api(enum: SignerStatusEnum::class, optional: true)]
     public ?int $status;
@@ -79,7 +79,7 @@ final class SignerGetResponse implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
-     * @param SignerStatusEnum|value-of<SignerStatusEnum> $status
+     * @param 4|5|10|15|20|30|35|39|40|50|60 $status
      */
     public static function with(
         ?string $document = null,
@@ -89,7 +89,7 @@ final class SignerGetResponse implements BaseModel
         ?string $lastName = null,
         ?int $order = null,
         ?string $resourceUri = null,
-        SignerStatusEnum|int|null $status = null,
+        ?int $status = null,
     ): self {
         $obj = new self;
 
@@ -100,7 +100,7 @@ final class SignerGetResponse implements BaseModel
         null !== $lastName && $obj->lastName = $lastName;
         null !== $order && $obj->order = $order;
         null !== $resourceUri && $obj->resourceUri = $resourceUri;
-        null !== $status && $obj->status = $status instanceof SignerStatusEnum ? $status->value : $status;
+        null !== $status && $obj->status = $status;
 
         return $obj;
     }
@@ -175,12 +175,12 @@ final class SignerGetResponse implements BaseModel
      *  * 50 - downloaded
      *  * 60 - rejected
      *
-     * @param SignerStatusEnum|value-of<SignerStatusEnum> $status
+     * @param 4|5|10|15|20|30|35|39|40|50|60 $status
      */
-    public function withStatus(SignerStatusEnum|int $status): self
+    public function withStatus(int $status): self
     {
         $obj = clone $this;
-        $obj->status = $status instanceof SignerStatusEnum ? $status->value : $status;
+        $obj->status = $status;
 
         return $obj;
     }

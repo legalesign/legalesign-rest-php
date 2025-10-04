@@ -6,7 +6,9 @@ namespace LegalesignSDK\Document;
 
 use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkResponse;
 use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 use LegalesignSDK\Core\Conversion\ListOf;
 
 /**
@@ -40,7 +42,7 @@ use LegalesignSDK\Core\Conversion\ListOf;
  *   signatureType?: int,
  *   signers?: list<list<string>>,
  *   signersInOrder?: bool,
- *   status?: value-of<DocumentStatusEnum>,
+ *   status?: 10|20|30|40|50,
  *   tag?: string,
  *   tag1?: string,
  *   tag2?: string,
@@ -50,15 +52,13 @@ use LegalesignSDK\Core\Conversion\ListOf;
  *   user?: string,
  *   uuid?: string,
  * }
- * When used in a response, this type parameter can define a $rawResponse property.
- * @template TRawResponse of object = object{}
- *
- * @mixin TRawResponse
  */
-final class DocumentGetResponse implements BaseModel
+final class DocumentGetResponse implements BaseModel, ResponseConverter
 {
     /** @use SdkModel<document_get_response> */
     use SdkModel;
+
+    use SdkResponse;
 
     #[Api(optional: true)]
     public ?bool $archived;
@@ -217,7 +217,7 @@ final class DocumentGetResponse implements BaseModel
      *   * 40 - Removed (before signing)
      *   * 50 - Rejected
      *
-     * @var value-of<DocumentStatusEnum>|null $status
+     * @var 10|20|30|40|50|null $status
      */
     #[Api(enum: DocumentStatusEnum::class, optional: true)]
     public ?int $status;
@@ -272,7 +272,7 @@ final class DocumentGetResponse implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      *
      * @param list<list<string>> $signers
-     * @param DocumentStatusEnum|value-of<DocumentStatusEnum> $status
+     * @param 10|20|30|40|50 $status
      */
     public static function with(
         ?bool $archived = null,
@@ -304,7 +304,7 @@ final class DocumentGetResponse implements BaseModel
         ?int $signatureType = null,
         ?array $signers = null,
         ?bool $signersInOrder = null,
-        DocumentStatusEnum|int|null $status = null,
+        ?int $status = null,
         ?string $tag = null,
         ?string $tag1 = null,
         ?string $tag2 = null,
@@ -345,7 +345,7 @@ final class DocumentGetResponse implements BaseModel
         null !== $signatureType && $obj->signatureType = $signatureType;
         null !== $signers && $obj->signers = $signers;
         null !== $signersInOrder && $obj->signersInOrder = $signersInOrder;
-        null !== $status && $obj->status = $status instanceof DocumentStatusEnum ? $status->value : $status;
+        null !== $status && $obj->status = $status;
         null !== $tag && $obj->tag = $tag;
         null !== $tag1 && $obj->tag1 = $tag1;
         null !== $tag2 && $obj->tag2 = $tag2;
@@ -660,12 +660,12 @@ final class DocumentGetResponse implements BaseModel
      *   * 40 - Removed (before signing)
      *   * 50 - Rejected
      *
-     * @param DocumentStatusEnum|value-of<DocumentStatusEnum> $status
+     * @param 10|20|30|40|50 $status
      */
-    public function withStatus(DocumentStatusEnum|int $status): self
+    public function withStatus(int $status): self
     {
         $obj = clone $this;
-        $obj->status = $status instanceof DocumentStatusEnum ? $status->value : $status;
+        $obj->status = $status;
 
         return $obj;
     }

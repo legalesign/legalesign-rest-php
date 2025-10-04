@@ -6,7 +6,9 @@ namespace LegalesignSDK\Templatepdf;
 
 use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkResponse;
 use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 
 /**
  * @phpstan-type template_pdf = array{
@@ -22,15 +24,13 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  *   uuid?: string,
  *   valid?: bool,
  * }
- * When used in a response, this type parameter can define a $rawResponse property.
- * @template TRawResponse of object = object{}
- *
- * @mixin TRawResponse
  */
-final class TemplatePdf implements BaseModel
+final class TemplatePdf implements BaseModel, ResponseConverter
 {
     /** @use SdkModel<template_pdf> */
     use SdkModel;
+
+    use SdkResponse;
 
     #[Api(optional: true)]
     public ?\DateTimeInterface $created;

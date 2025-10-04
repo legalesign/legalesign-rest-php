@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace LegalesignSDK\ServiceContracts;
 
 use LegalesignSDK\Core\Exceptions\APIException;
-use LegalesignSDK\Core\Implementation\HasRawResponse;
-use LegalesignSDK\Document\DocumentCreateParams\PdfPasswordType;
 use LegalesignSDK\Document\DocumentCreateParams\Signer;
 use LegalesignSDK\Document\DocumentGetFieldsResponseItem;
 use LegalesignSDK\Document\DocumentGetResponse;
@@ -34,7 +32,7 @@ interface DocumentContract
      * @param string $header Text based doc only. The header for the final pdf. Use keyword \"default\" to use group header footer.
      * @param int $headerHeight Text based doc only. Pixel height of final PDF footer, if used. 1px = 0.025cm
      * @param string $pdfPassword Set a password. Must be ascii encode-able, you must also set signature_type to 4 and choose a pdf_password_type.
-     * @param PdfPasswordType|value-of<PdfPasswordType> $pdfPasswordType 1 to store password, 2 for to delete from our records upon final signing
+     * @param 1|2 $pdfPasswordType 1 to store password, 2 for to delete from our records upon final signing
      * @param array<string,
      * string,> $pdftext Assign values to PDF sender fields, use field labels as keys. Requires unique fields labels. See also strict_fields.
      * @param string $redirect URL to send the signer to after signing (instead of download page).  Your URL will include query parameters with ID and state information as follows: YOUR-URL?signer=[signer_uid]&doc=[doc_id]&group=[group_id]&signer_state=[signer_status]&doc_state=[doc_status]
@@ -52,8 +50,6 @@ interface DocumentContract
      * @param string $templatepdf Resource URI of templatepdf object. This API call must contain either one of the attributes text, templatepdf, template.
      * @param string $text Raw html. This API call must contain either one of the attributes text, templatepdf, template.
      * @param string $user Assign document another user in the group. Defaults to API
-     *
-     * @return DocumentNewResponse<HasRawResponse>
      *
      * @throws APIException
      */
@@ -95,8 +91,6 @@ interface DocumentContract
      *
      * @param array<string, mixed> $params
      *
-     * @return DocumentNewResponse<HasRawResponse>
-     *
      * @throws APIException
      */
     public function createRaw(
@@ -107,25 +101,10 @@ interface DocumentContract
     /**
      * @api
      *
-     * @return DocumentGetResponse<HasRawResponse>
-     *
      * @throws APIException
      */
     public function retrieve(
         string $docID,
-        ?RequestOptions $requestOptions = null
-    ): DocumentGetResponse;
-
-    /**
-     * @api
-     *
-     * @return DocumentGetResponse<HasRawResponse>
-     *
-     * @throws APIException
-     */
-    public function retrieveRaw(
-        string $docID,
-        mixed $params,
         ?RequestOptions $requestOptions = null
     ): DocumentGetResponse;
 
@@ -141,8 +120,6 @@ interface DocumentContract
      * @param string $nosigners Add value '1' to remove signers information for a faster query
      * @param int $offset Offset from start of dataset. Use with the limit query to iterate through dataset.
      * @param int $status Filter on document status
-     *
-     * @return DocumentListResponse<HasRawResponse>
      *
      * @throws APIException
      */
@@ -164,8 +141,6 @@ interface DocumentContract
      *
      * @param array<string, mixed> $params
      *
-     * @return DocumentListResponse<HasRawResponse>
-     *
      * @throws APIException
      */
     public function listRaw(
@@ -186,17 +161,6 @@ interface DocumentContract
     /**
      * @api
      *
-     * @throws APIException
-     */
-    public function archiveRaw(
-        string $docID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): mixed;
-
-    /**
-     * @api
-     *
      * @return list<DocumentGetFieldsResponseItem>
      *
      * @throws APIException
@@ -209,34 +173,10 @@ interface DocumentContract
     /**
      * @api
      *
-     * @return list<DocumentGetFieldsResponseItem>
-     *
-     * @throws APIException
-     */
-    public function getFieldsRaw(
-        string $docID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): array;
-
-    /**
-     * @api
-     *
      * @throws APIException
      */
     public function permanentlyDelete(
         string $docID,
-        ?RequestOptions $requestOptions = null
-    ): mixed;
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function permanentlyDeleteRaw(
-        string $docID,
-        mixed $params,
         ?RequestOptions $requestOptions = null
     ): mixed;
 }

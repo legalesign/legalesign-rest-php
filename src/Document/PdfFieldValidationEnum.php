@@ -90,165 +90,165 @@ namespace LegalesignSDK\Document;
  */
 enum PdfFieldValidationEnum: int
 {
-    case PDF_FIELD_VALIDATION_ENUM_1 = 1;
+    case _1 = 1;
 
-    case PDF_FIELD_VALIDATION_ENUM_2 = 2;
+    case _2 = 2;
 
-    case PDF_FIELD_VALIDATION_ENUM_3 = 3;
+    case _3 = 3;
 
-    case PDF_FIELD_VALIDATION_ENUM_4 = 4;
+    case _4 = 4;
 
-    case PDF_FIELD_VALIDATION_ENUM_5 = 5;
+    case _5 = 5;
 
-    case PDF_FIELD_VALIDATION_ENUM_6 = 6;
+    case _6 = 6;
 
-    case PDF_FIELD_VALIDATION_ENUM_7 = 7;
+    case _7 = 7;
 
-    case PDF_FIELD_VALIDATION_ENUM_8 = 8;
+    case _8 = 8;
 
-    case PDF_FIELD_VALIDATION_ENUM_9 = 9;
+    case _9 = 9;
 
-    case PDF_FIELD_VALIDATION_ENUM_10 = 10;
+    case _10 = 10;
 
-    case PDF_FIELD_VALIDATION_ENUM_11 = 11;
+    case _11 = 11;
 
-    case PDF_FIELD_VALIDATION_ENUM_12 = 12;
+    case _12 = 12;
 
-    case PDF_FIELD_VALIDATION_ENUM_13 = 13;
+    case _13 = 13;
 
-    case PDF_FIELD_VALIDATION_ENUM_14 = 14;
+    case _14 = 14;
 
-    case PDF_FIELD_VALIDATION_ENUM_15 = 15;
+    case _15 = 15;
 
-    case PDF_FIELD_VALIDATION_ENUM_16 = 16;
+    case _16 = 16;
 
-    case PDF_FIELD_VALIDATION_ENUM_17 = 17;
+    case _17 = 17;
 
-    case PDF_FIELD_VALIDATION_ENUM_18 = 18;
+    case _18 = 18;
 
-    case PDF_FIELD_VALIDATION_ENUM_19 = 19;
+    case _19 = 19;
 
-    case PDF_FIELD_VALIDATION_ENUM_20 = 20;
+    case _20 = 20;
 
-    case PDF_FIELD_VALIDATION_ENUM_24 = 24;
+    case _24 = 24;
 
-    case PDF_FIELD_VALIDATION_ENUM_25 = 25;
+    case _25 = 25;
 
-    case PDF_FIELD_VALIDATION_ENUM_26 = 26;
+    case _26 = 26;
 
-    case PDF_FIELD_VALIDATION_ENUM_30 = 30;
+    case _30 = 30;
 
-    case PDF_FIELD_VALIDATION_ENUM_31 = 31;
+    case _31 = 31;
 
-    case PDF_FIELD_VALIDATION_ENUM_32 = 32;
+    case _32 = 32;
 
-    case PDF_FIELD_VALIDATION_ENUM_33 = 33;
+    case _33 = 33;
 
-    case PDF_FIELD_VALIDATION_ENUM_34 = 34;
+    case _34 = 34;
 
-    case PDF_FIELD_VALIDATION_ENUM_35 = 35;
+    case _35 = 35;
 
-    case PDF_FIELD_VALIDATION_ENUM_36 = 36;
+    case _36 = 36;
 
-    case PDF_FIELD_VALIDATION_ENUM_37 = 37;
+    case _37 = 37;
 
-    case PDF_FIELD_VALIDATION_ENUM_38 = 38;
+    case _38 = 38;
 
-    case PDF_FIELD_VALIDATION_ENUM_39 = 39;
+    case _39 = 39;
 
-    case PDF_FIELD_VALIDATION_ENUM_40 = 40;
+    case _40 = 40;
 
-    case PDF_FIELD_VALIDATION_ENUM_41 = 41;
+    case _41 = 41;
 
-    case PDF_FIELD_VALIDATION_ENUM_42 = 42;
+    case _42 = 42;
 
-    case PDF_FIELD_VALIDATION_ENUM_43 = 43;
+    case _43 = 43;
 
-    case PDF_FIELD_VALIDATION_ENUM_44 = 44;
+    case _44 = 44;
 
-    case PDF_FIELD_VALIDATION_ENUM_45 = 45;
+    case _45 = 45;
 
-    case PDF_FIELD_VALIDATION_ENUM_46 = 46;
+    case _46 = 46;
 
-    case PDF_FIELD_VALIDATION_ENUM_47 = 47;
+    case _47 = 47;
 
-    case PDF_FIELD_VALIDATION_ENUM_48 = 48;
+    case _48 = 48;
 
-    case PDF_FIELD_VALIDATION_ENUM_50 = 50;
+    case _50 = 50;
 
-    case PDF_FIELD_VALIDATION_ENUM_51 = 51;
+    case _51 = 51;
 
-    case PDF_FIELD_VALIDATION_ENUM_52 = 52;
+    case _52 = 52;
 
-    case PDF_FIELD_VALIDATION_ENUM_53 = 53;
+    case _53 = 53;
 
-    case PDF_FIELD_VALIDATION_ENUM_54 = 54;
+    case _54 = 54;
 
-    case PDF_FIELD_VALIDATION_ENUM_55 = 55;
+    case _55 = 55;
 
-    case PDF_FIELD_VALIDATION_ENUM_56 = 56;
+    case _56 = 56;
 
-    case PDF_FIELD_VALIDATION_ENUM_57 = 57;
+    case _57 = 57;
 
-    case PDF_FIELD_VALIDATION_ENUM_58 = 58;
+    case _58 = 58;
 
-    case PDF_FIELD_VALIDATION_ENUM_59 = 59;
+    case _59 = 59;
 
-    case PDF_FIELD_VALIDATION_ENUM_60 = 60;
+    case _60 = 60;
 
-    case PDF_FIELD_VALIDATION_ENUM_61 = 61;
+    case _61 = 61;
 
-    case PDF_FIELD_VALIDATION_ENUM_62 = 62;
+    case _62 = 62;
 
-    case PDF_FIELD_VALIDATION_ENUM_63 = 63;
+    case _63 = 63;
 
-    case PDF_FIELD_VALIDATION_ENUM_64 = 64;
+    case _64 = 64;
 
-    case PDF_FIELD_VALIDATION_ENUM_65 = 65;
+    case _65 = 65;
 
-    case PDF_FIELD_VALIDATION_ENUM_66 = 66;
+    case _66 = 66;
 
-    case PDF_FIELD_VALIDATION_ENUM_67 = 67;
+    case _67 = 67;
 
-    case PDF_FIELD_VALIDATION_ENUM_68 = 68;
+    case _68 = 68;
 
-    case PDF_FIELD_VALIDATION_ENUM_69 = 69;
+    case _69 = 69;
 
-    case PDF_FIELD_VALIDATION_ENUM_70 = 70;
+    case _70 = 70;
 
-    case PDF_FIELD_VALIDATION_ENUM_71 = 71;
+    case _71 = 71;
 
-    case PDF_FIELD_VALIDATION_ENUM_72 = 72;
+    case _72 = 72;
 
-    case PDF_FIELD_VALIDATION_ENUM_73 = 73;
+    case _73 = 73;
 
-    case PDF_FIELD_VALIDATION_ENUM_74 = 74;
+    case _74 = 74;
 
-    case PDF_FIELD_VALIDATION_ENUM_75 = 75;
+    case _75 = 75;
 
-    case PDF_FIELD_VALIDATION_ENUM_76 = 76;
+    case _76 = 76;
 
-    case PDF_FIELD_VALIDATION_ENUM_77 = 77;
+    case _77 = 77;
 
-    case PDF_FIELD_VALIDATION_ENUM_78 = 78;
+    case _78 = 78;
 
-    case PDF_FIELD_VALIDATION_ENUM_79 = 79;
+    case _79 = 79;
 
-    case PDF_FIELD_VALIDATION_ENUM_80 = 80;
+    case _80 = 80;
 
-    case PDF_FIELD_VALIDATION_ENUM_81 = 81;
+    case _81 = 81;
 
-    case PDF_FIELD_VALIDATION_ENUM_82 = 82;
+    case _82 = 82;
 
-    case PDF_FIELD_VALIDATION_ENUM_83 = 83;
+    case _83 = 83;
 
-    case PDF_FIELD_VALIDATION_ENUM_84 = 84;
+    case _84 = 84;
 
-    case PDF_FIELD_VALIDATION_ENUM_85 = 85;
+    case _85 = 85;
 
-    case PDF_FIELD_VALIDATION_ENUM_90 = 90;
+    case _90 = 90;
 
-    case PDF_FIELD_VALIDATION_ENUM_91 = 91;
+    case _91 = 91;
 
-    case PDF_FIELD_VALIDATION_ENUM_92 = 92;
+    case _92 = 92;
 }

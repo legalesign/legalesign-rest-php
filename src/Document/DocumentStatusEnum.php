@@ -14,13 +14,13 @@ namespace LegalesignSDK\Document;
  */
 enum DocumentStatusEnum: int
 {
-    case DOCUMENT_STATUS_ENUM_10 = 10;
+    case _10 = 10;
 
-    case DOCUMENT_STATUS_ENUM_20 = 20;
+    case _20 = 20;
 
-    case DOCUMENT_STATUS_ENUM_30 = 30;
+    case _30 = 30;
 
-    case DOCUMENT_STATUS_ENUM_40 = 40;
+    case _40 = 40;
 
-    case DOCUMENT_STATUS_ENUM_50 = 50;
+    case _50 = 50;
 }
