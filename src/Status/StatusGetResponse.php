@@ -6,7 +6,9 @@ namespace LegalesignSDK\Status;
 
 use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkResponse;
 use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 use LegalesignSDK\Signer\SignerStatusEnum;
 
 /**
@@ -14,20 +16,18 @@ use LegalesignSDK\Signer\SignerStatusEnum;
  *   archived?: bool,
  *   downloadFinal?: bool,
  *   resourceUri?: string,
- *   status?: value-of<SignerStatusEnum>,
+ *   status?: 4|5|10|15|20|30|35|39|40|50|60,
  *   tag?: string,
  *   tag1?: string,
  *   tag2?: string,
  * }
- * When used in a response, this type parameter can define a $rawResponse property.
- * @template TRawResponse of object = object{}
- *
- * @mixin TRawResponse
  */
-final class StatusGetResponse implements BaseModel
+final class StatusGetResponse implements BaseModel, ResponseConverter
 {
     /** @use SdkModel<status_get_response> */
     use SdkModel;
+
+    use SdkResponse;
 
     #[Api(optional: true)]
     public ?bool $archived;
@@ -52,7 +52,7 @@ final class StatusGetResponse implements BaseModel
      *  * 50 - downloaded
      *  * 60 - rejected
      *
-     * @var value-of<SignerStatusEnum>|null $status
+     * @var 4|5|10|15|20|30|35|39|40|50|60|null $status
      */
     #[Api(enum: SignerStatusEnum::class, optional: true)]
     public ?int $status;
@@ -76,13 +76,13 @@ final class StatusGetResponse implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
-     * @param SignerStatusEnum|value-of<SignerStatusEnum> $status
+     * @param 4|5|10|15|20|30|35|39|40|50|60 $status
      */
     public static function with(
         ?bool $archived = null,
         ?bool $downloadFinal = null,
         ?string $resourceUri = null,
-        SignerStatusEnum|int|null $status = null,
+        ?int $status = null,
         ?string $tag = null,
         ?string $tag1 = null,
         ?string $tag2 = null,
@@ -92,7 +92,7 @@ final class StatusGetResponse implements BaseModel
         null !== $archived && $obj->archived = $archived;
         null !== $downloadFinal && $obj->downloadFinal = $downloadFinal;
         null !== $resourceUri && $obj->resourceUri = $resourceUri;
-        null !== $status && $obj->status = $status instanceof SignerStatusEnum ? $status->value : $status;
+        null !== $status && $obj->status = $status;
         null !== $tag && $obj->tag = $tag;
         null !== $tag1 && $obj->tag1 = $tag1;
         null !== $tag2 && $obj->tag2 = $tag2;
@@ -138,12 +138,12 @@ final class StatusGetResponse implements BaseModel
      *  * 50 - downloaded
      *  * 60 - rejected
      *
-     * @param SignerStatusEnum|value-of<SignerStatusEnum> $status
+     * @param 4|5|10|15|20|30|35|39|40|50|60 $status
      */
-    public function withStatus(SignerStatusEnum|int $status): self
+    public function withStatus(int $status): self
     {
         $obj = clone $this;
-        $obj->status = $status instanceof SignerStatusEnum ? $status->value : $status;
+        $obj->status = $status;
 
         return $obj;
     }

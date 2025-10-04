@@ -173,7 +173,7 @@ final class Signer implements BaseModel
         null !== $message && $obj->message = $message;
         null !== $order && $obj->order = $order;
         null !== $reviewers && $obj->reviewers = $reviewers;
-        null !== $role && $obj->role = $role instanceof Role ? $role->value : $role;
+        null !== $role && $obj['role'] = $role;
         null !== $sms && $obj->sms = $sms;
         null !== $subject && $obj->subject = $subject;
         null !== $timezone && $obj->timezone = $timezone;
@@ -292,7 +292,7 @@ final class Signer implements BaseModel
     public function withRole(Role|string $role): self
     {
         $obj = clone $this;
-        $obj->role = $role instanceof Role ? $role->value : $role;
+        $obj['role'] = $role;
 
         return $obj;
     }

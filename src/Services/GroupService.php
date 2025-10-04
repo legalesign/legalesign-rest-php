@@ -6,7 +6,6 @@ namespace LegalesignSDK\Services;
 
 use LegalesignSDK\Client;
 use LegalesignSDK\Core\Exceptions\APIException;
-use LegalesignSDK\Core\Implementation\HasRawResponse;
 use LegalesignSDK\Group\GroupCreateParams;
 use LegalesignSDK\Group\GroupGetResponse;
 use LegalesignSDK\Group\GroupListParams;
@@ -74,29 +73,10 @@ final class GroupService implements GroupContract
      *
      * Get group
      *
-     * @return GroupGetResponse<HasRawResponse>
-     *
      * @throws APIException
      */
     public function retrieve(
         string $groupID,
-        ?RequestOptions $requestOptions = null
-    ): GroupGetResponse {
-        $params = [];
-
-        return $this->retrieveRaw($groupID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @return GroupGetResponse<HasRawResponse>
-     *
-     * @throws APIException
-     */
-    public function retrieveRaw(
-        string $groupID,
-        mixed $params,
         ?RequestOptions $requestOptions = null
     ): GroupGetResponse {
         // @phpstan-ignore-next-line;
@@ -116,8 +96,6 @@ final class GroupService implements GroupContract
      * @param int $limit Length of dataset to return. Use with offset query to iterate through results.
      * @param int $offset Offset from start of dataset. Use with the limit query to iterate through dataset.
      *
-     * @return GroupListResponse<HasRawResponse>
-     *
      * @throws APIException
      */
     public function list(
@@ -134,8 +112,6 @@ final class GroupService implements GroupContract
      * @api
      *
      * @param array<string, mixed> $params
-     *
-     * @return GroupListResponse<HasRawResponse>
      *
      * @throws APIException
      */
