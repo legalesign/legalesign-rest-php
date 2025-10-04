@@ -8,10 +8,8 @@ use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
 use LegalesignSDK\Core\Contracts\BaseModel;
 use LegalesignSDK\Document\PdfFieldValidationEnum;
-use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1\Align;
 use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1\ElementType;
 use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1\FontName;
-use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1\LogicAction;
 
 /**
  * @phpstan-type object1_alias = array{
@@ -22,20 +20,20 @@ use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1\LogicAction;
  *   elementType: value-of<ElementType>,
  *   page: int,
  *   signer: int|null,
- *   align?: value-of<Align>|null,
+ *   align?: null|1|2|3,
  *   fieldorder?: int,
  *   fontName?: value-of<FontName>,
  *   fontSize?: int,
  *   hideBorder?: bool,
  *   label?: string,
  *   labelExtra?: string,
- *   logicAction?: value-of<LogicAction>,
+ *   logicAction?: 1|2|3,
  *   logicGroup?: string,
  *   mapTo?: string,
  *   optional?: bool,
  *   options?: string,
  *   substantive?: bool,
- *   validation?: value-of<PdfFieldValidationEnum>|null,
+ *   validation?: null|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|25|26|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|90|91|92,
  *   value?: string,
  * }
  */
@@ -94,9 +92,9 @@ final class Object1 implements BaseModel
      *   * 2 - middle
      *   * 3 - right
      *
-     * @var value-of<Align>|null $align
+     * @var 1|2|3|null $align
      */
-    #[Api(enum: Align::class, nullable: true, optional: true)]
+    #[Api(nullable: true, optional: true)]
     public ?int $align;
 
     /**
@@ -132,9 +130,9 @@ final class Object1 implements BaseModel
     /**
      * offers options for more advanced forms 1 = One of a set of field (radio group), 2 = Sum a set of fields,  3 = Conditional upon another field.
      *
-     * @var value-of<LogicAction>|null $logicAction
+     * @var 1|2|3|null $logicAction
      */
-    #[Api('logic_action', enum: LogicAction::class, optional: true)]
+    #[Api('logic_action', optional: true)]
     public ?int $logicAction;
 
     /**
@@ -250,7 +248,7 @@ final class Object1 implements BaseModel
      *   * 91 - countries list
      *   * 92 - honorifics list
      *
-     * @var value-of<PdfFieldValidationEnum>|null $validation
+     * @var 1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|25|26|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|90|91|92|null $validation
      */
     #[Api(enum: PdfFieldValidationEnum::class, nullable: true, optional: true)]
     public ?int $validation;
@@ -292,10 +290,10 @@ final class Object1 implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      *
      * @param ElementType|value-of<ElementType> $elementType
-     * @param Align|value-of<Align>|null $align
+     * @param 1|2|3|null $align
      * @param FontName|value-of<FontName> $fontName
-     * @param LogicAction|value-of<LogicAction> $logicAction
-     * @param PdfFieldValidationEnum|value-of<PdfFieldValidationEnum>|null $validation
+     * @param 1|2|3 $logicAction
+     * @param 1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|25|26|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|90|91|92|null $validation
      */
     public static function with(
         float $ax,
@@ -305,20 +303,20 @@ final class Object1 implements BaseModel
         ElementType|string $elementType,
         int $page,
         ?int $signer,
-        Align|int|null $align = null,
+        ?int $align = null,
         ?int $fieldorder = null,
         FontName|string|null $fontName = null,
         ?int $fontSize = null,
         ?bool $hideBorder = null,
         ?string $label = null,
         ?string $labelExtra = null,
-        LogicAction|int|null $logicAction = null,
+        ?int $logicAction = null,
         ?string $logicGroup = null,
         ?string $mapTo = null,
         ?bool $optional = null,
         ?string $options = null,
         ?bool $substantive = null,
-        PdfFieldValidationEnum|int|null $validation = null,
+        ?int $validation = null,
         ?string $value = null,
     ): self {
         $obj = new self;
@@ -327,24 +325,24 @@ final class Object1 implements BaseModel
         $obj->ay = $ay;
         $obj->bx = $bx;
         $obj->by = $by;
-        $obj->elementType = $elementType instanceof ElementType ? $elementType->value : $elementType;
+        $obj['elementType'] = $elementType;
         $obj->page = $page;
         $obj->signer = $signer;
 
-        null !== $align && $obj->align = $align instanceof Align ? $align->value : $align;
+        null !== $align && $obj->align = $align;
         null !== $fieldorder && $obj->fieldorder = $fieldorder;
-        null !== $fontName && $obj->fontName = $fontName instanceof FontName ? $fontName->value : $fontName;
+        null !== $fontName && $obj['fontName'] = $fontName;
         null !== $fontSize && $obj->fontSize = $fontSize;
         null !== $hideBorder && $obj->hideBorder = $hideBorder;
         null !== $label && $obj->label = $label;
         null !== $labelExtra && $obj->labelExtra = $labelExtra;
-        null !== $logicAction && $obj->logicAction = $logicAction instanceof LogicAction ? $logicAction->value : $logicAction;
+        null !== $logicAction && $obj->logicAction = $logicAction;
         null !== $logicGroup && $obj->logicGroup = $logicGroup;
         null !== $mapTo && $obj->mapTo = $mapTo;
         null !== $optional && $obj->optional = $optional;
         null !== $options && $obj->options = $options;
         null !== $substantive && $obj->substantive = $substantive;
-        null !== $validation && $obj->validation = $validation instanceof PdfFieldValidationEnum ? $validation->value : $validation;
+        null !== $validation && $obj->validation = $validation;
         null !== $value && $obj->value = $value;
 
         return $obj;
@@ -402,7 +400,7 @@ final class Object1 implements BaseModel
     public function withElementType(ElementType|string $elementType): self
     {
         $obj = clone $this;
-        $obj->elementType = $elementType instanceof ElementType ? $elementType->value : $elementType;
+        $obj['elementType'] = $elementType;
 
         return $obj;
     }
@@ -435,12 +433,12 @@ final class Object1 implements BaseModel
      *   * 2 - middle
      *   * 3 - right
      *
-     * @param Align|value-of<Align>|null $align
+     * @param 1|2|3|null $align
      */
-    public function withAlign(Align|int|null $align): self
+    public function withAlign(?int $align): self
     {
         $obj = clone $this;
-        $obj->align = $align instanceof Align ? $align->value : $align;
+        $obj->align = $align;
 
         return $obj;
     }
@@ -462,7 +460,7 @@ final class Object1 implements BaseModel
     public function withFontName(FontName|string $fontName): self
     {
         $obj = clone $this;
-        $obj->fontName = $fontName instanceof FontName ? $fontName->value : $fontName;
+        $obj['fontName'] = $fontName;
 
         return $obj;
     }
@@ -508,12 +506,12 @@ final class Object1 implements BaseModel
     /**
      * offers options for more advanced forms 1 = One of a set of field (radio group), 2 = Sum a set of fields,  3 = Conditional upon another field.
      *
-     * @param LogicAction|value-of<LogicAction> $logicAction
+     * @param 1|2|3 $logicAction
      */
-    public function withLogicAction(LogicAction|int $logicAction): self
+    public function withLogicAction(int $logicAction): self
     {
         $obj = clone $this;
-        $obj->logicAction = $logicAction instanceof LogicAction ? $logicAction->value : $logicAction;
+        $obj->logicAction = $logicAction;
 
         return $obj;
     }
@@ -654,13 +652,12 @@ final class Object1 implements BaseModel
      *   * 91 - countries list
      *   * 92 - honorifics list
      *
-     * @param PdfFieldValidationEnum|value-of<PdfFieldValidationEnum>|null $validation
+     * @param 1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|25|26|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|90|91|92|null $validation
      */
-    public function withValidation(
-        PdfFieldValidationEnum|int|null $validation
-    ): self {
+    public function withValidation(?int $validation): self
+    {
         $obj = clone $this;
-        $obj->validation = $validation instanceof PdfFieldValidationEnum ? $validation->value : $validation;
+        $obj->validation = $validation;
 
         return $obj;
     }

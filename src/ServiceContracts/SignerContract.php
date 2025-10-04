@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace LegalesignSDK\ServiceContracts;
 
 use LegalesignSDK\Core\Exceptions\APIException;
-use LegalesignSDK\Core\Implementation\HasRawResponse;
 use LegalesignSDK\RequestOptions;
 use LegalesignSDK\Signer\SignerGetFieldsResponseItem;
 use LegalesignSDK\Signer\SignerGetResponse;
@@ -17,25 +16,10 @@ interface SignerContract
     /**
      * @api
      *
-     * @return SignerGetResponse<HasRawResponse>
-     *
      * @throws APIException
      */
     public function retrieve(
         string $signerID,
-        ?RequestOptions $requestOptions = null
-    ): SignerGetResponse;
-
-    /**
-     * @api
-     *
-     * @return SignerGetResponse<HasRawResponse>
-     *
-     * @throws APIException
-     */
-    public function retrieveRaw(
-        string $signerID,
-        mixed $params,
         ?RequestOptions $requestOptions = null
     ): SignerGetResponse;
 
@@ -52,36 +36,12 @@ interface SignerContract
     /**
      * @api
      *
-     * @throws APIException
-     */
-    public function getAccessLinkRaw(
-        string $signerID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): mixed;
-
-    /**
-     * @api
-     *
      * @return list<SignerGetFieldsResponseItem>
      *
      * @throws APIException
      */
     public function retrieveFields(
         string $signerID,
-        ?RequestOptions $requestOptions = null
-    ): array;
-
-    /**
-     * @api
-     *
-     * @return list<SignerGetFieldsResponseItem>
-     *
-     * @throws APIException
-     */
-    public function retrieveFieldsRaw(
-        string $signerID,
-        mixed $params,
         ?RequestOptions $requestOptions = null
     ): array;
 

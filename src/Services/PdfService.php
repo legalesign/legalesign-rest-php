@@ -27,21 +27,6 @@ final class PdfService implements PdfContract
         string $docID,
         ?RequestOptions $requestOptions = null
     ): string {
-        $params = [];
-
-        return $this->retrieveRaw($docID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function retrieveRaw(
-        string $docID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): string {
         // @phpstan-ignore-next-line;
         return $this->client->request(
             method: 'get',
