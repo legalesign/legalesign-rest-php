@@ -8,7 +8,6 @@ use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
 use LegalesignSDK\Core\Concerns\SdkParams;
 use LegalesignSDK\Core\Contracts\BaseModel;
-use LegalesignSDK\Document\DocumentCreateParams\PdfPasswordType;
 use LegalesignSDK\Document\DocumentCreateParams\Signer;
 
 /**
@@ -41,7 +40,7 @@ use LegalesignSDK\Document\DocumentCreateParams\Signer;
  *   header?: string,
  *   headerHeight?: int,
  *   pdfPassword?: string,
- *   pdfPasswordType?: PdfPasswordType|value-of<PdfPasswordType>,
+ *   pdfPasswordType?: 1|2,
  *   pdftext?: array<string, string>,
  *   redirect?: string,
  *   reminders?: string,
@@ -138,9 +137,9 @@ final class DocumentCreateParams implements BaseModel
     /**
      * 1 to store password, 2 for to delete from our records upon final signing.
      *
-     * @var value-of<PdfPasswordType>|null $pdfPasswordType
+     * @var 1|2|null $pdfPasswordType
      */
-    #[Api('pdf_password_type', enum: PdfPasswordType::class, optional: true)]
+    #[Api('pdf_password_type', optional: true)]
     public ?int $pdfPasswordType;
 
     /**
@@ -253,7 +252,7 @@ final class DocumentCreateParams implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      *
      * @param list<Signer> $signers
-     * @param PdfPasswordType|value-of<PdfPasswordType> $pdfPasswordType
+     * @param 1|2 $pdfPasswordType
      * @param array<string, string> $pdftext
      * @param array<string, string> $signertext
      */
@@ -271,7 +270,7 @@ final class DocumentCreateParams implements BaseModel
         ?string $header = null,
         ?int $headerHeight = null,
         ?string $pdfPassword = null,
-        PdfPasswordType|int|null $pdfPasswordType = null,
+        ?int $pdfPasswordType = null,
         ?array $pdftext = null,
         ?string $redirect = null,
         ?string $reminders = null,
@@ -304,7 +303,7 @@ final class DocumentCreateParams implements BaseModel
         null !== $header && $obj->header = $header;
         null !== $headerHeight && $obj->headerHeight = $headerHeight;
         null !== $pdfPassword && $obj->pdfPassword = $pdfPassword;
-        null !== $pdfPasswordType && $obj->pdfPasswordType = $pdfPasswordType instanceof PdfPasswordType ? $pdfPasswordType->value : $pdfPasswordType;
+        null !== $pdfPasswordType && $obj->pdfPasswordType = $pdfPasswordType;
         null !== $pdftext && $obj->pdftext = $pdftext;
         null !== $redirect && $obj->redirect = $redirect;
         null !== $reminders && $obj->reminders = $reminders;
@@ -464,13 +463,12 @@ final class DocumentCreateParams implements BaseModel
     /**
      * 1 to store password, 2 for to delete from our records upon final signing.
      *
-     * @param PdfPasswordType|value-of<PdfPasswordType> $pdfPasswordType
+     * @param 1|2 $pdfPasswordType
      */
-    public function withPdfPasswordType(
-        PdfPasswordType|int $pdfPasswordType
-    ): self {
+    public function withPdfPasswordType(int $pdfPasswordType): self
+    {
         $obj = clone $this;
-        $obj->pdfPasswordType = $pdfPasswordType instanceof PdfPasswordType ? $pdfPasswordType->value : $pdfPasswordType;
+        $obj->pdfPasswordType = $pdfPasswordType;
 
         return $obj;
     }

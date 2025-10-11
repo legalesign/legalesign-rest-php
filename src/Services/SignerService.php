@@ -7,7 +7,6 @@ namespace LegalesignSDK\Services;
 use LegalesignSDK\Client;
 use LegalesignSDK\Core\Conversion\ListOf;
 use LegalesignSDK\Core\Exceptions\APIException;
-use LegalesignSDK\Core\Implementation\HasRawResponse;
 use LegalesignSDK\RequestOptions;
 use LegalesignSDK\ServiceContracts\SignerContract;
 use LegalesignSDK\Signer\SignerGetFieldsResponseItem;
@@ -28,29 +27,10 @@ final class SignerService implements SignerContract
      *
      * Get status and details of an individual signer
      *
-     * @return SignerGetResponse<HasRawResponse>
-     *
      * @throws APIException
      */
     public function retrieve(
         string $signerID,
-        ?RequestOptions $requestOptions = null
-    ): SignerGetResponse {
-        $params = [];
-
-        return $this->retrieveRaw($signerID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @return SignerGetResponse<HasRawResponse>
-     *
-     * @throws APIException
-     */
-    public function retrieveRaw(
-        string $signerID,
-        mixed $params,
         ?RequestOptions $requestOptions = null
     ): SignerGetResponse {
         // @phpstan-ignore-next-line;
@@ -73,21 +53,6 @@ final class SignerService implements SignerContract
         string $signerID,
         ?RequestOptions $requestOptions = null
     ): mixed {
-        $params = [];
-
-        return $this->getAccessLinkRaw($signerID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function getAccessLinkRaw(
-        string $signerID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
         // @phpstan-ignore-next-line;
         return $this->client->request(
             method: 'get',
@@ -108,23 +73,6 @@ final class SignerService implements SignerContract
      */
     public function retrieveFields(
         string $signerID,
-        ?RequestOptions $requestOptions = null
-    ): array {
-        $params = [];
-
-        return $this->retrieveFieldsRaw($signerID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @return list<SignerGetFieldsResponseItem>
-     *
-     * @throws APIException
-     */
-    public function retrieveFieldsRaw(
-        string $signerID,
-        mixed $params,
         ?RequestOptions $requestOptions = null
     ): array {
         // @phpstan-ignore-next-line;

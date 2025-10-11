@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace LegalesignSDK\ServiceContracts;
 
 use LegalesignSDK\Core\Exceptions\APIException;
-use LegalesignSDK\Core\Implementation\HasRawResponse;
 use LegalesignSDK\RequestOptions;
 use LegalesignSDK\Templatepdf\TemplatePdf;
 use LegalesignSDK\Templatepdf\TemplatepdfListResponse;
@@ -51,8 +50,6 @@ interface TemplatepdfContract
     /**
      * @api
      *
-     * @return TemplatePdf<HasRawResponse>
-     *
      * @throws APIException
      */
     public function retrieve(
@@ -63,25 +60,10 @@ interface TemplatepdfContract
     /**
      * @api
      *
-     * @return TemplatePdf<HasRawResponse>
-     *
-     * @throws APIException
-     */
-    public function retrieveRaw(
-        string $pdfID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): TemplatePdf;
-
-    /**
-     * @api
-     *
      * @param string $archive
      * @param string $group can be full resource_uri or only id
      * @param int $limit Length of dataset to return. Use with offset query to iterate through results.
      * @param int $offset Offset from start of dataset. Use with the limit query to iterate through dataset.
-     *
-     * @return TemplatepdfListResponse<HasRawResponse>
      *
      * @throws APIException
      */
@@ -98,8 +80,6 @@ interface TemplatepdfContract
      *
      * @param array<string, mixed> $params
      *
-     * @return TemplatepdfListResponse<HasRawResponse>
-     *
      * @throws APIException
      */
     public function listRaw(
@@ -114,17 +94,6 @@ interface TemplatepdfContract
      */
     public function getEditLink(
         string $pdfID,
-        ?RequestOptions $requestOptions = null
-    ): string;
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function getEditLinkRaw(
-        string $pdfID,
-        mixed $params,
         ?RequestOptions $requestOptions = null
     ): string;
 }

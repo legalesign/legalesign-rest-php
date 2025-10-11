@@ -17,7 +17,7 @@ use LegalesignSDK\Document\DocumentGetFieldsResponseItem\ElementType;
  *   labelExtra?: string|null,
  *   signer?: int,
  *   state?: bool,
- *   validation?: value-of<PdfFieldValidationEnum>|null,
+ *   validation?: null|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|25|26|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|90|91|92,
  *   value?: string,
  * }
  */
@@ -132,7 +132,7 @@ final class DocumentGetFieldsResponseItem implements BaseModel
      *   * 91 - countries list
      *   * 92 - honorifics list
      *
-     * @var value-of<PdfFieldValidationEnum>|null $validation
+     * @var 1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|25|26|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|90|91|92|null $validation
      */
     #[Api(enum: PdfFieldValidationEnum::class, nullable: true, optional: true)]
     public ?int $validation;
@@ -151,7 +151,7 @@ final class DocumentGetFieldsResponseItem implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      *
      * @param ElementType|value-of<ElementType> $elementType
-     * @param PdfFieldValidationEnum|value-of<PdfFieldValidationEnum>|null $validation
+     * @param 1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|25|26|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|90|91|92|null $validation
      */
     public static function with(
         ElementType|string|null $elementType = null,
@@ -160,18 +160,18 @@ final class DocumentGetFieldsResponseItem implements BaseModel
         ?string $labelExtra = null,
         ?int $signer = null,
         ?bool $state = null,
-        PdfFieldValidationEnum|int|null $validation = null,
+        ?int $validation = null,
         ?string $value = null,
     ): self {
         $obj = new self;
 
-        null !== $elementType && $obj->elementType = $elementType instanceof ElementType ? $elementType->value : $elementType;
+        null !== $elementType && $obj['elementType'] = $elementType;
         null !== $fieldorder && $obj->fieldorder = $fieldorder;
         null !== $label && $obj->label = $label;
         null !== $labelExtra && $obj->labelExtra = $labelExtra;
         null !== $signer && $obj->signer = $signer;
         null !== $state && $obj->state = $state;
-        null !== $validation && $obj->validation = $validation instanceof PdfFieldValidationEnum ? $validation->value : $validation;
+        null !== $validation && $obj->validation = $validation;
         null !== $value && $obj->value = $value;
 
         return $obj;
@@ -183,7 +183,7 @@ final class DocumentGetFieldsResponseItem implements BaseModel
     public function withElementType(ElementType|string $elementType): self
     {
         $obj = clone $this;
-        $obj->elementType = $elementType instanceof ElementType ? $elementType->value : $elementType;
+        $obj['elementType'] = $elementType;
 
         return $obj;
     }
@@ -315,13 +315,12 @@ final class DocumentGetFieldsResponseItem implements BaseModel
      *   * 91 - countries list
      *   * 92 - honorifics list
      *
-     * @param PdfFieldValidationEnum|value-of<PdfFieldValidationEnum>|null $validation
+     * @param 1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|25|26|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|90|91|92|null $validation
      */
-    public function withValidation(
-        PdfFieldValidationEnum|int|null $validation
-    ): self {
+    public function withValidation(?int $validation): self
+    {
         $obj = clone $this;
-        $obj->validation = $validation instanceof PdfFieldValidationEnum ? $validation->value : $validation;
+        $obj->validation = $validation;
 
         return $obj;
     }

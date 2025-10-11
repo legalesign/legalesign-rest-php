@@ -58,7 +58,7 @@ class Client extends BaseClient
     {
         $this->apiKey = (string) ($apiKey ?? getenv('LEGALESIGN_SDK_API_KEY'));
 
-        $base = $baseUrl ?? getenv(
+        $baseUrl ??= getenv(
             'LEGALESIGN_SDK_BASE_URL'
         ) ?: 'https://eu-api.legalesign.com/api/v1';
 
@@ -73,7 +73,7 @@ class Client extends BaseClient
             headers: [
                 'Content-Type' => 'application/json', 'Accept' => 'application/json',
             ],
-            baseUrl: $base,
+            baseUrl: $baseUrl,
             options: $options,
         );
 

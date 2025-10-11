@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace LegalesignSDK\ServiceContracts;
 
 use LegalesignSDK\Core\Exceptions\APIException;
-use LegalesignSDK\Core\Implementation\HasRawResponse;
 use LegalesignSDK\Group\GroupGetResponse;
 use LegalesignSDK\Group\GroupListResponse;
 use LegalesignSDK\RequestOptions;
@@ -43,8 +42,6 @@ interface GroupContract
     /**
      * @api
      *
-     * @return GroupGetResponse<HasRawResponse>
-     *
      * @throws APIException
      */
     public function retrieve(
@@ -55,23 +52,8 @@ interface GroupContract
     /**
      * @api
      *
-     * @return GroupGetResponse<HasRawResponse>
-     *
-     * @throws APIException
-     */
-    public function retrieveRaw(
-        string $groupID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): GroupGetResponse;
-
-    /**
-     * @api
-     *
      * @param int $limit Length of dataset to return. Use with offset query to iterate through results.
      * @param int $offset Offset from start of dataset. Use with the limit query to iterate through dataset.
-     *
-     * @return GroupListResponse<HasRawResponse>
      *
      * @throws APIException
      */
@@ -85,8 +67,6 @@ interface GroupContract
      * @api
      *
      * @param array<string, mixed> $params
-     *
-     * @return GroupListResponse<HasRawResponse>
      *
      * @throws APIException
      */

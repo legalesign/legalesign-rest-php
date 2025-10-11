@@ -85,7 +85,7 @@ final class FieldsTest extends TestCase
                     ->withOptional(true)
                     ->withOptions('options')
                     ->withSubstantive(true)
-                    ->withValidation(PdfFieldValidationEnum::$PDF_FIELD_VALIDATION_ENUM_1)
+                    ->withValidation(PdfFieldValidationEnum::_1)
                     ->withValue('value'),
             ],
         );
