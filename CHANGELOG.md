@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.0.3 (2025-10-11)
+
+Full Changelog: [v0.0.2...v0.0.3](https://github.com/legalesign/legalesign-rest-php/compare/v0.0.2...v0.0.3)
+
+### Bug Fixes
+
+* **ci:** release doctor workflow ([310295d](https://github.com/legalesign/legalesign-rest-php/commit/310295d4faf056e60db3bea642b56ede1fbe94ae))
+
+
+### Chores
+
+* add license ([3260f92](https://github.com/legalesign/legalesign-rest-php/commit/3260f921032f819561e6f7d92c4b22e2efb88604))
+* refactor methods ([9db1cb8](https://github.com/legalesign/legalesign-rest-php/commit/9db1cb856e0e6a5aac3e724c16f95f10ac28762e))
+
 ## 0.0.2 (2025-09-23)
 
 Full Changelog: [v0.0.1...v0.0.2](https://github.com/legalesign/legalesign-rest-php/compare/v0.0.1...v0.0.2)
