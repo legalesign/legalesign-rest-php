@@ -6,7 +6,9 @@ namespace LegalesignSDK\Group;
 
 use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkResponse;
 use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 
 /**
  * @phpstan-type group_get_response = array{
@@ -28,15 +30,13 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  *   xframeAllow?: bool,
  *   xframeAllowPdfEdit?: bool,
  * }
- * When used in a response, this type parameter can define a $rawResponse property.
- * @template TRawResponse of object = object{}
- *
- * @mixin TRawResponse
  */
-final class GroupGetResponse implements BaseModel
+final class GroupGetResponse implements BaseModel, ResponseConverter
 {
     /** @use SdkModel<group_get_response> */
     use SdkModel;
+
+    use SdkResponse;
 
     #[Api(optional: true)]
     public ?\DateTimeInterface $created;

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace LegalesignSDK\ServiceContracts;
 
 use LegalesignSDK\Core\Exceptions\APIException;
-use LegalesignSDK\Core\Implementation\HasRawResponse;
 use LegalesignSDK\RequestOptions;
 use LegalesignSDK\Template\TemplateGetResponse;
 use LegalesignSDK\Template\TemplateListResponse;
@@ -47,26 +46,11 @@ interface TemplateContract
     /**
      * @api
      *
-     * @return TemplateGetResponse<HasRawResponse>
-     *
      * @throws APIException
      */
     public function retrieve(
         string $templateID,
         ?RequestOptions $requestOptions = null
-    ): TemplateGetResponse;
-
-    /**
-     * @api
-     *
-     * @return TemplateGetResponse<HasRawResponse>
-     *
-     * @throws APIException
-     */
-    public function retrieveRaw(
-        string $templateID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null,
     ): TemplateGetResponse;
 
     /**
@@ -103,8 +87,6 @@ interface TemplateContract
      * @param int $limit Length of dataset to return. Use with offset query to iterate through results.
      * @param int $offset Offset from start of dataset. Use with the limit query to iterate through dataset.
      *
-     * @return TemplateListResponse<HasRawResponse>
-     *
      * @throws APIException
      */
     public function list(
@@ -119,8 +101,6 @@ interface TemplateContract
      * @api
      *
      * @param array<string, mixed> $params
-     *
-     * @return TemplateListResponse<HasRawResponse>
      *
      * @throws APIException
      */

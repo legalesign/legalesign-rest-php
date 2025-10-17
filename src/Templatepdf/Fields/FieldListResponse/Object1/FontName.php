@@ -6,7 +6,7 @@ namespace LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1;
 
 enum FontName: string
 {
-    case FONT_NAME_ = '';
+    case EMPTY = '';
 
     case ARIAL = 'arial';
 

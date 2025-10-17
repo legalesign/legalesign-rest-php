@@ -6,7 +6,6 @@ namespace LegalesignSDK\Services\Templatepdf;
 
 use LegalesignSDK\Client;
 use LegalesignSDK\Core\Exceptions\APIException;
-use LegalesignSDK\Core\Implementation\HasRawResponse;
 use LegalesignSDK\RequestOptions;
 use LegalesignSDK\ServiceContracts\Templatepdf\FieldsContract;
 use LegalesignSDK\Templatepdf\Fields\FieldCreateParams;
@@ -71,29 +70,10 @@ final class FieldsService implements FieldsContract
      *
      * Get PDF template fields
      *
-     * @return FieldListResponse<HasRawResponse>
-     *
      * @throws APIException
      */
     public function list(
         string $pdfID,
-        ?RequestOptions $requestOptions = null
-    ): FieldListResponse {
-        $params = [];
-
-        return $this->listRaw($pdfID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @return FieldListResponse<HasRawResponse>
-     *
-     * @throws APIException
-     */
-    public function listRaw(
-        string $pdfID,
-        mixed $params,
         ?RequestOptions $requestOptions = null
     ): FieldListResponse {
         // @phpstan-ignore-next-line;

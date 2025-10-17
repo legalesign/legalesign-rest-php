@@ -6,22 +6,22 @@ namespace LegalesignSDK\Document;
 
 use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkResponse;
 use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 use LegalesignSDK\Document\DocumentListResponse\Object1;
 
 /**
  * @phpstan-type document_list_response = array{
  *   meta?: ListMeta, objects?: list<Object1>
  * }
- * When used in a response, this type parameter can define a $rawResponse property.
- * @template TRawResponse of object = object{}
- *
- * @mixin TRawResponse
  */
-final class DocumentListResponse implements BaseModel
+final class DocumentListResponse implements BaseModel, ResponseConverter
 {
     /** @use SdkModel<document_list_response> */
     use SdkModel;
+
+    use SdkResponse;
 
     #[Api(optional: true)]
     public ?ListMeta $meta;
