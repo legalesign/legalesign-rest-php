@@ -11,18 +11,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 use LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body;
 
 /**
- * An object containing the method's parameters.
- * Example usage:
- * ```
- * $params = (new FieldCreateParams); // set properties as needed
- * $client->templatepdf.fields->create(...$params->toArray());
- * ```
  * Replace existing pdf fields with new ones.
- *
- * @method toArray()
- *   Returns the parameters as an associative array suitable for passing to the client method.
- *
- *   `$client->templatepdf.fields->create(...$params->toArray());`
  *
  * @see LegalesignSDK\Templatepdf\Fields->create
  *

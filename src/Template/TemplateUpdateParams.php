@@ -10,18 +10,7 @@ use LegalesignSDK\Core\Concerns\SdkParams;
 use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
- * An object containing the method's parameters.
- * Example usage:
- * ```
- * $params = (new TemplateUpdateParams); // set properties as needed
- * $client->template->update(...$params->toArray());
- * ```
  * Update text template.
- *
- * @method toArray()
- *   Returns the parameters as an associative array suitable for passing to the client method.
- *
- *   `$client->template->update(...$params->toArray());`
  *
  * @see LegalesignSDK\Template->update
  *
