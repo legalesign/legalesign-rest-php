@@ -10,18 +10,7 @@ use LegalesignSDK\Core\Concerns\SdkParams;
 use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
- * An object containing the method's parameters.
- * Example usage:
- * ```
- * $params = (new SignerSendReminderParams); // set properties as needed
- * $client->signer->sendReminder(...$params->toArray());
- * ```
  * Send signer reminder email.
- *
- * @method toArray()
- *   Returns the parameters as an associative array suitable for passing to the client method.
- *
- *   `$client->signer->sendReminder(...$params->toArray());`
  *
  * @see LegalesignSDK\Signer->sendReminder
  *

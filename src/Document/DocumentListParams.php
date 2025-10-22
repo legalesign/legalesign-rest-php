@@ -10,18 +10,7 @@ use LegalesignSDK\Core\Concerns\SdkParams;
 use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
- * An object containing the method's parameters.
- * Example usage:
- * ```
- * $params = (new DocumentListParams); // set properties as needed
- * $client->document->list(...$params->toArray());
- * ```
  * List (unarchived) signing documents. Use /status/ if you need high-level information.
- *
- * @method toArray()
- *   Returns the parameters as an associative array suitable for passing to the client method.
- *
- *   `$client->document->list(...$params->toArray());`
  *
  * @see LegalesignSDK\Document->list
  *

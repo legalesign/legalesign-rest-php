@@ -10,18 +10,7 @@ use LegalesignSDK\Core\Concerns\SdkParams;
 use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
- * An object containing the method's parameters.
- * Example usage:
- * ```
- * $params = (new GroupListParams); // set properties as needed
- * $client->group->list(...$params->toArray());
- * ```
  * List groups the api user belongs to.
- *
- * @method toArray()
- *   Returns the parameters as an associative array suitable for passing to the client method.
- *
- *   `$client->group->list(...$params->toArray());`
  *
  * @see LegalesignSDK\Group->list
  *

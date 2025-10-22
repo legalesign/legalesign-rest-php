@@ -11,18 +11,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 use LegalesignSDK\Document\DocumentCreateParams\Signer;
 
 /**
- * An object containing the method's parameters.
- * Example usage:
- * ```
- * $params = (new DocumentCreateParams); // set properties as needed
- * $client->document->create(...$params->toArray());
- * ```
  * Create signing document.
- *
- * @method toArray()
- *   Returns the parameters as an associative array suitable for passing to the client method.
- *
- *   `$client->document->create(...$params->toArray());`
  *
  * @see LegalesignSDK\Document->create
  *
