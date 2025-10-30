@@ -9,7 +9,7 @@ use LegalesignSDK\Core\Concerns\SdkModel;
 use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-type signer_get_fields_response_item = array{
+ * @phpstan-type SignerGetFieldsResponseItemShape = array{
  *   fieldorder?: int|null,
  *   label?: string,
  *   labelExtra?: string,
@@ -19,7 +19,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  */
 final class SignerGetFieldsResponseItem implements BaseModel
 {
-    /** @use SdkModel<signer_get_fields_response_item> */
+    /** @use SdkModel<SignerGetFieldsResponseItemShape> */
     use SdkModel;
 
     #[Api(nullable: true, optional: true)]

@@ -14,11 +14,11 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  *
  * @see LegalesignSDK\Template->update
  *
- * @phpstan-type template_update_params = array{body: string}
+ * @phpstan-type TemplateUpdateParamsShape = array{body: string}
  */
 final class TemplateUpdateParams implements BaseModel
 {
-    /** @use SdkModel<template_update_params> */
+    /** @use SdkModel<TemplateUpdateParamsShape> */
     use SdkModel;
     use SdkParams;
 

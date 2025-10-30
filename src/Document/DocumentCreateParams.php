@@ -15,7 +15,7 @@ use LegalesignSDK\Document\DocumentCreateParams\Signer;
  *
  * @see LegalesignSDK\Document->create
  *
- * @phpstan-type document_create_params = array{
+ * @phpstan-type DocumentCreateParamsShape = array{
  *   group: string,
  *   name: string,
  *   signers: list<Signer>,
@@ -49,7 +49,7 @@ use LegalesignSDK\Document\DocumentCreateParams\Signer;
  */
 final class DocumentCreateParams implements BaseModel
 {
-    /** @use SdkModel<document_create_params> */
+    /** @use SdkModel<DocumentCreateParamsShape> */
     use SdkModel;
     use SdkParams;
 

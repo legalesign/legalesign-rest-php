@@ -11,7 +11,7 @@ use LegalesignSDK\Core\Conversion\ListOf;
 use LegalesignSDK\Document\DocumentStatusEnum;
 
 /**
- * @phpstan-type object1_alias = array{
+ * @phpstan-type Object1Shape = array{
  *   archived?: bool,
  *   autoArchive?: bool,
  *   ccEmails?: string,
@@ -40,7 +40,7 @@ use LegalesignSDK\Document\DocumentStatusEnum;
  */
 final class Object1 implements BaseModel
 {
-    /** @use SdkModel<object1_alias> */
+    /** @use SdkModel<Object1Shape> */
     use SdkModel;
 
     #[Api(optional: true)]

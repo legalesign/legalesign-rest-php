@@ -14,7 +14,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  *
  * @see LegalesignSDK\Document->list
  *
- * @phpstan-type document_list_params = array{
+ * @phpstan-type DocumentListParamsShape = array{
  *   group: string,
  *   archived?: string,
  *   createdGt?: \DateTimeInterface,
@@ -28,7 +28,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  */
 final class DocumentListParams implements BaseModel
 {
-    /** @use SdkModel<document_list_params> */
+    /** @use SdkModel<DocumentListParamsShape> */
     use SdkModel;
     use SdkParams;
 

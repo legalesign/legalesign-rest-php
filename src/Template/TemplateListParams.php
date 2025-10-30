@@ -14,13 +14,13 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  *
  * @see LegalesignSDK\Template->list
  *
- * @phpstan-type template_list_params = array{
+ * @phpstan-type TemplateListParamsShape = array{
  *   archive?: string, group?: string, limit?: int, offset?: int
  * }
  */
 final class TemplateListParams implements BaseModel
 {
-    /** @use SdkModel<template_list_params> */
+    /** @use SdkModel<TemplateListParamsShape> */
     use SdkModel;
     use SdkParams;
 

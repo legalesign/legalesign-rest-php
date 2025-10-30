@@ -12,7 +12,7 @@ use LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body\ElementType;
 use LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body\FontName;
 
 /**
- * @phpstan-type body_alias = array{
+ * @phpstan-type BodyShape = array{
  *   ax: float,
  *   ay: float,
  *   bx: float,
@@ -39,7 +39,7 @@ use LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body\FontName;
  */
 final class Body implements BaseModel
 {
-    /** @use SdkModel<body_alias> */
+    /** @use SdkModel<BodyShape> */
     use SdkModel;
 
     /**

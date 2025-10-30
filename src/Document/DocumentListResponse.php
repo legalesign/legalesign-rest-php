@@ -12,13 +12,13 @@ use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 use LegalesignSDK\Document\DocumentListResponse\Object1;
 
 /**
- * @phpstan-type document_list_response = array{
+ * @phpstan-type DocumentListResponseShape = array{
  *   meta?: ListMeta, objects?: list<Object1>
  * }
  */
 final class DocumentListResponse implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<document_list_response> */
+    /** @use SdkModel<DocumentListResponseShape> */
     use SdkModel;
 
     use SdkResponse;

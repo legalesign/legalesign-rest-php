@@ -14,11 +14,11 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  *
  * @see LegalesignSDK\Group->create
  *
- * @phpstan-type group_create_params = array{name: string, xframeAllow?: bool}
+ * @phpstan-type GroupCreateParamsShape = array{name: string, xframeAllow?: bool}
  */
 final class GroupCreateParams implements BaseModel
 {
-    /** @use SdkModel<group_create_params> */
+    /** @use SdkModel<GroupCreateParamsShape> */
     use SdkModel;
     use SdkParams;
 

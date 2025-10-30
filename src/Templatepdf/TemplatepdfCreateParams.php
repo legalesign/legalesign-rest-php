@@ -14,7 +14,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  *
  * @see LegalesignSDK\Templatepdf->create
  *
- * @phpstan-type templatepdf_create_params = array{
+ * @phpstan-type TemplatepdfCreateParamsShape = array{
  *   group: string,
  *   pdfFile: string,
  *   archiveUponSend?: bool,
@@ -25,7 +25,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  */
 final class TemplatepdfCreateParams implements BaseModel
 {
-    /** @use SdkModel<templatepdf_create_params> */
+    /** @use SdkModel<TemplatepdfCreateParamsShape> */
     use SdkModel;
     use SdkParams;
 

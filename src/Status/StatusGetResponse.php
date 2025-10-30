@@ -12,7 +12,7 @@ use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 use LegalesignSDK\Signer\SignerStatusEnum;
 
 /**
- * @phpstan-type status_get_response = array{
+ * @phpstan-type StatusGetResponseShape = array{
  *   archived?: bool,
  *   downloadFinal?: bool,
  *   resourceUri?: string,
@@ -24,7 +24,7 @@ use LegalesignSDK\Signer\SignerStatusEnum;
  */
 final class StatusGetResponse implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<status_get_response> */
+    /** @use SdkModel<StatusGetResponseShape> */
     use SdkModel;
 
     use SdkResponse;

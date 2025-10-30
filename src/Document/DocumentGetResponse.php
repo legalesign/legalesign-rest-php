@@ -12,7 +12,7 @@ use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 use LegalesignSDK\Core\Conversion\ListOf;
 
 /**
- * @phpstan-type document_get_response = array{
+ * @phpstan-type DocumentGetResponseShape = array{
  *   archived?: bool,
  *   autoArchive?: bool,
  *   ccEmails?: string,
@@ -55,7 +55,7 @@ use LegalesignSDK\Core\Conversion\ListOf;
  */
 final class DocumentGetResponse implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<document_get_response> */
+    /** @use SdkModel<DocumentGetResponseShape> */
     use SdkModel;
 
     use SdkResponse;

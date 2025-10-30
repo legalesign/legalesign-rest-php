@@ -13,13 +13,13 @@ use LegalesignSDK\Document\ListMeta;
 use LegalesignSDK\Template\TemplateListResponse\Object1;
 
 /**
- * @phpstan-type template_list_response = array{
+ * @phpstan-type TemplateListResponseShape = array{
  *   meta?: ListMeta, objects?: list<Object1>
  * }
  */
 final class TemplateListResponse implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<template_list_response> */
+    /** @use SdkModel<TemplateListResponseShape> */
     use SdkModel;
 
     use SdkResponse;

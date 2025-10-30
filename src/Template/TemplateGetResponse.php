@@ -11,7 +11,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 
 /**
- * @phpstan-type template_get_response = array{
+ * @phpstan-type TemplateGetResponseShape = array{
  *   archive?: bool,
  *   created?: \DateTimeInterface,
  *   group?: string,
@@ -27,7 +27,7 @@ use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
  */
 final class TemplateGetResponse implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<template_get_response> */
+    /** @use SdkModel<TemplateGetResponseShape> */
     use SdkModel;
 
     use SdkResponse;

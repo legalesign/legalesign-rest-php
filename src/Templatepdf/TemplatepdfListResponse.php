@@ -12,13 +12,13 @@ use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 use LegalesignSDK\Document\ListMeta;
 
 /**
- * @phpstan-type templatepdf_list_response = array{
+ * @phpstan-type TemplatepdfListResponseShape = array{
  *   meta?: ListMeta, objects?: list<TemplatePdf>
  * }
  */
 final class TemplatepdfListResponse implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<templatepdf_list_response> */
+    /** @use SdkModel<TemplatepdfListResponseShape> */
     use SdkModel;
 
     use SdkResponse;

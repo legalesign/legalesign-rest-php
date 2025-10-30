@@ -12,7 +12,7 @@ use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1\ElementType;
 use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1\FontName;
 
 /**
- * @phpstan-type object1_alias = array{
+ * @phpstan-type Object1Shape = array{
  *   ax: float,
  *   ay: float,
  *   bx: float,
@@ -39,7 +39,7 @@ use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1\FontName;
  */
 final class Object1 implements BaseModel
 {
-    /** @use SdkModel<object1_alias> */
+    /** @use SdkModel<Object1Shape> */
     use SdkModel;
 
     /**
