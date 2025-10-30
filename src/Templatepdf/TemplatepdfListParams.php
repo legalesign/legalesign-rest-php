@@ -14,13 +14,13 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  *
  * @see LegalesignSDK\Templatepdf->list
  *
- * @phpstan-type templatepdf_list_params = array{
+ * @phpstan-type TemplatepdfListParamsShape = array{
  *   archive?: string, group?: string, limit?: int, offset?: int
  * }
  */
 final class TemplatepdfListParams implements BaseModel
 {
-    /** @use SdkModel<templatepdf_list_params> */
+    /** @use SdkModel<TemplatepdfListParamsShape> */
     use SdkModel;
     use SdkParams;
 

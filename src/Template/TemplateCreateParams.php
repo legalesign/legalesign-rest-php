@@ -14,13 +14,13 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  *
  * @see LegalesignSDK\Template->create
  *
- * @phpstan-type template_create_params = array{
+ * @phpstan-type TemplateCreateParamsShape = array{
  *   group: string, latestText: string, title: string, user?: string
  * }
  */
 final class TemplateCreateParams implements BaseModel
 {
-    /** @use SdkModel<template_create_params> */
+    /** @use SdkModel<TemplateCreateParamsShape> */
     use SdkModel;
     use SdkParams;
 

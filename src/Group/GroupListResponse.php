@@ -13,13 +13,13 @@ use LegalesignSDK\Document\ListMeta;
 use LegalesignSDK\Group\GroupListResponse\Object1;
 
 /**
- * @phpstan-type group_list_response = array{
+ * @phpstan-type GroupListResponseShape = array{
  *   meta?: ListMeta, objects?: list<Object1>
  * }
  */
 final class GroupListResponse implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<group_list_response> */
+    /** @use SdkModel<GroupListResponseShape> */
     use SdkModel;
 
     use SdkResponse;

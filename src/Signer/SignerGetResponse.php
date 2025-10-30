@@ -11,7 +11,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 
 /**
- * @phpstan-type signer_get_response = array{
+ * @phpstan-type SignerGetResponseShape = array{
  *   document?: string,
  *   email?: string,
  *   firstName?: string,
@@ -24,7 +24,7 @@ use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
  */
 final class SignerGetResponse implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<signer_get_response> */
+    /** @use SdkModel<SignerGetResponseShape> */
     use SdkModel;
 
     use SdkResponse;

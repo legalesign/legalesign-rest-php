@@ -10,7 +10,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 use LegalesignSDK\Document\DocumentGetFieldsResponseItem\ElementType;
 
 /**
- * @phpstan-type document_get_fields_response_item = array{
+ * @phpstan-type DocumentGetFieldsResponseItemShape = array{
  *   elementType?: value-of<ElementType>,
  *   fieldorder?: int|null,
  *   label?: string,
@@ -23,7 +23,7 @@ use LegalesignSDK\Document\DocumentGetFieldsResponseItem\ElementType;
  */
 final class DocumentGetFieldsResponseItem implements BaseModel
 {
-    /** @use SdkModel<document_get_fields_response_item> */
+    /** @use SdkModel<DocumentGetFieldsResponseItemShape> */
     use SdkModel;
 
     /** @var value-of<ElementType>|null $elementType */

@@ -11,11 +11,11 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 
 /**
- * @phpstan-type document_new_response = array{signer1?: string}
+ * @phpstan-type DocumentNewResponseShape = array{signer1?: string}
  */
 final class DocumentNewResponse implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<document_new_response> */
+    /** @use SdkModel<DocumentNewResponseShape> */
     use SdkModel;
 
     use SdkResponse;

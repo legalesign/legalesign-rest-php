@@ -9,7 +9,7 @@ use LegalesignSDK\Core\Concerns\SdkModel;
 use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-type list_meta = array{
+ * @phpstan-type ListMetaShape = array{
  *   limit?: int,
  *   next?: string|null,
  *   offset?: int,
@@ -19,7 +19,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  */
 final class ListMeta implements BaseModel
 {
-    /** @use SdkModel<list_meta> */
+    /** @use SdkModel<ListMetaShape> */
     use SdkModel;
 
     #[Api(optional: true)]

@@ -15,11 +15,11 @@ use LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body;
  *
  * @see LegalesignSDK\Templatepdf\Fields->create
  *
- * @phpstan-type field_create_params = array{body: list<Body>}
+ * @phpstan-type FieldCreateParamsShape = array{body: list<Body>}
  */
 final class FieldCreateParams implements BaseModel
 {
-    /** @use SdkModel<field_create_params> */
+    /** @use SdkModel<FieldCreateParamsShape> */
     use SdkModel;
     use SdkParams;
 

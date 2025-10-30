@@ -11,7 +11,7 @@ use LegalesignSDK\Document\DocumentCreateParams\Signer\Reviewer;
 use LegalesignSDK\Document\DocumentCreateParams\Signer\Role;
 
 /**
- * @phpstan-type signer_alias = array{
+ * @phpstan-type SignerShape = array{
  *   email: string,
  *   firstname: string,
  *   lastname: string,
@@ -30,7 +30,7 @@ use LegalesignSDK\Document\DocumentCreateParams\Signer\Role;
  */
 final class Signer implements BaseModel
 {
-    /** @use SdkModel<signer_alias> */
+    /** @use SdkModel<SignerShape> */
     use SdkModel;
 
     #[Api]

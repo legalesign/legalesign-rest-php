@@ -11,7 +11,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 
 /**
- * @phpstan-type group_get_response = array{
+ * @phpstan-type GroupGetResponseShape = array{
  *   created?: \DateTimeInterface,
  *   defaultEmail?: string,
  *   defaultExtraemail?: string,
@@ -33,7 +33,7 @@ use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
  */
 final class GroupGetResponse implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<group_get_response> */
+    /** @use SdkModel<GroupGetResponseShape> */
     use SdkModel;
 
     use SdkResponse;

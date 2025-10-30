@@ -13,13 +13,13 @@ use LegalesignSDK\Document\ListMeta;
 use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1;
 
 /**
- * @phpstan-type field_list_response = array{
+ * @phpstan-type FieldListResponseShape = array{
  *   meta?: ListMeta, objects?: list<Object1>
  * }
  */
 final class FieldListResponse implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<field_list_response> */
+    /** @use SdkModel<FieldListResponseShape> */
     use SdkModel;
 
     use SdkResponse;

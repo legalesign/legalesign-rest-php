@@ -14,11 +14,11 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  *
  * @see LegalesignSDK\Signer->sendReminder
  *
- * @phpstan-type signer_send_reminder_params = array{text?: string}
+ * @phpstan-type SignerSendReminderParamsShape = array{text?: string}
  */
 final class SignerSendReminderParams implements BaseModel
 {
-    /** @use SdkModel<signer_send_reminder_params> */
+    /** @use SdkModel<SignerSendReminderParamsShape> */
     use SdkModel;
     use SdkParams;
 

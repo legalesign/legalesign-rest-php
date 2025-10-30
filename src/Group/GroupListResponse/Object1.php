@@ -9,7 +9,7 @@ use LegalesignSDK\Core\Concerns\SdkModel;
 use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-type object1_alias = array{
+ * @phpstan-type Object1Shape = array{
  *   created?: \DateTimeInterface,
  *   isActive?: bool,
  *   modified?: \DateTimeInterface,
@@ -24,7 +24,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  */
 final class Object1 implements BaseModel
 {
-    /** @use SdkModel<object1_alias> */
+    /** @use SdkModel<Object1Shape> */
     use SdkModel;
 
     #[Api(optional: true)]

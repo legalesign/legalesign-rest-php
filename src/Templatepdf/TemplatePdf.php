@@ -11,7 +11,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 
 /**
- * @phpstan-type template_pdf = array{
+ * @phpstan-type TemplatePdfShape = array{
  *   created?: \DateTimeInterface,
  *   group?: string,
  *   modified?: \DateTimeInterface,
@@ -27,7 +27,7 @@ use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
  */
 final class TemplatePdf implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<template_pdf> */
+    /** @use SdkModel<TemplatePdfShape> */
     use SdkModel;
 
     use SdkResponse;
