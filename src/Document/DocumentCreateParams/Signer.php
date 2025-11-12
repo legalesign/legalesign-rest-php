@@ -15,17 +15,17 @@ use LegalesignSDK\Document\DocumentCreateParams\Signer\Role;
  *   email: string,
  *   firstname: string,
  *   lastname: string,
- *   attachments?: list<string>,
- *   behalfof?: string,
- *   decideLater?: bool,
+ *   attachments?: list<string>|null,
+ *   behalfof?: string|null,
+ *   decide_later?: bool|null,
  *   expires?: \DateTimeInterface|null,
- *   message?: string,
- *   order?: int,
- *   reviewers?: list<Reviewer>,
- *   role?: value-of<Role>,
- *   sms?: string,
- *   subject?: string,
- *   timezone?: string,
+ *   message?: string|null,
+ *   order?: int|null,
+ *   reviewers?: list<Reviewer>|null,
+ *   role?: value-of<Role>|null,
+ *   sms?: string|null,
+ *   subject?: string|null,
+ *   timezone?: string|null,
  * }
  */
 final class Signer implements BaseModel
@@ -61,8 +61,8 @@ final class Signer implements BaseModel
     /**
      * Add this you want the previous signer or approver to decide who the next person should be.  Commonly used for witnesses (see \"role\"). If you use this leave all other attributes blank. First signer cannot use this attribute.
      */
-    #[Api('decide_later', optional: true)]
-    public ?bool $decideLater;
+    #[Api(optional: true)]
+    public ?bool $decide_later;
 
     /**
      * ISO8601 formed datetime, set to TZ of sender or timezone if used.
@@ -150,7 +150,7 @@ final class Signer implements BaseModel
         string $lastname,
         ?array $attachments = null,
         ?string $behalfof = null,
-        ?bool $decideLater = null,
+        ?bool $decide_later = null,
         ?\DateTimeInterface $expires = null,
         ?string $message = null,
         ?int $order = null,
@@ -168,7 +168,7 @@ final class Signer implements BaseModel
 
         null !== $attachments && $obj->attachments = $attachments;
         null !== $behalfof && $obj->behalfof = $behalfof;
-        null !== $decideLater && $obj->decideLater = $decideLater;
+        null !== $decide_later && $obj->decide_later = $decide_later;
         null !== $expires && $obj->expires = $expires;
         null !== $message && $obj->message = $message;
         null !== $order && $obj->order = $order;
@@ -235,7 +235,7 @@ final class Signer implements BaseModel
     public function withDecideLater(bool $decideLater): self
     {
         $obj = clone $this;
-        $obj->decideLater = $decideLater;
+        $obj->decide_later = $decideLater;
 
         return $obj;
     }

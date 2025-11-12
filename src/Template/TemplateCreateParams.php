@@ -15,7 +15,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  * @see LegalesignSDK\Template->create
  *
  * @phpstan-type TemplateCreateParamsShape = array{
- *   group: string, latestText: string, title: string, user?: string
+ *   group: string, latest_text: string, title: string, user?: string
  * }
  */
 final class TemplateCreateParams implements BaseModel
@@ -30,8 +30,8 @@ final class TemplateCreateParams implements BaseModel
     /**
      * text/html for template.
      */
-    #[Api('latest_text')]
-    public string $latestText;
+    #[Api]
+    public string $latest_text;
 
     #[Api]
     public string $title;
@@ -47,7 +47,7 @@ final class TemplateCreateParams implements BaseModel
      *
      * To enforce required parameters use
      * ```
-     * TemplateCreateParams::with(group: ..., latestText: ..., title: ...)
+     * TemplateCreateParams::with(group: ..., latest_text: ..., title: ...)
      * ```
      *
      * Otherwise ensure the following setters are called
@@ -68,14 +68,14 @@ final class TemplateCreateParams implements BaseModel
      */
     public static function with(
         string $group,
-        string $latestText,
+        string $latest_text,
         string $title,
         ?string $user = null
     ): self {
         $obj = new self;
 
         $obj->group = $group;
-        $obj->latestText = $latestText;
+        $obj->latest_text = $latest_text;
         $obj->title = $title;
 
         null !== $user && $obj->user = $user;
@@ -97,7 +97,7 @@ final class TemplateCreateParams implements BaseModel
     public function withLatestText(string $latestText): self
     {
         $obj = clone $this;
-        $obj->latestText = $latestText;
+        $obj->latest_text = $latestText;
 
         return $obj;
     }

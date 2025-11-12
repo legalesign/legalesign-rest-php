@@ -11,14 +11,14 @@ use LegalesignSDK\Document\DocumentGetFieldsResponseItem\ElementType;
 
 /**
  * @phpstan-type DocumentGetFieldsResponseItemShape = array{
- *   elementType?: value-of<ElementType>,
+ *   element_type?: value-of<ElementType>|null,
  *   fieldorder?: int|null,
- *   label?: string,
- *   labelExtra?: string|null,
- *   signer?: int,
- *   state?: bool,
+ *   label?: string|null,
+ *   label_extra?: string|null,
+ *   signer?: int|null,
+ *   state?: bool|null,
  *   validation?: null|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|25|26|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|90|91|92,
- *   value?: string,
+ *   value?: string|null,
  * }
  */
 final class DocumentGetFieldsResponseItem implements BaseModel
@@ -26,9 +26,9 @@ final class DocumentGetFieldsResponseItem implements BaseModel
     /** @use SdkModel<DocumentGetFieldsResponseItemShape> */
     use SdkModel;
 
-    /** @var value-of<ElementType>|null $elementType */
-    #[Api('element_type', enum: ElementType::class, optional: true)]
-    public ?string $elementType;
+    /** @var value-of<ElementType>|null $element_type */
+    #[Api(enum: ElementType::class, optional: true)]
+    public ?string $element_type;
 
     #[Api(nullable: true, optional: true)]
     public ?int $fieldorder;
@@ -36,8 +36,8 @@ final class DocumentGetFieldsResponseItem implements BaseModel
     #[Api(optional: true)]
     public ?string $label;
 
-    #[Api('label_extra', nullable: true, optional: true)]
-    public ?string $labelExtra;
+    #[Api(nullable: true, optional: true)]
+    public ?string $label_extra;
 
     #[Api(optional: true)]
     public ?int $signer;
@@ -150,14 +150,14 @@ final class DocumentGetFieldsResponseItem implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
-     * @param ElementType|value-of<ElementType> $elementType
+     * @param ElementType|value-of<ElementType> $element_type
      * @param 1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|25|26|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|90|91|92|null $validation
      */
     public static function with(
-        ElementType|string|null $elementType = null,
+        ElementType|string|null $element_type = null,
         ?int $fieldorder = null,
         ?string $label = null,
-        ?string $labelExtra = null,
+        ?string $label_extra = null,
         ?int $signer = null,
         ?bool $state = null,
         ?int $validation = null,
@@ -165,10 +165,10 @@ final class DocumentGetFieldsResponseItem implements BaseModel
     ): self {
         $obj = new self;
 
-        null !== $elementType && $obj['elementType'] = $elementType;
+        null !== $element_type && $obj['element_type'] = $element_type;
         null !== $fieldorder && $obj->fieldorder = $fieldorder;
         null !== $label && $obj->label = $label;
-        null !== $labelExtra && $obj->labelExtra = $labelExtra;
+        null !== $label_extra && $obj->label_extra = $label_extra;
         null !== $signer && $obj->signer = $signer;
         null !== $state && $obj->state = $state;
         null !== $validation && $obj->validation = $validation;
@@ -183,7 +183,7 @@ final class DocumentGetFieldsResponseItem implements BaseModel
     public function withElementType(ElementType|string $elementType): self
     {
         $obj = clone $this;
-        $obj['elementType'] = $elementType;
+        $obj['element_type'] = $elementType;
 
         return $obj;
     }
@@ -207,7 +207,7 @@ final class DocumentGetFieldsResponseItem implements BaseModel
     public function withLabelExtra(?string $labelExtra): self
     {
         $obj = clone $this;
-        $obj->labelExtra = $labelExtra;
+        $obj->label_extra = $labelExtra;
 
         return $obj;
     }

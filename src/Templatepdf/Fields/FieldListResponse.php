@@ -14,7 +14,7 @@ use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1;
 
 /**
  * @phpstan-type FieldListResponseShape = array{
- *   meta?: ListMeta, objects?: list<Object1>
+ *   meta?: ListMeta|null, objects?: list<Object1>|null
  * }
  */
 final class FieldListResponse implements BaseModel, ResponseConverter

@@ -13,7 +13,7 @@ use LegalesignSDK\Document\ListMeta;
 
 /**
  * @phpstan-type TemplatepdfListResponseShape = array{
- *   meta?: ListMeta, objects?: list<TemplatePdf>
+ *   meta?: ListMeta|null, objects?: list<TemplatePdf>|null
  * }
  */
 final class TemplatepdfListResponse implements BaseModel, ResponseConverter

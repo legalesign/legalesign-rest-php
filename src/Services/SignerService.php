@@ -13,8 +13,6 @@ use LegalesignSDK\Signer\SignerGetFieldsResponseItem;
 use LegalesignSDK\Signer\SignerGetResponse;
 use LegalesignSDK\Signer\SignerSendReminderParams;
 
-use const LegalesignSDK\Core\OMIT as omit;
-
 final class SignerService implements SignerContract
 {
     /**
@@ -89,35 +87,18 @@ final class SignerService implements SignerContract
      *
      * Send signer reminder email
      *
-     * @param string $text custom message text, html will be stripped
+     * @param array{text?: string}|SignerSendReminderParams $params
      *
      * @throws APIException
      */
     public function sendReminder(
         string $signerID,
-        $text = omit,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        $params = ['text' => $text];
-
-        return $this->sendReminderRaw($signerID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @param array<string, mixed> $params
-     *
-     * @throws APIException
-     */
-    public function sendReminderRaw(
-        string $signerID,
-        array $params,
-        ?RequestOptions $requestOptions = null
+        array|SignerSendReminderParams $params,
+        ?RequestOptions $requestOptions = null,
     ): mixed {
         [$parsed, $options] = SignerSendReminderParams::parseRequest(
             $params,
-            $requestOptions
+            $requestOptions,
         );
 
         // @phpstan-ignore-next-line;

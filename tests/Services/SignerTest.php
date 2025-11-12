@@ -69,7 +69,7 @@ final class SignerTest extends TestCase
             $this->markTestSkipped('Prism tests are disabled');
         }
 
-        $result = $this->client->signer->sendReminder('signerId');
+        $result = $this->client->signer->sendReminder('signerId', []);
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }

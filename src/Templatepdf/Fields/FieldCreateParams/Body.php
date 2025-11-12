@@ -17,24 +17,24 @@ use LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body\FontName;
  *   ay: float,
  *   bx: float,
  *   by: float,
- *   elementType: value-of<ElementType>,
+ *   element_type: value-of<ElementType>,
  *   page: int,
  *   signer: int,
  *   align?: null|1|2|3,
  *   fieldorder?: int|null,
- *   fontName?: value-of<FontName>,
- *   fontSize?: int,
- *   hideBorder?: bool,
- *   label?: string,
- *   labelExtra?: string,
- *   logicAction?: 1|2|3,
- *   logicGroup?: string,
- *   mapTo?: string,
- *   optional?: bool,
- *   options?: string,
- *   substantive?: bool,
+ *   font_name?: value-of<FontName>|null,
+ *   font_size?: int|null,
+ *   hide_border?: bool|null,
+ *   label?: string|null,
+ *   label_extra?: string|null,
+ *   logic_action?: null|1|2|3,
+ *   logic_group?: string|null,
+ *   map_to?: string|null,
+ *   optional?: bool|null,
+ *   options?: string|null,
+ *   substantive?: bool|null,
  *   validation?: null|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|25|26|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|90|91|92,
- *   value?: string,
+ *   value?: string|null,
  * }
  */
 final class Body implements BaseModel
@@ -69,10 +69,10 @@ final class Body implements BaseModel
     /**
      * Must be one of the following: * signature - signature field * initials - initials field  * text - signer field (field for signer to complete)  * admin - sender field (field to complete by admin user when sending, use pdftext).
      *
-     * @var value-of<ElementType> $elementType
+     * @var value-of<ElementType> $element_type
      */
-    #[Api('element_type', enum: ElementType::class)]
-    public string $elementType;
+    #[Api(enum: ElementType::class)]
+    public string $element_type;
 
     /**
      * which page to place field on.
@@ -103,15 +103,15 @@ final class Body implements BaseModel
     #[Api(nullable: true, optional: true)]
     public ?int $fieldorder;
 
-    /** @var value-of<FontName>|null $fontName */
-    #[Api('font_name', enum: FontName::class, optional: true)]
-    public ?string $fontName;
+    /** @var value-of<FontName>|null $font_name */
+    #[Api(enum: FontName::class, optional: true)]
+    public ?string $font_name;
 
-    #[Api('font_size', optional: true)]
-    public ?int $fontSize;
+    #[Api(optional: true)]
+    public ?int $font_size;
 
-    #[Api('hide_border', optional: true)]
-    public ?bool $hideBorder;
+    #[Api(optional: true)]
+    public ?bool $hide_border;
 
     /**
      * Help a signer/sender understand what to do with the form field.
@@ -124,8 +124,8 @@ final class Body implements BaseModel
      *
      * unused. more label if required
      */
-    #[Api('label_extra', optional: true)]
-    public ?string $labelExtra;
+    #[Api(optional: true)]
+    public ?string $label_extra;
 
     /**
      * offers options for more advanced forms
@@ -133,22 +133,22 @@ final class Body implements BaseModel
      *   2 = Sum a set of fields
      *   3 = Conditional upon another field.
      *
-     * @var 1|2|3|null $logicAction
+     * @var 1|2|3|null $logic_action
      */
-    #[Api('logic_action', optional: true)]
-    public ?int $logicAction;
+    #[Api(optional: true)]
+    public ?int $logic_action;
 
     /**
      * values to enable a given logic_action in the form.
      */
-    #[Api('logic_group', optional: true)]
-    public ?string $logicGroup;
+    #[Api(optional: true)]
+    public ?string $logic_group;
 
     /**
      * custom data for form integrations.
      */
-    #[Api('map_to', optional: true)]
-    public ?string $mapTo;
+    #[Api(optional: true)]
+    public ?string $map_to;
 
     /**
      * Set true to allow field to be ignored.
@@ -266,7 +266,7 @@ final class Body implements BaseModel
      * To enforce required parameters use
      * ```
      * Body::with(
-     *   ax: ..., ay: ..., bx: ..., by: ..., elementType: ..., page: ..., signer: ...
+     *   ax: ..., ay: ..., bx: ..., by: ..., element_type: ..., page: ..., signer: ...
      * )
      * ```
      *
@@ -293,10 +293,10 @@ final class Body implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
-     * @param ElementType|value-of<ElementType> $elementType
+     * @param ElementType|value-of<ElementType> $element_type
      * @param 1|2|3|null $align
-     * @param FontName|value-of<FontName> $fontName
-     * @param 1|2|3 $logicAction
+     * @param FontName|value-of<FontName> $font_name
+     * @param 1|2|3 $logic_action
      * @param 1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|25|26|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|90|91|92|null $validation
      */
     public static function with(
@@ -304,19 +304,19 @@ final class Body implements BaseModel
         float $ay,
         float $bx,
         float $by,
-        ElementType|string $elementType,
+        ElementType|string $element_type,
         int $page,
         int $signer,
         ?int $align = null,
         ?int $fieldorder = null,
-        FontName|string|null $fontName = null,
-        ?int $fontSize = null,
-        ?bool $hideBorder = null,
+        FontName|string|null $font_name = null,
+        ?int $font_size = null,
+        ?bool $hide_border = null,
         ?string $label = null,
-        ?string $labelExtra = null,
-        ?int $logicAction = null,
-        ?string $logicGroup = null,
-        ?string $mapTo = null,
+        ?string $label_extra = null,
+        ?int $logic_action = null,
+        ?string $logic_group = null,
+        ?string $map_to = null,
         ?bool $optional = null,
         ?string $options = null,
         ?bool $substantive = null,
@@ -329,20 +329,20 @@ final class Body implements BaseModel
         $obj->ay = $ay;
         $obj->bx = $bx;
         $obj->by = $by;
-        $obj['elementType'] = $elementType;
+        $obj['element_type'] = $element_type;
         $obj->page = $page;
         $obj->signer = $signer;
 
         null !== $align && $obj->align = $align;
         null !== $fieldorder && $obj->fieldorder = $fieldorder;
-        null !== $fontName && $obj['fontName'] = $fontName;
-        null !== $fontSize && $obj->fontSize = $fontSize;
-        null !== $hideBorder && $obj->hideBorder = $hideBorder;
+        null !== $font_name && $obj['font_name'] = $font_name;
+        null !== $font_size && $obj->font_size = $font_size;
+        null !== $hide_border && $obj->hide_border = $hide_border;
         null !== $label && $obj->label = $label;
-        null !== $labelExtra && $obj->labelExtra = $labelExtra;
-        null !== $logicAction && $obj->logicAction = $logicAction;
-        null !== $logicGroup && $obj->logicGroup = $logicGroup;
-        null !== $mapTo && $obj->mapTo = $mapTo;
+        null !== $label_extra && $obj->label_extra = $label_extra;
+        null !== $logic_action && $obj->logic_action = $logic_action;
+        null !== $logic_group && $obj->logic_group = $logic_group;
+        null !== $map_to && $obj->map_to = $map_to;
         null !== $optional && $obj->optional = $optional;
         null !== $options && $obj->options = $options;
         null !== $substantive && $obj->substantive = $substantive;
@@ -404,7 +404,7 @@ final class Body implements BaseModel
     public function withElementType(ElementType|string $elementType): self
     {
         $obj = clone $this;
-        $obj['elementType'] = $elementType;
+        $obj['element_type'] = $elementType;
 
         return $obj;
     }
@@ -464,7 +464,7 @@ final class Body implements BaseModel
     public function withFontName(FontName|string $fontName): self
     {
         $obj = clone $this;
-        $obj['fontName'] = $fontName;
+        $obj['font_name'] = $fontName;
 
         return $obj;
     }
@@ -472,7 +472,7 @@ final class Body implements BaseModel
     public function withFontSize(int $fontSize): self
     {
         $obj = clone $this;
-        $obj->fontSize = $fontSize;
+        $obj->font_size = $fontSize;
 
         return $obj;
     }
@@ -480,7 +480,7 @@ final class Body implements BaseModel
     public function withHideBorder(bool $hideBorder): self
     {
         $obj = clone $this;
-        $obj->hideBorder = $hideBorder;
+        $obj->hide_border = $hideBorder;
 
         return $obj;
     }
@@ -502,7 +502,7 @@ final class Body implements BaseModel
     public function withLabelExtra(string $labelExtra): self
     {
         $obj = clone $this;
-        $obj->labelExtra = $labelExtra;
+        $obj->label_extra = $labelExtra;
 
         return $obj;
     }
@@ -518,7 +518,7 @@ final class Body implements BaseModel
     public function withLogicAction(int $logicAction): self
     {
         $obj = clone $this;
-        $obj->logicAction = $logicAction;
+        $obj->logic_action = $logicAction;
 
         return $obj;
     }
@@ -529,7 +529,7 @@ final class Body implements BaseModel
     public function withLogicGroup(string $logicGroup): self
     {
         $obj = clone $this;
-        $obj->logicGroup = $logicGroup;
+        $obj->logic_group = $logicGroup;
 
         return $obj;
     }
@@ -540,7 +540,7 @@ final class Body implements BaseModel
     public function withMapTo(string $mapTo): self
     {
         $obj = clone $this;
-        $obj->mapTo = $mapTo;
+        $obj->map_to = $mapTo;
 
         return $obj;
     }

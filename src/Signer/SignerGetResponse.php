@@ -12,14 +12,14 @@ use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 
 /**
  * @phpstan-type SignerGetResponseShape = array{
- *   document?: string,
- *   email?: string,
- *   firstName?: string,
- *   hasFields?: bool,
- *   lastName?: string,
- *   order?: int,
- *   resourceUri?: string,
- *   status?: 4|5|10|15|20|30|35|39|40|50|60,
+ *   document?: string|null,
+ *   email?: string|null,
+ *   first_name?: string|null,
+ *   has_fields?: bool|null,
+ *   last_name?: string|null,
+ *   order?: int|null,
+ *   resource_uri?: string|null,
+ *   status?: null|4|5|10|15|20|30|35|39|40|50|60,
  * }
  */
 final class SignerGetResponse implements BaseModel, ResponseConverter
@@ -35,20 +35,20 @@ final class SignerGetResponse implements BaseModel, ResponseConverter
     #[Api(optional: true)]
     public ?string $email;
 
-    #[Api('first_name', optional: true)]
-    public ?string $firstName;
+    #[Api(optional: true)]
+    public ?string $first_name;
 
-    #[Api('has_fields', optional: true)]
-    public ?bool $hasFields;
+    #[Api(optional: true)]
+    public ?bool $has_fields;
 
-    #[Api('last_name', optional: true)]
-    public ?string $lastName;
+    #[Api(optional: true)]
+    public ?string $last_name;
 
     #[Api(optional: true)]
     public ?int $order;
 
-    #[Api('resource_uri', optional: true)]
-    public ?string $resourceUri;
+    #[Api(optional: true)]
+    public ?string $resource_uri;
 
     /**
      * Signer status options:
@@ -84,22 +84,22 @@ final class SignerGetResponse implements BaseModel, ResponseConverter
     public static function with(
         ?string $document = null,
         ?string $email = null,
-        ?string $firstName = null,
-        ?bool $hasFields = null,
-        ?string $lastName = null,
+        ?string $first_name = null,
+        ?bool $has_fields = null,
+        ?string $last_name = null,
         ?int $order = null,
-        ?string $resourceUri = null,
+        ?string $resource_uri = null,
         ?int $status = null,
     ): self {
         $obj = new self;
 
         null !== $document && $obj->document = $document;
         null !== $email && $obj->email = $email;
-        null !== $firstName && $obj->firstName = $firstName;
-        null !== $hasFields && $obj->hasFields = $hasFields;
-        null !== $lastName && $obj->lastName = $lastName;
+        null !== $first_name && $obj->first_name = $first_name;
+        null !== $has_fields && $obj->has_fields = $has_fields;
+        null !== $last_name && $obj->last_name = $last_name;
         null !== $order && $obj->order = $order;
-        null !== $resourceUri && $obj->resourceUri = $resourceUri;
+        null !== $resource_uri && $obj->resource_uri = $resource_uri;
         null !== $status && $obj->status = $status;
 
         return $obj;
@@ -124,7 +124,7 @@ final class SignerGetResponse implements BaseModel, ResponseConverter
     public function withFirstName(string $firstName): self
     {
         $obj = clone $this;
-        $obj->firstName = $firstName;
+        $obj->first_name = $firstName;
 
         return $obj;
     }
@@ -132,7 +132,7 @@ final class SignerGetResponse implements BaseModel, ResponseConverter
     public function withHasFields(bool $hasFields): self
     {
         $obj = clone $this;
-        $obj->hasFields = $hasFields;
+        $obj->has_fields = $hasFields;
 
         return $obj;
     }
@@ -140,7 +140,7 @@ final class SignerGetResponse implements BaseModel, ResponseConverter
     public function withLastName(string $lastName): self
     {
         $obj = clone $this;
-        $obj->lastName = $lastName;
+        $obj->last_name = $lastName;
 
         return $obj;
     }
@@ -156,7 +156,7 @@ final class SignerGetResponse implements BaseModel, ResponseConverter
     public function withResourceUri(string $resourceUri): self
     {
         $obj = clone $this;
-        $obj->resourceUri = $resourceUri;
+        $obj->resource_uri = $resourceUri;
 
         return $obj;
     }

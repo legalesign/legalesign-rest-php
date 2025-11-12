@@ -7,44 +7,22 @@ namespace LegalesignSDK\ServiceContracts;
 use LegalesignSDK\Core\Exceptions\APIException;
 use LegalesignSDK\RequestOptions;
 use LegalesignSDK\Templatepdf\TemplatePdf;
+use LegalesignSDK\Templatepdf\TemplatepdfCreateParams;
+use LegalesignSDK\Templatepdf\TemplatepdfListParams;
 use LegalesignSDK\Templatepdf\TemplatepdfListResponse;
-
-use const LegalesignSDK\Core\OMIT as omit;
 
 interface TemplatepdfContract
 {
     /**
      * @api
      *
-     * @param string $group
-     * @param string $pdfFile base64 encoded PDF file data
-     * @param bool $archiveUponSend archive PDF when sent
-     * @param bool $processTags
-     * @param string $title
-     * @param string $user assign to group member if not api user
+     * @param array<mixed>|TemplatepdfCreateParams $params
      *
      * @throws APIException
      */
     public function create(
-        $group,
-        $pdfFile,
-        $archiveUponSend = omit,
-        $processTags = omit,
-        $title = omit,
-        $user = omit,
+        array|TemplatepdfCreateParams $params,
         ?RequestOptions $requestOptions = null,
-    ): mixed;
-
-    /**
-     * @api
-     *
-     * @param array<string, mixed> $params
-     *
-     * @throws APIException
-     */
-    public function createRaw(
-        array $params,
-        ?RequestOptions $requestOptions = null
     ): mixed;
 
     /**
@@ -60,31 +38,13 @@ interface TemplatepdfContract
     /**
      * @api
      *
-     * @param string $archive
-     * @param string $group can be full resource_uri or only id
-     * @param int $limit Length of dataset to return. Use with offset query to iterate through results.
-     * @param int $offset Offset from start of dataset. Use with the limit query to iterate through dataset.
+     * @param array<mixed>|TemplatepdfListParams $params
      *
      * @throws APIException
      */
     public function list(
-        $archive = omit,
-        $group = omit,
-        $limit = omit,
-        $offset = omit,
+        array|TemplatepdfListParams $params,
         ?RequestOptions $requestOptions = null,
-    ): TemplatepdfListResponse;
-
-    /**
-     * @api
-     *
-     * @param array<string, mixed> $params
-     *
-     * @throws APIException
-     */
-    public function listRaw(
-        array $params,
-        ?RequestOptions $requestOptions = null
     ): TemplatepdfListResponse;
 
     /**

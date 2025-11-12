@@ -13,8 +13,6 @@ use LegalesignSDK\Group\GroupListResponse;
 use LegalesignSDK\RequestOptions;
 use LegalesignSDK\ServiceContracts\GroupContract;
 
-use const LegalesignSDK\Core\OMIT as omit;
-
 final class GroupService implements GroupContract
 {
     /**
@@ -27,35 +25,17 @@ final class GroupService implements GroupContract
      *
      * Create group
      *
-     * @param string $name
-     * @param bool $xframeAllow set to true if you want to embed your signing page
+     * @param array{name: string, xframe_allow?: bool}|GroupCreateParams $params
      *
      * @throws APIException
      */
     public function create(
-        $name,
-        $xframeAllow = omit,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        $params = ['name' => $name, 'xframeAllow' => $xframeAllow];
-
-        return $this->createRaw($params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @param array<string, mixed> $params
-     *
-     * @throws APIException
-     */
-    public function createRaw(
-        array $params,
+        array|GroupCreateParams $params,
         ?RequestOptions $requestOptions = null
     ): mixed {
         [$parsed, $options] = GroupCreateParams::parseRequest(
             $params,
-            $requestOptions
+            $requestOptions,
         );
 
         // @phpstan-ignore-next-line;
@@ -93,35 +73,17 @@ final class GroupService implements GroupContract
      *
      * List groups the api user belongs to
      *
-     * @param int $limit Length of dataset to return. Use with offset query to iterate through results.
-     * @param int $offset Offset from start of dataset. Use with the limit query to iterate through dataset.
+     * @param array{limit?: int, offset?: int}|GroupListParams $params
      *
      * @throws APIException
      */
     public function list(
-        $limit = omit,
-        $offset = omit,
-        ?RequestOptions $requestOptions = null
-    ): GroupListResponse {
-        $params = ['limit' => $limit, 'offset' => $offset];
-
-        return $this->listRaw($params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @param array<string, mixed> $params
-     *
-     * @throws APIException
-     */
-    public function listRaw(
-        array $params,
+        array|GroupListParams $params,
         ?RequestOptions $requestOptions = null
     ): GroupListResponse {
         [$parsed, $options] = GroupListParams::parseRequest(
             $params,
-            $requestOptions
+            $requestOptions,
         );
 
         // @phpstan-ignore-next-line;

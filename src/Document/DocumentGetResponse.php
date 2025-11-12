@@ -13,44 +13,44 @@ use LegalesignSDK\Core\Conversion\ListOf;
 
 /**
  * @phpstan-type DocumentGetResponseShape = array{
- *   archived?: bool,
- *   autoArchive?: bool,
- *   ccEmails?: string,
- *   created?: \DateTimeInterface,
- *   doEmail?: bool,
- *   downloadFinal?: bool,
- *   footer?: string,
- *   footerHeight?: int,
- *   group?: string,
- *   hasFields?: bool,
- *   hashValue?: string,
- *   header?: string,
- *   headerHeight?: int,
- *   modified?: \DateTimeInterface,
- *   name?: string,
- *   pdfPassword?: string,
- *   pdfPasswordType?: string,
- *   pdftext?: string,
- *   redirect?: string,
- *   resourceUri?: string,
- *   returnSignerLinks?: bool,
- *   signMouse?: bool,
- *   signTime?: \DateTimeInterface,
- *   signType?: bool,
- *   signUpload?: bool,
- *   signaturePlacement?: int,
- *   signatureType?: int,
- *   signers?: list<list<string>>,
- *   signersInOrder?: bool,
- *   status?: 10|20|30|40|50,
- *   tag?: string,
- *   tag1?: string,
- *   tag2?: string,
- *   template?: string,
- *   templatepdf?: string,
- *   text?: string,
- *   user?: string,
- *   uuid?: string,
+ *   archived?: bool|null,
+ *   auto_archive?: bool|null,
+ *   cc_emails?: string|null,
+ *   created?: \DateTimeInterface|null,
+ *   do_email?: bool|null,
+ *   download_final?: bool|null,
+ *   footer?: string|null,
+ *   footer_height?: int|null,
+ *   group?: string|null,
+ *   has_fields?: bool|null,
+ *   hash_value?: string|null,
+ *   header?: string|null,
+ *   header_height?: int|null,
+ *   modified?: \DateTimeInterface|null,
+ *   name?: string|null,
+ *   pdf_password?: string|null,
+ *   pdf_password_type?: string|null,
+ *   pdftext?: string|null,
+ *   redirect?: string|null,
+ *   resource_uri?: string|null,
+ *   return_signer_links?: bool|null,
+ *   sign_mouse?: bool|null,
+ *   sign_time?: \DateTimeInterface|null,
+ *   sign_type?: bool|null,
+ *   sign_upload?: bool|null,
+ *   signature_placement?: int|null,
+ *   signature_type?: int|null,
+ *   signers?: list<list<string>>|null,
+ *   signers_in_order?: bool|null,
+ *   status?: null|10|20|30|40|50,
+ *   tag?: string|null,
+ *   tag1?: string|null,
+ *   tag2?: string|null,
+ *   template?: string|null,
+ *   templatepdf?: string|null,
+ *   text?: string|null,
+ *   user?: string|null,
+ *   uuid?: string|null,
  * }
  */
 final class DocumentGetResponse implements BaseModel, ResponseConverter
@@ -66,26 +66,26 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     /**
      * Send document archive very soon after signing.
      */
-    #[Api('auto_archive', optional: true)]
-    public ?bool $autoArchive;
+    #[Api(optional: true)]
+    public ?bool $auto_archive;
 
     /**
      * who will be cc'd  with sender on email notification when signed.
      */
-    #[Api('cc_emails', optional: true)]
-    public ?string $ccEmails;
+    #[Api(optional: true)]
+    public ?string $cc_emails;
 
     #[Api(optional: true)]
     public ?\DateTimeInterface $created;
 
-    #[Api('do_email', optional: true)]
-    public ?bool $doEmail;
+    #[Api(optional: true)]
+    public ?bool $do_email;
 
     /**
      * Final PDF is available to download.
      */
-    #[Api('download_final', optional: true)]
-    public ?bool $downloadFinal;
+    #[Api(optional: true)]
+    public ?bool $download_final;
 
     /**
      * HTML docs - text for footer if used.
@@ -96,8 +96,8 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     /**
      * HTMl docs - px height of footer if used.
      */
-    #[Api('footer_height', optional: true)]
-    public ?int $footerHeight;
+    #[Api(optional: true)]
+    public ?int $footer_height;
 
     /**
      * Resource URI of group.
@@ -105,14 +105,14 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     #[Api(optional: true)]
     public ?string $group;
 
-    #[Api('has_fields', optional: true)]
-    public ?bool $hasFields;
+    #[Api(optional: true)]
+    public ?bool $has_fields;
 
     /**
      * SHA256 checksum of final doc, use this to validate your final PDF download.
      */
-    #[Api('hash_value', optional: true)]
-    public ?string $hashValue;
+    #[Api(optional: true)]
+    public ?string $hash_value;
 
     /**
      * HTML docs - text for header if used.
@@ -123,8 +123,8 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     /**
      * HTMl docs - px height of header if used.
      */
-    #[Api('header_height', optional: true)]
-    public ?int $headerHeight;
+    #[Api(optional: true)]
+    public ?int $header_height;
 
     #[Api(optional: true)]
     public ?\DateTimeInterface $modified;
@@ -135,14 +135,14 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     /**
      * PDF password if used and if save-able.
      */
-    #[Api('pdf_password', optional: true)]
-    public ?string $pdfPassword;
+    #[Api(optional: true)]
+    public ?string $pdf_password;
 
     /**
      * how pdf password is retained.
      */
-    #[Api('pdf_password_type', optional: true)]
-    public ?string $pdfPasswordType;
+    #[Api(optional: true)]
+    public ?string $pdf_password_type;
 
     /**
      * ignore this.
@@ -156,47 +156,47 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     #[Api(optional: true)]
     public ?string $redirect;
 
-    #[Api('resource_uri', optional: true)]
-    public ?string $resourceUri;
+    #[Api(optional: true)]
+    public ?string $resource_uri;
 
     /**
      * ignore.
      */
-    #[Api('return_signer_links', optional: true)]
-    public ?bool $returnSignerLinks;
+    #[Api(optional: true)]
+    public ?bool $return_signer_links;
 
     /**
      * legacy.
      */
-    #[Api('sign_mouse', optional: true)]
-    public ?bool $signMouse;
+    #[Api(optional: true)]
+    public ?bool $sign_mouse;
 
-    #[Api('sign_time', optional: true)]
-    public ?\DateTimeInterface $signTime;
-
-    /**
-     * legacy.
-     */
-    #[Api('sign_type', optional: true)]
-    public ?bool $signType;
+    #[Api(optional: true)]
+    public ?\DateTimeInterface $sign_time;
 
     /**
      * legacy.
      */
-    #[Api('sign_upload', optional: true)]
-    public ?bool $signUpload;
+    #[Api(optional: true)]
+    public ?bool $sign_type;
 
     /**
      * legacy.
      */
-    #[Api('signature_placement', optional: true)]
-    public ?int $signaturePlacement;
+    #[Api(optional: true)]
+    public ?bool $sign_upload;
+
+    /**
+     * legacy.
+     */
+    #[Api(optional: true)]
+    public ?int $signature_placement;
 
     /**
      * legacy - always 4.
      */
-    #[Api('signature_type', optional: true)]
-    public ?int $signatureType;
+    #[Api(optional: true)]
+    public ?int $signature_type;
 
     /**
      * nested arrays with signer details.
@@ -206,8 +206,8 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     #[Api(list: new ListOf('string'), optional: true)]
     public ?array $signers;
 
-    #[Api('signers_in_order', optional: true)]
-    public ?bool $signersInOrder;
+    #[Api(optional: true)]
+    public ?bool $signers_in_order;
 
     /**
      * Document status options:
@@ -276,34 +276,34 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
      */
     public static function with(
         ?bool $archived = null,
-        ?bool $autoArchive = null,
-        ?string $ccEmails = null,
+        ?bool $auto_archive = null,
+        ?string $cc_emails = null,
         ?\DateTimeInterface $created = null,
-        ?bool $doEmail = null,
-        ?bool $downloadFinal = null,
+        ?bool $do_email = null,
+        ?bool $download_final = null,
         ?string $footer = null,
-        ?int $footerHeight = null,
+        ?int $footer_height = null,
         ?string $group = null,
-        ?bool $hasFields = null,
-        ?string $hashValue = null,
+        ?bool $has_fields = null,
+        ?string $hash_value = null,
         ?string $header = null,
-        ?int $headerHeight = null,
+        ?int $header_height = null,
         ?\DateTimeInterface $modified = null,
         ?string $name = null,
-        ?string $pdfPassword = null,
-        ?string $pdfPasswordType = null,
+        ?string $pdf_password = null,
+        ?string $pdf_password_type = null,
         ?string $pdftext = null,
         ?string $redirect = null,
-        ?string $resourceUri = null,
-        ?bool $returnSignerLinks = null,
-        ?bool $signMouse = null,
-        ?\DateTimeInterface $signTime = null,
-        ?bool $signType = null,
-        ?bool $signUpload = null,
-        ?int $signaturePlacement = null,
-        ?int $signatureType = null,
+        ?string $resource_uri = null,
+        ?bool $return_signer_links = null,
+        ?bool $sign_mouse = null,
+        ?\DateTimeInterface $sign_time = null,
+        ?bool $sign_type = null,
+        ?bool $sign_upload = null,
+        ?int $signature_placement = null,
+        ?int $signature_type = null,
         ?array $signers = null,
-        ?bool $signersInOrder = null,
+        ?bool $signers_in_order = null,
         ?int $status = null,
         ?string $tag = null,
         ?string $tag1 = null,
@@ -317,34 +317,34 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
         $obj = new self;
 
         null !== $archived && $obj->archived = $archived;
-        null !== $autoArchive && $obj->autoArchive = $autoArchive;
-        null !== $ccEmails && $obj->ccEmails = $ccEmails;
+        null !== $auto_archive && $obj->auto_archive = $auto_archive;
+        null !== $cc_emails && $obj->cc_emails = $cc_emails;
         null !== $created && $obj->created = $created;
-        null !== $doEmail && $obj->doEmail = $doEmail;
-        null !== $downloadFinal && $obj->downloadFinal = $downloadFinal;
+        null !== $do_email && $obj->do_email = $do_email;
+        null !== $download_final && $obj->download_final = $download_final;
         null !== $footer && $obj->footer = $footer;
-        null !== $footerHeight && $obj->footerHeight = $footerHeight;
+        null !== $footer_height && $obj->footer_height = $footer_height;
         null !== $group && $obj->group = $group;
-        null !== $hasFields && $obj->hasFields = $hasFields;
-        null !== $hashValue && $obj->hashValue = $hashValue;
+        null !== $has_fields && $obj->has_fields = $has_fields;
+        null !== $hash_value && $obj->hash_value = $hash_value;
         null !== $header && $obj->header = $header;
-        null !== $headerHeight && $obj->headerHeight = $headerHeight;
+        null !== $header_height && $obj->header_height = $header_height;
         null !== $modified && $obj->modified = $modified;
         null !== $name && $obj->name = $name;
-        null !== $pdfPassword && $obj->pdfPassword = $pdfPassword;
-        null !== $pdfPasswordType && $obj->pdfPasswordType = $pdfPasswordType;
+        null !== $pdf_password && $obj->pdf_password = $pdf_password;
+        null !== $pdf_password_type && $obj->pdf_password_type = $pdf_password_type;
         null !== $pdftext && $obj->pdftext = $pdftext;
         null !== $redirect && $obj->redirect = $redirect;
-        null !== $resourceUri && $obj->resourceUri = $resourceUri;
-        null !== $returnSignerLinks && $obj->returnSignerLinks = $returnSignerLinks;
-        null !== $signMouse && $obj->signMouse = $signMouse;
-        null !== $signTime && $obj->signTime = $signTime;
-        null !== $signType && $obj->signType = $signType;
-        null !== $signUpload && $obj->signUpload = $signUpload;
-        null !== $signaturePlacement && $obj->signaturePlacement = $signaturePlacement;
-        null !== $signatureType && $obj->signatureType = $signatureType;
+        null !== $resource_uri && $obj->resource_uri = $resource_uri;
+        null !== $return_signer_links && $obj->return_signer_links = $return_signer_links;
+        null !== $sign_mouse && $obj->sign_mouse = $sign_mouse;
+        null !== $sign_time && $obj->sign_time = $sign_time;
+        null !== $sign_type && $obj->sign_type = $sign_type;
+        null !== $sign_upload && $obj->sign_upload = $sign_upload;
+        null !== $signature_placement && $obj->signature_placement = $signature_placement;
+        null !== $signature_type && $obj->signature_type = $signature_type;
         null !== $signers && $obj->signers = $signers;
-        null !== $signersInOrder && $obj->signersInOrder = $signersInOrder;
+        null !== $signers_in_order && $obj->signers_in_order = $signers_in_order;
         null !== $status && $obj->status = $status;
         null !== $tag && $obj->tag = $tag;
         null !== $tag1 && $obj->tag1 = $tag1;
@@ -372,7 +372,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withAutoArchive(bool $autoArchive): self
     {
         $obj = clone $this;
-        $obj->autoArchive = $autoArchive;
+        $obj->auto_archive = $autoArchive;
 
         return $obj;
     }
@@ -383,7 +383,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withCcEmails(string $ccEmails): self
     {
         $obj = clone $this;
-        $obj->ccEmails = $ccEmails;
+        $obj->cc_emails = $ccEmails;
 
         return $obj;
     }
@@ -399,7 +399,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withDoEmail(bool $doEmail): self
     {
         $obj = clone $this;
-        $obj->doEmail = $doEmail;
+        $obj->do_email = $doEmail;
 
         return $obj;
     }
@@ -410,7 +410,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withDownloadFinal(bool $downloadFinal): self
     {
         $obj = clone $this;
-        $obj->downloadFinal = $downloadFinal;
+        $obj->download_final = $downloadFinal;
 
         return $obj;
     }
@@ -432,7 +432,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withFooterHeight(int $footerHeight): self
     {
         $obj = clone $this;
-        $obj->footerHeight = $footerHeight;
+        $obj->footer_height = $footerHeight;
 
         return $obj;
     }
@@ -451,7 +451,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withHasFields(bool $hasFields): self
     {
         $obj = clone $this;
-        $obj->hasFields = $hasFields;
+        $obj->has_fields = $hasFields;
 
         return $obj;
     }
@@ -462,7 +462,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withHashValue(string $hashValue): self
     {
         $obj = clone $this;
-        $obj->hashValue = $hashValue;
+        $obj->hash_value = $hashValue;
 
         return $obj;
     }
@@ -484,7 +484,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withHeaderHeight(int $headerHeight): self
     {
         $obj = clone $this;
-        $obj->headerHeight = $headerHeight;
+        $obj->header_height = $headerHeight;
 
         return $obj;
     }
@@ -511,7 +511,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withPdfPassword(string $pdfPassword): self
     {
         $obj = clone $this;
-        $obj->pdfPassword = $pdfPassword;
+        $obj->pdf_password = $pdfPassword;
 
         return $obj;
     }
@@ -522,7 +522,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withPdfPasswordType(string $pdfPasswordType): self
     {
         $obj = clone $this;
-        $obj->pdfPasswordType = $pdfPasswordType;
+        $obj->pdf_password_type = $pdfPasswordType;
 
         return $obj;
     }
@@ -552,7 +552,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withResourceUri(string $resourceUri): self
     {
         $obj = clone $this;
-        $obj->resourceUri = $resourceUri;
+        $obj->resource_uri = $resourceUri;
 
         return $obj;
     }
@@ -563,7 +563,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withReturnSignerLinks(bool $returnSignerLinks): self
     {
         $obj = clone $this;
-        $obj->returnSignerLinks = $returnSignerLinks;
+        $obj->return_signer_links = $returnSignerLinks;
 
         return $obj;
     }
@@ -574,7 +574,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withSignMouse(bool $signMouse): self
     {
         $obj = clone $this;
-        $obj->signMouse = $signMouse;
+        $obj->sign_mouse = $signMouse;
 
         return $obj;
     }
@@ -582,7 +582,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withSignTime(\DateTimeInterface $signTime): self
     {
         $obj = clone $this;
-        $obj->signTime = $signTime;
+        $obj->sign_time = $signTime;
 
         return $obj;
     }
@@ -593,7 +593,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withSignType(bool $signType): self
     {
         $obj = clone $this;
-        $obj->signType = $signType;
+        $obj->sign_type = $signType;
 
         return $obj;
     }
@@ -604,7 +604,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withSignUpload(bool $signUpload): self
     {
         $obj = clone $this;
-        $obj->signUpload = $signUpload;
+        $obj->sign_upload = $signUpload;
 
         return $obj;
     }
@@ -615,7 +615,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withSignaturePlacement(int $signaturePlacement): self
     {
         $obj = clone $this;
-        $obj->signaturePlacement = $signaturePlacement;
+        $obj->signature_placement = $signaturePlacement;
 
         return $obj;
     }
@@ -626,7 +626,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withSignatureType(int $signatureType): self
     {
         $obj = clone $this;
-        $obj->signatureType = $signatureType;
+        $obj->signature_type = $signatureType;
 
         return $obj;
     }
@@ -647,7 +647,7 @@ final class DocumentGetResponse implements BaseModel, ResponseConverter
     public function withSignersInOrder(bool $signersInOrder): self
     {
         $obj = clone $this;
-        $obj->signersInOrder = $signersInOrder;
+        $obj->signers_in_order = $signersInOrder;
 
         return $obj;
     }

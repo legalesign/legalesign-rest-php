@@ -14,12 +14,10 @@ use LegalesignSDK\Templatepdf\TemplatepdfCreateParams;
 use LegalesignSDK\Templatepdf\TemplatepdfListParams;
 use LegalesignSDK\Templatepdf\TemplatepdfListResponse;
 
-use const LegalesignSDK\Core\OMIT as omit;
-
 final class TemplatepdfService implements TemplatepdfContract
 {
     /**
-     * @@api
+     * @api
      */
     public FieldsService $fields;
 
@@ -36,50 +34,24 @@ final class TemplatepdfService implements TemplatepdfContract
      *
      * Upload a PDF document you want to send to be signed
      *
-     * @param string $group
-     * @param string $pdfFile base64 encoded PDF file data
-     * @param bool $archiveUponSend archive PDF when sent
-     * @param bool $processTags
-     * @param string $title
-     * @param string $user assign to group member if not api user
+     * @param array{
+     *   group: string,
+     *   pdf_file: string,
+     *   archive_upon_send?: bool,
+     *   process_tags?: bool,
+     *   title?: string,
+     *   user?: string,
+     * }|TemplatepdfCreateParams $params
      *
      * @throws APIException
      */
     public function create(
-        $group,
-        $pdfFile,
-        $archiveUponSend = omit,
-        $processTags = omit,
-        $title = omit,
-        $user = omit,
+        array|TemplatepdfCreateParams $params,
         ?RequestOptions $requestOptions = null,
-    ): mixed {
-        $params = [
-            'group' => $group,
-            'pdfFile' => $pdfFile,
-            'archiveUponSend' => $archiveUponSend,
-            'processTags' => $processTags,
-            'title' => $title,
-            'user' => $user,
-        ];
-
-        return $this->createRaw($params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @param array<string, mixed> $params
-     *
-     * @throws APIException
-     */
-    public function createRaw(
-        array $params,
-        ?RequestOptions $requestOptions = null
     ): mixed {
         [$parsed, $options] = TemplatepdfCreateParams::parseRequest(
             $params,
-            $requestOptions
+            $requestOptions,
         );
 
         // @phpstan-ignore-next-line;
@@ -117,44 +89,19 @@ final class TemplatepdfService implements TemplatepdfContract
      *
      * Get PDF templates
      *
-     * @param string $archive
-     * @param string $group can be full resource_uri or only id
-     * @param int $limit Length of dataset to return. Use with offset query to iterate through results.
-     * @param int $offset Offset from start of dataset. Use with the limit query to iterate through dataset.
+     * @param array{
+     *   archive?: string, group?: string, limit?: int, offset?: int
+     * }|TemplatepdfListParams $params
      *
      * @throws APIException
      */
     public function list(
-        $archive = omit,
-        $group = omit,
-        $limit = omit,
-        $offset = omit,
-        ?RequestOptions $requestOptions = null,
-    ): TemplatepdfListResponse {
-        $params = [
-            'archive' => $archive,
-            'group' => $group,
-            'limit' => $limit,
-            'offset' => $offset,
-        ];
-
-        return $this->listRaw($params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @param array<string, mixed> $params
-     *
-     * @throws APIException
-     */
-    public function listRaw(
-        array $params,
+        array|TemplatepdfListParams $params,
         ?RequestOptions $requestOptions = null
     ): TemplatepdfListResponse {
         [$parsed, $options] = TemplatepdfListParams::parseRequest(
             $params,
-            $requestOptions
+            $requestOptions,
         );
 
         // @phpstan-ignore-next-line;
