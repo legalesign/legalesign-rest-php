@@ -33,10 +33,10 @@ final class TemplatepdfTest extends TestCase
             $this->markTestSkipped('Prism tests are disabled');
         }
 
-        $result = $this->client->templatepdf->create(
-            group: '/api/v1/group/IK-GV--w1tvt/',
-            pdfFile: 'U3RhaW5sZXNzIHJvY2tz'
-        );
+        $result = $this->client->templatepdf->create([
+            'group' => '/api/v1/group/IK-GV--w1tvt/',
+            'pdf_file' => 'U3RhaW5sZXNzIHJvY2tz',
+        ]);
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }
@@ -48,10 +48,10 @@ final class TemplatepdfTest extends TestCase
             $this->markTestSkipped('Prism tests are disabled');
         }
 
-        $result = $this->client->templatepdf->create(
-            group: '/api/v1/group/IK-GV--w1tvt/',
-            pdfFile: 'U3RhaW5sZXNzIHJvY2tz'
-        );
+        $result = $this->client->templatepdf->create([
+            'group' => '/api/v1/group/IK-GV--w1tvt/',
+            'pdf_file' => 'U3RhaW5sZXNzIHJvY2tz',
+        ]);
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }
@@ -77,7 +77,7 @@ final class TemplatepdfTest extends TestCase
             $this->markTestSkipped('Prism tests are disabled');
         }
 
-        $result = $this->client->templatepdf->list();
+        $result = $this->client->templatepdf->list([]);
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }

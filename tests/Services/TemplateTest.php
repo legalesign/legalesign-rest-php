@@ -33,11 +33,11 @@ final class TemplateTest extends TestCase
             $this->markTestSkipped('Prism tests are disabled');
         }
 
-        $result = $this->client->template->create(
-            group: '/api/v1/group/IK-GV--w1tvt/',
-            latestText: 'latest_text',
-            title: 'title',
-        );
+        $result = $this->client->template->create([
+            'group' => '/api/v1/group/IK-GV--w1tvt/',
+            'latest_text' => 'latest_text',
+            'title' => 'title',
+        ]);
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }
@@ -49,11 +49,11 @@ final class TemplateTest extends TestCase
             $this->markTestSkipped('Prism tests are disabled');
         }
 
-        $result = $this->client->template->create(
-            group: '/api/v1/group/IK-GV--w1tvt/',
-            latestText: 'latest_text',
-            title: 'title',
-        );
+        $result = $this->client->template->create([
+            'group' => '/api/v1/group/IK-GV--w1tvt/',
+            'latest_text' => 'latest_text',
+            'title' => 'title',
+        ]);
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }
@@ -81,7 +81,7 @@ final class TemplateTest extends TestCase
 
         $result = $this->client->template->update(
             '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-            'body'
+            ['body' => 'body']
         );
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
@@ -96,7 +96,7 @@ final class TemplateTest extends TestCase
 
         $result = $this->client->template->update(
             '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-            'body'
+            ['body' => 'body']
         );
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
@@ -109,7 +109,7 @@ final class TemplateTest extends TestCase
             $this->markTestSkipped('Prism tests are disabled');
         }
 
-        $result = $this->client->template->list();
+        $result = $this->client->template->list([]);
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }

@@ -33,7 +33,7 @@ final class GroupTest extends TestCase
             $this->markTestSkipped('Prism tests are disabled');
         }
 
-        $result = $this->client->group->create(name: 'xxxx');
+        $result = $this->client->group->create(['name' => 'xxxx']);
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }
@@ -45,7 +45,7 @@ final class GroupTest extends TestCase
             $this->markTestSkipped('Prism tests are disabled');
         }
 
-        $result = $this->client->group->create(name: 'xxxx');
+        $result = $this->client->group->create(['name' => 'xxxx']);
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }
@@ -69,7 +69,7 @@ final class GroupTest extends TestCase
             $this->markTestSkipped('Prism tests are disabled');
         }
 
-        $result = $this->client->group->list();
+        $result = $this->client->group->list([]);
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }

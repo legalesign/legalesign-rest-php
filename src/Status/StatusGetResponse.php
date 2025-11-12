@@ -13,13 +13,13 @@ use LegalesignSDK\Signer\SignerStatusEnum;
 
 /**
  * @phpstan-type StatusGetResponseShape = array{
- *   archived?: bool,
- *   downloadFinal?: bool,
- *   resourceUri?: string,
- *   status?: 4|5|10|15|20|30|35|39|40|50|60,
- *   tag?: string,
- *   tag1?: string,
- *   tag2?: string,
+ *   archived?: bool|null,
+ *   download_final?: bool|null,
+ *   resource_uri?: string|null,
+ *   status?: null|4|5|10|15|20|30|35|39|40|50|60,
+ *   tag?: string|null,
+ *   tag1?: string|null,
+ *   tag2?: string|null,
  * }
  */
 final class StatusGetResponse implements BaseModel, ResponseConverter
@@ -32,11 +32,11 @@ final class StatusGetResponse implements BaseModel, ResponseConverter
     #[Api(optional: true)]
     public ?bool $archived;
 
-    #[Api('download_final', optional: true)]
-    public ?bool $downloadFinal;
+    #[Api(optional: true)]
+    public ?bool $download_final;
 
-    #[Api('resource_uri', optional: true)]
-    public ?string $resourceUri;
+    #[Api(optional: true)]
+    public ?string $resource_uri;
 
     /**
      * Signer status options:
@@ -80,8 +80,8 @@ final class StatusGetResponse implements BaseModel, ResponseConverter
      */
     public static function with(
         ?bool $archived = null,
-        ?bool $downloadFinal = null,
-        ?string $resourceUri = null,
+        ?bool $download_final = null,
+        ?string $resource_uri = null,
         ?int $status = null,
         ?string $tag = null,
         ?string $tag1 = null,
@@ -90,8 +90,8 @@ final class StatusGetResponse implements BaseModel, ResponseConverter
         $obj = new self;
 
         null !== $archived && $obj->archived = $archived;
-        null !== $downloadFinal && $obj->downloadFinal = $downloadFinal;
-        null !== $resourceUri && $obj->resourceUri = $resourceUri;
+        null !== $download_final && $obj->download_final = $download_final;
+        null !== $resource_uri && $obj->resource_uri = $resource_uri;
         null !== $status && $obj->status = $status;
         null !== $tag && $obj->tag = $tag;
         null !== $tag1 && $obj->tag1 = $tag1;
@@ -111,7 +111,7 @@ final class StatusGetResponse implements BaseModel, ResponseConverter
     public function withDownloadFinal(bool $downloadFinal): self
     {
         $obj = clone $this;
-        $obj->downloadFinal = $downloadFinal;
+        $obj->download_final = $downloadFinal;
 
         return $obj;
     }
@@ -119,7 +119,7 @@ final class StatusGetResponse implements BaseModel, ResponseConverter
     public function withResourceUri(string $resourceUri): self
     {
         $obj = clone $this;
-        $obj->resourceUri = $resourceUri;
+        $obj->resource_uri = $resourceUri;
 
         return $obj;
     }

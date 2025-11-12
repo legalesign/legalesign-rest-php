@@ -24,35 +24,18 @@ final class FieldsService implements FieldsContract
      *
      * Replace existing pdf fields with new ones
      *
-     * @param list<Body> $body
+     * @param list<Body> $params
      *
      * @throws APIException
      */
     public function create(
-        string $pdfID,
-        $body,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        $params = ['body' => $body];
-
-        return $this->createRaw($pdfID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @param array<string, mixed> $params
-     *
-     * @throws APIException
-     */
-    public function createRaw(
         string $pdfID,
         array $params,
         ?RequestOptions $requestOptions = null
     ): mixed {
         [$parsed, $options] = FieldCreateParams::parseRequest(
             $params,
-            $requestOptions
+            $requestOptions,
         );
 
         // @phpstan-ignore-next-line;

@@ -8,8 +8,7 @@ use LegalesignSDK\Core\Exceptions\APIException;
 use LegalesignSDK\RequestOptions;
 use LegalesignSDK\Signer\SignerGetFieldsResponseItem;
 use LegalesignSDK\Signer\SignerGetResponse;
-
-use const LegalesignSDK\Core\OMIT as omit;
+use LegalesignSDK\Signer\SignerSendReminderParams;
 
 interface SignerContract
 {
@@ -48,26 +47,13 @@ interface SignerContract
     /**
      * @api
      *
-     * @param string $text custom message text, html will be stripped
+     * @param array<mixed>|SignerSendReminderParams $params
      *
      * @throws APIException
      */
     public function sendReminder(
         string $signerID,
-        $text = omit,
-        ?RequestOptions $requestOptions = null
-    ): mixed;
-
-    /**
-     * @api
-     *
-     * @param array<string, mixed> $params
-     *
-     * @throws APIException
-     */
-    public function sendReminderRaw(
-        string $signerID,
-        array $params,
-        ?RequestOptions $requestOptions = null
+        array|SignerSendReminderParams $params,
+        ?RequestOptions $requestOptions = null,
     ): mixed;
 }

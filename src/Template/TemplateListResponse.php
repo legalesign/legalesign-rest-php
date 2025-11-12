@@ -14,7 +14,7 @@ use LegalesignSDK\Template\TemplateListResponse\Object1;
 
 /**
  * @phpstan-type TemplateListResponseShape = array{
- *   meta?: ListMeta, objects?: list<Object1>
+ *   meta?: ListMeta|null, objects?: list<Object1>|null
  * }
  */
 final class TemplateListResponse implements BaseModel, ResponseConverter

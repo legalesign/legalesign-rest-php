@@ -13,7 +13,7 @@ use LegalesignSDK\Document\DocumentListResponse\Object1;
 
 /**
  * @phpstan-type DocumentListResponseShape = array{
- *   meta?: ListMeta, objects?: list<Object1>
+ *   meta?: ListMeta|null, objects?: list<Object1>|null
  * }
  */
 final class DocumentListResponse implements BaseModel, ResponseConverter

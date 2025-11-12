@@ -14,7 +14,7 @@ use LegalesignSDK\Group\GroupListResponse\Object1;
 
 /**
  * @phpstan-type GroupListResponseShape = array{
- *   meta?: ListMeta, objects?: list<Object1>
+ *   meta?: ListMeta|null, objects?: list<Object1>|null
  * }
  */
 final class GroupListResponse implements BaseModel, ResponseConverter

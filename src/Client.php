@@ -96,7 +96,7 @@ class Client extends BaseClient
         $this->templatepdf = new TemplatepdfService($this);
     }
 
-    /** @return array<string, string> */
+    /** @return array<string,string> */
     protected function authHeaders(): array
     {
         return $this->apiKey ? ['Authorization' => $this->apiKey] : [];

@@ -12,23 +12,23 @@ use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 
 /**
  * @phpstan-type GroupGetResponseShape = array{
- *   created?: \DateTimeInterface,
- *   defaultEmail?: string,
- *   defaultExtraemail?: string,
- *   footer?: string,
- *   footerHeight?: int,
- *   header?: string,
- *   isActive?: bool,
- *   members?: list<string>,
- *   modified?: \DateTimeInterface,
- *   name?: string,
- *   pagesize?: int,
- *   publicName?: string,
- *   resourceUri?: string,
- *   slug?: string,
- *   user?: string,
- *   xframeAllow?: bool,
- *   xframeAllowPdfEdit?: bool,
+ *   created?: \DateTimeInterface|null,
+ *   default_email?: string|null,
+ *   default_extraemail?: string|null,
+ *   footer?: string|null,
+ *   footer_height?: int|null,
+ *   header?: string|null,
+ *   is_active?: bool|null,
+ *   members?: list<string>|null,
+ *   modified?: \DateTimeInterface|null,
+ *   name?: string|null,
+ *   pagesize?: int|null,
+ *   public_name?: string|null,
+ *   resource_uri?: string|null,
+ *   slug?: string|null,
+ *   user?: string|null,
+ *   xframe_allow?: bool|null,
+ *   xframe_allow_pdf_edit?: bool|null,
  * }
  */
 final class GroupGetResponse implements BaseModel, ResponseConverter
@@ -41,11 +41,11 @@ final class GroupGetResponse implements BaseModel, ResponseConverter
     #[Api(optional: true)]
     public ?\DateTimeInterface $created;
 
-    #[Api('default_email', optional: true)]
-    public ?string $defaultEmail;
+    #[Api(optional: true)]
+    public ?string $default_email;
 
-    #[Api('default_extraemail', optional: true)]
-    public ?string $defaultExtraemail;
+    #[Api(optional: true)]
+    public ?string $default_extraemail;
 
     /**
      * html of content.
@@ -53,14 +53,14 @@ final class GroupGetResponse implements BaseModel, ResponseConverter
     #[Api(optional: true)]
     public ?string $footer;
 
-    #[Api('footer_height', optional: true)]
-    public ?int $footerHeight;
+    #[Api(optional: true)]
+    public ?int $footer_height;
 
     #[Api(optional: true)]
     public ?string $header;
 
-    #[Api('is_active', optional: true)]
-    public ?bool $isActive;
+    #[Api(optional: true)]
+    public ?bool $is_active;
 
     /**
      * list of members uris.
@@ -79,11 +79,11 @@ final class GroupGetResponse implements BaseModel, ResponseConverter
     #[Api(optional: true)]
     public ?int $pagesize;
 
-    #[Api('public_name', optional: true)]
-    public ?string $publicName;
+    #[Api(optional: true)]
+    public ?string $public_name;
 
-    #[Api('resource_uri', optional: true)]
-    public ?string $resourceUri;
+    #[Api(optional: true)]
+    public ?string $resource_uri;
 
     #[Api(optional: true)]
     public ?string $slug;
@@ -91,11 +91,11 @@ final class GroupGetResponse implements BaseModel, ResponseConverter
     #[Api(optional: true)]
     public ?string $user;
 
-    #[Api('xframe_allow', optional: true)]
-    public ?bool $xframeAllow;
+    #[Api(optional: true)]
+    public ?bool $xframe_allow;
 
-    #[Api('xframe_allow_pdf_edit', optional: true)]
-    public ?bool $xframeAllowPdfEdit;
+    #[Api(optional: true)]
+    public ?bool $xframe_allow_pdf_edit;
 
     public function __construct()
     {
@@ -111,42 +111,42 @@ final class GroupGetResponse implements BaseModel, ResponseConverter
      */
     public static function with(
         ?\DateTimeInterface $created = null,
-        ?string $defaultEmail = null,
-        ?string $defaultExtraemail = null,
+        ?string $default_email = null,
+        ?string $default_extraemail = null,
         ?string $footer = null,
-        ?int $footerHeight = null,
+        ?int $footer_height = null,
         ?string $header = null,
-        ?bool $isActive = null,
+        ?bool $is_active = null,
         ?array $members = null,
         ?\DateTimeInterface $modified = null,
         ?string $name = null,
         ?int $pagesize = null,
-        ?string $publicName = null,
-        ?string $resourceUri = null,
+        ?string $public_name = null,
+        ?string $resource_uri = null,
         ?string $slug = null,
         ?string $user = null,
-        ?bool $xframeAllow = null,
-        ?bool $xframeAllowPdfEdit = null,
+        ?bool $xframe_allow = null,
+        ?bool $xframe_allow_pdf_edit = null,
     ): self {
         $obj = new self;
 
         null !== $created && $obj->created = $created;
-        null !== $defaultEmail && $obj->defaultEmail = $defaultEmail;
-        null !== $defaultExtraemail && $obj->defaultExtraemail = $defaultExtraemail;
+        null !== $default_email && $obj->default_email = $default_email;
+        null !== $default_extraemail && $obj->default_extraemail = $default_extraemail;
         null !== $footer && $obj->footer = $footer;
-        null !== $footerHeight && $obj->footerHeight = $footerHeight;
+        null !== $footer_height && $obj->footer_height = $footer_height;
         null !== $header && $obj->header = $header;
-        null !== $isActive && $obj->isActive = $isActive;
+        null !== $is_active && $obj->is_active = $is_active;
         null !== $members && $obj->members = $members;
         null !== $modified && $obj->modified = $modified;
         null !== $name && $obj->name = $name;
         null !== $pagesize && $obj->pagesize = $pagesize;
-        null !== $publicName && $obj->publicName = $publicName;
-        null !== $resourceUri && $obj->resourceUri = $resourceUri;
+        null !== $public_name && $obj->public_name = $public_name;
+        null !== $resource_uri && $obj->resource_uri = $resource_uri;
         null !== $slug && $obj->slug = $slug;
         null !== $user && $obj->user = $user;
-        null !== $xframeAllow && $obj->xframeAllow = $xframeAllow;
-        null !== $xframeAllowPdfEdit && $obj->xframeAllowPdfEdit = $xframeAllowPdfEdit;
+        null !== $xframe_allow && $obj->xframe_allow = $xframe_allow;
+        null !== $xframe_allow_pdf_edit && $obj->xframe_allow_pdf_edit = $xframe_allow_pdf_edit;
 
         return $obj;
     }
@@ -162,7 +162,7 @@ final class GroupGetResponse implements BaseModel, ResponseConverter
     public function withDefaultEmail(string $defaultEmail): self
     {
         $obj = clone $this;
-        $obj->defaultEmail = $defaultEmail;
+        $obj->default_email = $defaultEmail;
 
         return $obj;
     }
@@ -170,7 +170,7 @@ final class GroupGetResponse implements BaseModel, ResponseConverter
     public function withDefaultExtraemail(string $defaultExtraemail): self
     {
         $obj = clone $this;
-        $obj->defaultExtraemail = $defaultExtraemail;
+        $obj->default_extraemail = $defaultExtraemail;
 
         return $obj;
     }
@@ -189,7 +189,7 @@ final class GroupGetResponse implements BaseModel, ResponseConverter
     public function withFooterHeight(int $footerHeight): self
     {
         $obj = clone $this;
-        $obj->footerHeight = $footerHeight;
+        $obj->footer_height = $footerHeight;
 
         return $obj;
     }
@@ -205,7 +205,7 @@ final class GroupGetResponse implements BaseModel, ResponseConverter
     public function withIsActive(bool $isActive): self
     {
         $obj = clone $this;
-        $obj->isActive = $isActive;
+        $obj->is_active = $isActive;
 
         return $obj;
     }
@@ -250,7 +250,7 @@ final class GroupGetResponse implements BaseModel, ResponseConverter
     public function withPublicName(string $publicName): self
     {
         $obj = clone $this;
-        $obj->publicName = $publicName;
+        $obj->public_name = $publicName;
 
         return $obj;
     }
@@ -258,7 +258,7 @@ final class GroupGetResponse implements BaseModel, ResponseConverter
     public function withResourceUri(string $resourceUri): self
     {
         $obj = clone $this;
-        $obj->resourceUri = $resourceUri;
+        $obj->resource_uri = $resourceUri;
 
         return $obj;
     }
@@ -282,7 +282,7 @@ final class GroupGetResponse implements BaseModel, ResponseConverter
     public function withXframeAllow(bool $xframeAllow): self
     {
         $obj = clone $this;
-        $obj->xframeAllow = $xframeAllow;
+        $obj->xframe_allow = $xframeAllow;
 
         return $obj;
     }
@@ -290,7 +290,7 @@ final class GroupGetResponse implements BaseModel, ResponseConverter
     public function withXframeAllowPdfEdit(bool $xframeAllowPdfEdit): self
     {
         $obj = clone $this;
-        $obj->xframeAllowPdfEdit = $xframeAllowPdfEdit;
+        $obj->xframe_allow_pdf_edit = $xframeAllowPdfEdit;
 
         return $obj;
     }

@@ -14,24 +14,11 @@ interface FieldsContract
     /**
      * @api
      *
-     * @param list<Body> $body
+     * @param list<Body> $params
      *
      * @throws APIException
      */
     public function create(
-        string $pdfID,
-        $body,
-        ?RequestOptions $requestOptions = null
-    ): mixed;
-
-    /**
-     * @api
-     *
-     * @param array<string, mixed> $params
-     *
-     * @throws APIException
-     */
-    public function createRaw(
         string $pdfID,
         array $params,
         ?RequestOptions $requestOptions = null

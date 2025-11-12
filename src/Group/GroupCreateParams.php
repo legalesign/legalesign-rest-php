@@ -14,7 +14,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  *
  * @see LegalesignSDK\Group->create
  *
- * @phpstan-type GroupCreateParamsShape = array{name: string, xframeAllow?: bool}
+ * @phpstan-type GroupCreateParamsShape = array{name: string, xframe_allow?: bool}
  */
 final class GroupCreateParams implements BaseModel
 {
@@ -28,8 +28,8 @@ final class GroupCreateParams implements BaseModel
     /**
      * Set to true if you want to embed your signing page.
      */
-    #[Api('xframe_allow', optional: true)]
-    public ?bool $xframeAllow;
+    #[Api(optional: true)]
+    public ?bool $xframe_allow;
 
     /**
      * `new GroupCreateParams()` is missing required properties by the API.
@@ -55,13 +55,13 @@ final class GroupCreateParams implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      */
-    public static function with(string $name, ?bool $xframeAllow = null): self
+    public static function with(string $name, ?bool $xframe_allow = null): self
     {
         $obj = new self;
 
         $obj->name = $name;
 
-        null !== $xframeAllow && $obj->xframeAllow = $xframeAllow;
+        null !== $xframe_allow && $obj->xframe_allow = $xframe_allow;
 
         return $obj;
     }
@@ -80,7 +80,7 @@ final class GroupCreateParams implements BaseModel
     public function withXframeAllow(bool $xframeAllow): self
     {
         $obj = clone $this;
-        $obj->xframeAllow = $xframeAllow;
+        $obj->xframe_allow = $xframeAllow;
 
         return $obj;
     }
