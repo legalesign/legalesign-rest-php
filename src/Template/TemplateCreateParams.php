@@ -12,7 +12,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 /**
  * Create a new html/text template. This probably isn't the method you are looking for. You can use the 'text' attribute in /document/ to create and send your HTML as a signing document in one call.
  *
- * @see LegalesignSDK\Template->create
+ * @see LegalesignSDK\Services\TemplateService::create()
  *
  * @phpstan-type TemplateCreateParamsShape = array{
  *   group: string, latest_text: string, title: string, user?: string

@@ -12,7 +12,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 /**
  * List groups the api user belongs to.
  *
- * @see LegalesignSDK\Group->list
+ * @see LegalesignSDK\Services\GroupService::list()
  *
  * @phpstan-type GroupListParamsShape = array{limit?: int, offset?: int}
  */

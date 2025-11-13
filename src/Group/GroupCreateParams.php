@@ -12,7 +12,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 /**
  * Create group.
  *
- * @see LegalesignSDK\Group->create
+ * @see LegalesignSDK\Services\GroupService::create()
  *
  * @phpstan-type GroupCreateParamsShape = array{name: string, xframe_allow?: bool}
  */

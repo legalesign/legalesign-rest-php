@@ -13,7 +13,7 @@ use LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body;
 /**
  * Replace existing pdf fields with new ones.
  *
- * @see LegalesignSDK\Templatepdf\Fields->create
+ * @see LegalesignSDK\Services\Templatepdf\FieldsService::create()
  *
  * @phpstan-type FieldCreateParamsShape = array{body: list<Body>}
  */

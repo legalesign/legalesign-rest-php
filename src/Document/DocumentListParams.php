@@ -12,7 +12,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 /**
  * List (unarchived) signing documents. Use /status/ if you need high-level information.
  *
- * @see LegalesignSDK\Document->list
+ * @see LegalesignSDK\Services\DocumentService::list()
  *
  * @phpstan-type DocumentListParamsShape = array{
  *   group: string,

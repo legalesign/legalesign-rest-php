@@ -12,7 +12,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 /**
  * Update text template.
  *
- * @see LegalesignSDK\Template->update
+ * @see LegalesignSDK\Services\TemplateService::update()
  *
  * @phpstan-type TemplateUpdateParamsShape = array{body: string}
  */

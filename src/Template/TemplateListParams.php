@@ -12,7 +12,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 /**
  * Get text templates.
  *
- * @see LegalesignSDK\Template->list
+ * @see LegalesignSDK\Services\TemplateService::list()
  *
  * @phpstan-type TemplateListParamsShape = array{
  *   archive?: string, group?: string, limit?: int, offset?: int
