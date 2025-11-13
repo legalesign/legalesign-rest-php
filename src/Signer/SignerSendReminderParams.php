@@ -12,7 +12,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 /**
  * Send signer reminder email.
  *
- * @see LegalesignSDK\Signer->sendReminder
+ * @see LegalesignSDK\Services\SignerService::sendReminder()
  *
  * @phpstan-type SignerSendReminderParamsShape = array{text?: string}
  */

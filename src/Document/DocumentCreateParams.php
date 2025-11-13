@@ -13,7 +13,7 @@ use LegalesignSDK\Document\DocumentCreateParams\Signer;
 /**
  * Create signing document.
  *
- * @see LegalesignSDK\Document->create
+ * @see LegalesignSDK\Services\DocumentService::create()
  *
  * @phpstan-type DocumentCreateParamsShape = array{
  *   group: string,

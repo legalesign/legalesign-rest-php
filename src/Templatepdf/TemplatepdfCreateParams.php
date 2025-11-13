@@ -12,7 +12,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 /**
  * Upload a PDF document you want to send to be signed.
  *
- * @see LegalesignSDK\Templatepdf->create
+ * @see LegalesignSDK\Services\TemplatepdfService::create()
  *
  * @phpstan-type TemplatepdfCreateParamsShape = array{
  *   group: string,

@@ -12,7 +12,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
 /**
  * Get PDF templates.
  *
- * @see LegalesignSDK\Templatepdf->list
+ * @see LegalesignSDK\Services\TemplatepdfService::list()
  *
  * @phpstan-type TemplatepdfListParamsShape = array{
  *   archive?: string, group?: string, limit?: int, offset?: int
