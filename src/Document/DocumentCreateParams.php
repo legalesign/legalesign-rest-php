@@ -8,48 +8,36 @@ use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
 use LegalesignSDK\Core\Concerns\SdkParams;
 use LegalesignSDK\Core\Contracts\BaseModel;
-use LegalesignSDK\Document\DocumentCreateParams\PdfPasswordType;
 use LegalesignSDK\Document\DocumentCreateParams\Signer;
 
 /**
- * An object containing the method's parameters.
- * Example usage:
- * ```
- * $params = (new DocumentCreateParams); // set properties as needed
- * $client->document->create(...$params->toArray());
- * ```
  * Create signing document.
  *
- * @method toArray()
- *   Returns the parameters as an associative array suitable for passing to the client method.
+ * @see LegalesignSDK\Services\DocumentService::create()
  *
- *   `$client->document->create(...$params->toArray());`
- *
- * @see LegalesignSDK\Document->create
- *
- * @phpstan-type document_create_params = array{
+ * @phpstan-type DocumentCreateParamsShape = array{
  *   group: string,
  *   name: string,
  *   signers: list<Signer>,
- *   appendPdf?: bool,
- *   autoArchive?: bool,
- *   ccEmails?: string,
- *   convertSenderToSigner?: bool,
- *   doEmail?: bool,
+ *   append_pdf?: bool,
+ *   auto_archive?: bool,
+ *   cc_emails?: string,
+ *   convert_sender_to_signer?: bool,
+ *   do_email?: bool,
  *   footer?: string,
- *   footerHeight?: int,
+ *   footer_height?: int,
  *   header?: string,
- *   headerHeight?: int,
- *   pdfPassword?: string,
- *   pdfPasswordType?: PdfPasswordType|value-of<PdfPasswordType>,
- *   pdftext?: array<string, string>,
+ *   header_height?: int,
+ *   pdf_password?: string,
+ *   pdf_password_type?: 1|2,
+ *   pdftext?: array<string,string>,
  *   redirect?: string,
  *   reminders?: string,
- *   returnSignerLinks?: bool,
- *   signatureType?: int,
- *   signersInOrder?: bool,
- *   signertext?: array<string, string>,
- *   strictFields?: bool,
+ *   return_signer_links?: bool,
+ *   signature_type?: int,
+ *   signers_in_order?: bool,
+ *   signertext?: array<string,string>,
+ *   strict_fields?: bool,
  *   tag?: string,
  *   tag1?: string,
  *   tag2?: string,
@@ -61,7 +49,7 @@ use LegalesignSDK\Document\DocumentCreateParams\Signer;
  */
 final class DocumentCreateParams implements BaseModel
 {
-    /** @use SdkModel<document_create_params> */
+    /** @use SdkModel<DocumentCreateParamsShape> */
     use SdkModel;
     use SdkParams;
 
@@ -78,32 +66,32 @@ final class DocumentCreateParams implements BaseModel
     /**
      * Append Legalesign validation info to final PDF. If not included uses the group default.
      */
-    #[Api('append_pdf', optional: true)]
-    public ?bool $appendPdf;
+    #[Api(optional: true)]
+    public ?bool $append_pdf;
 
     /**
      * Send to archive soon after signing. Keeps web app clutter free.
      */
-    #[Api('auto_archive', optional: true)]
-    public ?bool $autoArchive;
+    #[Api(optional: true)]
+    public ?bool $auto_archive;
 
     /**
      * Comma delimited string of email addresses that are notified of signing or rejection.
      */
-    #[Api('cc_emails', optional: true)]
-    public ?string $ccEmails;
+    #[Api(optional: true)]
+    public ?string $cc_emails;
 
     /**
      * If any sender fields are left blank, convert them to fields for the first recipient.
      */
-    #[Api('convert_sender_to_signer', optional: true)]
-    public ?bool $convertSenderToSigner;
+    #[Api(optional: true)]
+    public ?bool $convert_sender_to_signer;
 
     /**
      * Use Legalesign email to send notification emails. If false suppresses all emails.
      */
-    #[Api('do_email', optional: true)]
-    public ?bool $doEmail;
+    #[Api(optional: true)]
+    public ?bool $do_email;
 
     /**
      * Text doc only. The footer for the final pdf. Use keyword \"default\" to use group default footer.
@@ -114,8 +102,8 @@ final class DocumentCreateParams implements BaseModel
     /**
      * Text based doc only. Pixel height of PDF footer, if used. 1px = 0.025cm.
      */
-    #[Api('footer_height', optional: true)]
-    public ?int $footerHeight;
+    #[Api(optional: true)]
+    public ?int $footer_height;
 
     /**
      * Text based doc only. The header for the final pdf. Use keyword \"default\" to use group header footer.
@@ -126,27 +114,27 @@ final class DocumentCreateParams implements BaseModel
     /**
      * Text based doc only. Pixel height of final PDF footer, if used. 1px = 0.025cm.
      */
-    #[Api('header_height', optional: true)]
-    public ?int $headerHeight;
+    #[Api(optional: true)]
+    public ?int $header_height;
 
     /**
      * Set a password. Must be ascii encode-able, you must also set signature_type to 4 and choose a pdf_password_type.
      */
-    #[Api('pdf_password', optional: true)]
-    public ?string $pdfPassword;
+    #[Api(optional: true)]
+    public ?string $pdf_password;
 
     /**
      * 1 to store password, 2 for to delete from our records upon final signing.
      *
-     * @var value-of<PdfPasswordType>|null $pdfPasswordType
+     * @var 1|2|null $pdf_password_type
      */
-    #[Api('pdf_password_type', enum: PdfPasswordType::class, optional: true)]
-    public ?int $pdfPasswordType;
+    #[Api(optional: true)]
+    public ?int $pdf_password_type;
 
     /**
      * Assign values to PDF sender fields, use field labels as keys. Requires unique fields labels. See also strict_fields.
      *
-     * @var array<string, string>|null $pdftext
+     * @var array<string,string>|null $pdftext
      */
     #[Api(map: 'string', optional: true)]
     public ?array $pdftext;
@@ -166,25 +154,25 @@ final class DocumentCreateParams implements BaseModel
     /**
      * Return document links for signers in the response BODY.
      */
-    #[Api('return_signer_links', optional: true)]
-    public ?bool $returnSignerLinks;
+    #[Api(optional: true)]
+    public ?bool $return_signer_links;
 
     /**
      * Use 4 to get your executed PDF Certified. Recommended. Defaults to 1 (uses a sha256 hash for document integrity).
      */
-    #[Api('signature_type', optional: true)]
-    public ?int $signatureType;
+    #[Api(optional: true)]
+    public ?int $signature_type;
 
     /**
      * Notify signers in their order sequence. If false all are notified simulataneously.
      */
-    #[Api('signers_in_order', optional: true)]
-    public ?bool $signersInOrder;
+    #[Api(optional: true)]
+    public ?bool $signers_in_order;
 
     /**
      * Add custom placeholders to signer fields, using labels as keys in an object (as for pdftext). Relies on unique labelling.
      *
-     * @var array<string, string>|null $signertext
+     * @var array<string,string>|null $signertext
      */
     #[Api(map: 'string', optional: true)]
     public ?array $signertext;
@@ -192,8 +180,8 @@ final class DocumentCreateParams implements BaseModel
     /**
      * pdftext fails silently for invalid field value, set to true to return an error.
      */
-    #[Api('strict_fields', optional: true)]
-    public ?bool $strictFields;
+    #[Api(optional: true)]
+    public ?bool $strict_fields;
 
     #[Api(optional: true)]
     public ?string $tag;
@@ -253,33 +241,33 @@ final class DocumentCreateParams implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      *
      * @param list<Signer> $signers
-     * @param PdfPasswordType|value-of<PdfPasswordType> $pdfPasswordType
-     * @param array<string, string> $pdftext
-     * @param array<string, string> $signertext
+     * @param 1|2 $pdf_password_type
+     * @param array<string,string> $pdftext
+     * @param array<string,string> $signertext
      */
     public static function with(
         string $group,
         string $name,
         array $signers,
-        ?bool $appendPdf = null,
-        ?bool $autoArchive = null,
-        ?string $ccEmails = null,
-        ?bool $convertSenderToSigner = null,
-        ?bool $doEmail = null,
+        ?bool $append_pdf = null,
+        ?bool $auto_archive = null,
+        ?string $cc_emails = null,
+        ?bool $convert_sender_to_signer = null,
+        ?bool $do_email = null,
         ?string $footer = null,
-        ?int $footerHeight = null,
+        ?int $footer_height = null,
         ?string $header = null,
-        ?int $headerHeight = null,
-        ?string $pdfPassword = null,
-        PdfPasswordType|int|null $pdfPasswordType = null,
+        ?int $header_height = null,
+        ?string $pdf_password = null,
+        ?int $pdf_password_type = null,
         ?array $pdftext = null,
         ?string $redirect = null,
         ?string $reminders = null,
-        ?bool $returnSignerLinks = null,
-        ?int $signatureType = null,
-        ?bool $signersInOrder = null,
+        ?bool $return_signer_links = null,
+        ?int $signature_type = null,
+        ?bool $signers_in_order = null,
         ?array $signertext = null,
-        ?bool $strictFields = null,
+        ?bool $strict_fields = null,
         ?string $tag = null,
         ?string $tag1 = null,
         ?string $tag2 = null,
@@ -294,25 +282,25 @@ final class DocumentCreateParams implements BaseModel
         $obj->name = $name;
         $obj->signers = $signers;
 
-        null !== $appendPdf && $obj->appendPdf = $appendPdf;
-        null !== $autoArchive && $obj->autoArchive = $autoArchive;
-        null !== $ccEmails && $obj->ccEmails = $ccEmails;
-        null !== $convertSenderToSigner && $obj->convertSenderToSigner = $convertSenderToSigner;
-        null !== $doEmail && $obj->doEmail = $doEmail;
+        null !== $append_pdf && $obj->append_pdf = $append_pdf;
+        null !== $auto_archive && $obj->auto_archive = $auto_archive;
+        null !== $cc_emails && $obj->cc_emails = $cc_emails;
+        null !== $convert_sender_to_signer && $obj->convert_sender_to_signer = $convert_sender_to_signer;
+        null !== $do_email && $obj->do_email = $do_email;
         null !== $footer && $obj->footer = $footer;
-        null !== $footerHeight && $obj->footerHeight = $footerHeight;
+        null !== $footer_height && $obj->footer_height = $footer_height;
         null !== $header && $obj->header = $header;
-        null !== $headerHeight && $obj->headerHeight = $headerHeight;
-        null !== $pdfPassword && $obj->pdfPassword = $pdfPassword;
-        null !== $pdfPasswordType && $obj->pdfPasswordType = $pdfPasswordType instanceof PdfPasswordType ? $pdfPasswordType->value : $pdfPasswordType;
+        null !== $header_height && $obj->header_height = $header_height;
+        null !== $pdf_password && $obj->pdf_password = $pdf_password;
+        null !== $pdf_password_type && $obj->pdf_password_type = $pdf_password_type;
         null !== $pdftext && $obj->pdftext = $pdftext;
         null !== $redirect && $obj->redirect = $redirect;
         null !== $reminders && $obj->reminders = $reminders;
-        null !== $returnSignerLinks && $obj->returnSignerLinks = $returnSignerLinks;
-        null !== $signatureType && $obj->signatureType = $signatureType;
-        null !== $signersInOrder && $obj->signersInOrder = $signersInOrder;
+        null !== $return_signer_links && $obj->return_signer_links = $return_signer_links;
+        null !== $signature_type && $obj->signature_type = $signature_type;
+        null !== $signers_in_order && $obj->signers_in_order = $signers_in_order;
         null !== $signertext && $obj->signertext = $signertext;
-        null !== $strictFields && $obj->strictFields = $strictFields;
+        null !== $strict_fields && $obj->strict_fields = $strict_fields;
         null !== $tag && $obj->tag = $tag;
         null !== $tag1 && $obj->tag1 = $tag1;
         null !== $tag2 && $obj->tag2 = $tag2;
@@ -357,7 +345,7 @@ final class DocumentCreateParams implements BaseModel
     public function withAppendPdf(bool $appendPdf): self
     {
         $obj = clone $this;
-        $obj->appendPdf = $appendPdf;
+        $obj->append_pdf = $appendPdf;
 
         return $obj;
     }
@@ -368,7 +356,7 @@ final class DocumentCreateParams implements BaseModel
     public function withAutoArchive(bool $autoArchive): self
     {
         $obj = clone $this;
-        $obj->autoArchive = $autoArchive;
+        $obj->auto_archive = $autoArchive;
 
         return $obj;
     }
@@ -379,7 +367,7 @@ final class DocumentCreateParams implements BaseModel
     public function withCcEmails(string $ccEmails): self
     {
         $obj = clone $this;
-        $obj->ccEmails = $ccEmails;
+        $obj->cc_emails = $ccEmails;
 
         return $obj;
     }
@@ -390,7 +378,7 @@ final class DocumentCreateParams implements BaseModel
     public function withConvertSenderToSigner(bool $convertSenderToSigner): self
     {
         $obj = clone $this;
-        $obj->convertSenderToSigner = $convertSenderToSigner;
+        $obj->convert_sender_to_signer = $convertSenderToSigner;
 
         return $obj;
     }
@@ -401,7 +389,7 @@ final class DocumentCreateParams implements BaseModel
     public function withDoEmail(bool $doEmail): self
     {
         $obj = clone $this;
-        $obj->doEmail = $doEmail;
+        $obj->do_email = $doEmail;
 
         return $obj;
     }
@@ -423,7 +411,7 @@ final class DocumentCreateParams implements BaseModel
     public function withFooterHeight(int $footerHeight): self
     {
         $obj = clone $this;
-        $obj->footerHeight = $footerHeight;
+        $obj->footer_height = $footerHeight;
 
         return $obj;
     }
@@ -445,7 +433,7 @@ final class DocumentCreateParams implements BaseModel
     public function withHeaderHeight(int $headerHeight): self
     {
         $obj = clone $this;
-        $obj->headerHeight = $headerHeight;
+        $obj->header_height = $headerHeight;
 
         return $obj;
     }
@@ -456,7 +444,7 @@ final class DocumentCreateParams implements BaseModel
     public function withPdfPassword(string $pdfPassword): self
     {
         $obj = clone $this;
-        $obj->pdfPassword = $pdfPassword;
+        $obj->pdf_password = $pdfPassword;
 
         return $obj;
     }
@@ -464,13 +452,12 @@ final class DocumentCreateParams implements BaseModel
     /**
      * 1 to store password, 2 for to delete from our records upon final signing.
      *
-     * @param PdfPasswordType|value-of<PdfPasswordType> $pdfPasswordType
+     * @param 1|2 $pdfPasswordType
      */
-    public function withPdfPasswordType(
-        PdfPasswordType|int $pdfPasswordType
-    ): self {
+    public function withPdfPasswordType(int $pdfPasswordType): self
+    {
         $obj = clone $this;
-        $obj->pdfPasswordType = $pdfPasswordType instanceof PdfPasswordType ? $pdfPasswordType->value : $pdfPasswordType;
+        $obj->pdf_password_type = $pdfPasswordType;
 
         return $obj;
     }
@@ -478,7 +465,7 @@ final class DocumentCreateParams implements BaseModel
     /**
      * Assign values to PDF sender fields, use field labels as keys. Requires unique fields labels. See also strict_fields.
      *
-     * @param array<string, string> $pdftext
+     * @param array<string,string> $pdftext
      */
     public function withPdftext(array $pdftext): self
     {
@@ -516,7 +503,7 @@ final class DocumentCreateParams implements BaseModel
     public function withReturnSignerLinks(bool $returnSignerLinks): self
     {
         $obj = clone $this;
-        $obj->returnSignerLinks = $returnSignerLinks;
+        $obj->return_signer_links = $returnSignerLinks;
 
         return $obj;
     }
@@ -527,7 +514,7 @@ final class DocumentCreateParams implements BaseModel
     public function withSignatureType(int $signatureType): self
     {
         $obj = clone $this;
-        $obj->signatureType = $signatureType;
+        $obj->signature_type = $signatureType;
 
         return $obj;
     }
@@ -538,7 +525,7 @@ final class DocumentCreateParams implements BaseModel
     public function withSignersInOrder(bool $signersInOrder): self
     {
         $obj = clone $this;
-        $obj->signersInOrder = $signersInOrder;
+        $obj->signers_in_order = $signersInOrder;
 
         return $obj;
     }
@@ -546,7 +533,7 @@ final class DocumentCreateParams implements BaseModel
     /**
      * Add custom placeholders to signer fields, using labels as keys in an object (as for pdftext). Relies on unique labelling.
      *
-     * @param array<string, string> $signertext
+     * @param array<string,string> $signertext
      */
     public function withSignertext(array $signertext): self
     {
@@ -562,7 +549,7 @@ final class DocumentCreateParams implements BaseModel
     public function withStrictFields(bool $strictFields): self
     {
         $obj = clone $this;
-        $obj->strictFields = $strictFields;
+        $obj->strict_fields = $strictFields;
 
         return $obj;
     }

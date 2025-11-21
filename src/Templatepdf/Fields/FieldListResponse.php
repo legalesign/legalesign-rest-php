@@ -6,23 +6,23 @@ namespace LegalesignSDK\Templatepdf\Fields;
 
 use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkResponse;
 use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 use LegalesignSDK\Document\ListMeta;
 use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1;
 
 /**
- * @phpstan-type field_list_response = array{
- *   meta?: ListMeta, objects?: list<Object1>
+ * @phpstan-type FieldListResponseShape = array{
+ *   meta?: ListMeta|null, objects?: list<Object1>|null
  * }
- * When used in a response, this type parameter can define a $rawResponse property.
- * @template TRawResponse of object = object{}
- *
- * @mixin TRawResponse
  */
-final class FieldListResponse implements BaseModel
+final class FieldListResponse implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<field_list_response> */
+    /** @use SdkModel<FieldListResponseShape> */
     use SdkModel;
+
+    use SdkResponse;
 
     #[Api(optional: true)]
     public ?ListMeta $meta;

@@ -6,22 +6,22 @@ namespace LegalesignSDK\Document;
 
 use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkResponse;
 use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 
 /**
- * @phpstan-type document_new_response = array{signer1?: string}
- * When used in a response, this type parameter can define a $rawResponse property.
- * @template TRawResponse of object = object{}
- *
- * @mixin TRawResponse
+ * @phpstan-type DocumentNewResponseShape = array{signer_1?: string|null}
  */
-final class DocumentNewResponse implements BaseModel
+final class DocumentNewResponse implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<document_new_response> */
+    /** @use SdkModel<DocumentNewResponseShape> */
     use SdkModel;
 
-    #[Api('signer_1', optional: true)]
-    public ?string $signer1;
+    use SdkResponse;
+
+    #[Api(optional: true)]
+    public ?string $signer_1;
 
     public function __construct()
     {
@@ -33,11 +33,11 @@ final class DocumentNewResponse implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      */
-    public static function with(?string $signer1 = null): self
+    public static function with(?string $signer_1 = null): self
     {
         $obj = new self;
 
-        null !== $signer1 && $obj->signer1 = $signer1;
+        null !== $signer_1 && $obj->signer_1 = $signer_1;
 
         return $obj;
     }
@@ -45,7 +45,7 @@ final class DocumentNewResponse implements BaseModel
     public function withSigner1(string $signer1): self
     {
         $obj = clone $this;
-        $obj->signer1 = $signer1;
+        $obj->signer_1 = $signer1;
 
         return $obj;
     }

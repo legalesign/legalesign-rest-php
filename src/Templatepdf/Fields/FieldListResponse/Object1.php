@@ -8,40 +8,38 @@ use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
 use LegalesignSDK\Core\Contracts\BaseModel;
 use LegalesignSDK\Document\PdfFieldValidationEnum;
-use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1\Align;
 use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1\ElementType;
 use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1\FontName;
-use LegalesignSDK\Templatepdf\Fields\FieldListResponse\Object1\LogicAction;
 
 /**
- * @phpstan-type object1_alias = array{
+ * @phpstan-type Object1Shape = array{
  *   ax: float,
  *   ay: float,
  *   bx: float,
  *   by: float,
- *   elementType: value-of<ElementType>,
+ *   element_type: value-of<ElementType>,
  *   page: int,
  *   signer: int|null,
- *   align?: value-of<Align>|null,
- *   fieldorder?: int,
- *   fontName?: value-of<FontName>,
- *   fontSize?: int,
- *   hideBorder?: bool,
- *   label?: string,
- *   labelExtra?: string,
- *   logicAction?: value-of<LogicAction>,
- *   logicGroup?: string,
- *   mapTo?: string,
- *   optional?: bool,
- *   options?: string,
- *   substantive?: bool,
- *   validation?: value-of<PdfFieldValidationEnum>|null,
- *   value?: string,
+ *   align?: null|1|2|3,
+ *   fieldorder?: int|null,
+ *   font_name?: value-of<FontName>|null,
+ *   font_size?: int|null,
+ *   hide_border?: bool|null,
+ *   label?: string|null,
+ *   label_extra?: string|null,
+ *   logic_action?: null|1|2|3,
+ *   logic_group?: string|null,
+ *   map_to?: string|null,
+ *   optional?: bool|null,
+ *   options?: string|null,
+ *   substantive?: bool|null,
+ *   validation?: null|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|25|26|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|90|91|92,
+ *   value?: string|null,
  * }
  */
 final class Object1 implements BaseModel
 {
-    /** @use SdkModel<object1_alias> */
+    /** @use SdkModel<Object1Shape> */
     use SdkModel;
 
     /**
@@ -71,10 +69,10 @@ final class Object1 implements BaseModel
     /**
      * Must be one of the following: * signature - signature field  * initials - initials field  * text - signer field (field for signer to complete) * admin - sender field (field to complete by admin user when sending).
      *
-     * @var value-of<ElementType> $elementType
+     * @var value-of<ElementType> $element_type
      */
-    #[Api('element_type', enum: ElementType::class)]
-    public string $elementType;
+    #[Api(enum: ElementType::class)]
+    public string $element_type;
 
     /**
      * which page to place field on.
@@ -94,9 +92,9 @@ final class Object1 implements BaseModel
      *   * 2 - middle
      *   * 3 - right
      *
-     * @var value-of<Align>|null $align
+     * @var 1|2|3|null $align
      */
-    #[Api(enum: Align::class, nullable: true, optional: true)]
+    #[Api(nullable: true, optional: true)]
     public ?int $align;
 
     /**
@@ -105,15 +103,15 @@ final class Object1 implements BaseModel
     #[Api(optional: true)]
     public ?int $fieldorder;
 
-    /** @var value-of<FontName>|null $fontName */
-    #[Api('font_name', enum: FontName::class, optional: true)]
-    public ?string $fontName;
+    /** @var value-of<FontName>|null $font_name */
+    #[Api(enum: FontName::class, optional: true)]
+    public ?string $font_name;
 
-    #[Api('font_size', optional: true)]
-    public ?int $fontSize;
+    #[Api(optional: true)]
+    public ?int $font_size;
 
-    #[Api('hide_border', optional: true)]
-    public ?bool $hideBorder;
+    #[Api(optional: true)]
+    public ?bool $hide_border;
 
     /**
      * help signer/sender understand what to do.
@@ -126,28 +124,28 @@ final class Object1 implements BaseModel
      *
      * not in use
      */
-    #[Api('label_extra', optional: true)]
-    public ?string $labelExtra;
+    #[Api(optional: true)]
+    public ?string $label_extra;
 
     /**
      * offers options for more advanced forms 1 = One of a set of field (radio group), 2 = Sum a set of fields,  3 = Conditional upon another field.
      *
-     * @var value-of<LogicAction>|null $logicAction
+     * @var 1|2|3|null $logic_action
      */
-    #[Api('logic_action', enum: LogicAction::class, optional: true)]
-    public ?int $logicAction;
+    #[Api(optional: true)]
+    public ?int $logic_action;
 
     /**
      * values to enable a given logic_action in the form.
      */
-    #[Api('logic_group', optional: true)]
-    public ?string $logicGroup;
+    #[Api(optional: true)]
+    public ?string $logic_group;
 
     /**
      * custom data for form integrations.
      */
-    #[Api('map_to', optional: true)]
-    public ?string $mapTo;
+    #[Api(optional: true)]
+    public ?string $map_to;
 
     #[Api(optional: true)]
     public ?bool $optional;
@@ -250,7 +248,7 @@ final class Object1 implements BaseModel
      *   * 91 - countries list
      *   * 92 - honorifics list
      *
-     * @var value-of<PdfFieldValidationEnum>|null $validation
+     * @var 1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|25|26|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|90|91|92|null $validation
      */
     #[Api(enum: PdfFieldValidationEnum::class, nullable: true, optional: true)]
     public ?int $validation;
@@ -264,7 +262,7 @@ final class Object1 implements BaseModel
      * To enforce required parameters use
      * ```
      * Object1::with(
-     *   ax: ..., ay: ..., bx: ..., by: ..., elementType: ..., page: ..., signer: ...
+     *   ax: ..., ay: ..., bx: ..., by: ..., element_type: ..., page: ..., signer: ...
      * )
      * ```
      *
@@ -291,34 +289,34 @@ final class Object1 implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
-     * @param ElementType|value-of<ElementType> $elementType
-     * @param Align|value-of<Align>|null $align
-     * @param FontName|value-of<FontName> $fontName
-     * @param LogicAction|value-of<LogicAction> $logicAction
-     * @param PdfFieldValidationEnum|value-of<PdfFieldValidationEnum>|null $validation
+     * @param ElementType|value-of<ElementType> $element_type
+     * @param 1|2|3|null $align
+     * @param FontName|value-of<FontName> $font_name
+     * @param 1|2|3 $logic_action
+     * @param 1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|25|26|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|90|91|92|null $validation
      */
     public static function with(
         float $ax,
         float $ay,
         float $bx,
         float $by,
-        ElementType|string $elementType,
+        ElementType|string $element_type,
         int $page,
         ?int $signer,
-        Align|int|null $align = null,
+        ?int $align = null,
         ?int $fieldorder = null,
-        FontName|string|null $fontName = null,
-        ?int $fontSize = null,
-        ?bool $hideBorder = null,
+        FontName|string|null $font_name = null,
+        ?int $font_size = null,
+        ?bool $hide_border = null,
         ?string $label = null,
-        ?string $labelExtra = null,
-        LogicAction|int|null $logicAction = null,
-        ?string $logicGroup = null,
-        ?string $mapTo = null,
+        ?string $label_extra = null,
+        ?int $logic_action = null,
+        ?string $logic_group = null,
+        ?string $map_to = null,
         ?bool $optional = null,
         ?string $options = null,
         ?bool $substantive = null,
-        PdfFieldValidationEnum|int|null $validation = null,
+        ?int $validation = null,
         ?string $value = null,
     ): self {
         $obj = new self;
@@ -327,24 +325,24 @@ final class Object1 implements BaseModel
         $obj->ay = $ay;
         $obj->bx = $bx;
         $obj->by = $by;
-        $obj->elementType = $elementType instanceof ElementType ? $elementType->value : $elementType;
+        $obj['element_type'] = $element_type;
         $obj->page = $page;
         $obj->signer = $signer;
 
-        null !== $align && $obj->align = $align instanceof Align ? $align->value : $align;
+        null !== $align && $obj->align = $align;
         null !== $fieldorder && $obj->fieldorder = $fieldorder;
-        null !== $fontName && $obj->fontName = $fontName instanceof FontName ? $fontName->value : $fontName;
-        null !== $fontSize && $obj->fontSize = $fontSize;
-        null !== $hideBorder && $obj->hideBorder = $hideBorder;
+        null !== $font_name && $obj['font_name'] = $font_name;
+        null !== $font_size && $obj->font_size = $font_size;
+        null !== $hide_border && $obj->hide_border = $hide_border;
         null !== $label && $obj->label = $label;
-        null !== $labelExtra && $obj->labelExtra = $labelExtra;
-        null !== $logicAction && $obj->logicAction = $logicAction instanceof LogicAction ? $logicAction->value : $logicAction;
-        null !== $logicGroup && $obj->logicGroup = $logicGroup;
-        null !== $mapTo && $obj->mapTo = $mapTo;
+        null !== $label_extra && $obj->label_extra = $label_extra;
+        null !== $logic_action && $obj->logic_action = $logic_action;
+        null !== $logic_group && $obj->logic_group = $logic_group;
+        null !== $map_to && $obj->map_to = $map_to;
         null !== $optional && $obj->optional = $optional;
         null !== $options && $obj->options = $options;
         null !== $substantive && $obj->substantive = $substantive;
-        null !== $validation && $obj->validation = $validation instanceof PdfFieldValidationEnum ? $validation->value : $validation;
+        null !== $validation && $obj->validation = $validation;
         null !== $value && $obj->value = $value;
 
         return $obj;
@@ -402,7 +400,7 @@ final class Object1 implements BaseModel
     public function withElementType(ElementType|string $elementType): self
     {
         $obj = clone $this;
-        $obj->elementType = $elementType instanceof ElementType ? $elementType->value : $elementType;
+        $obj['element_type'] = $elementType;
 
         return $obj;
     }
@@ -435,12 +433,12 @@ final class Object1 implements BaseModel
      *   * 2 - middle
      *   * 3 - right
      *
-     * @param Align|value-of<Align>|null $align
+     * @param 1|2|3|null $align
      */
-    public function withAlign(Align|int|null $align): self
+    public function withAlign(?int $align): self
     {
         $obj = clone $this;
-        $obj->align = $align instanceof Align ? $align->value : $align;
+        $obj->align = $align;
 
         return $obj;
     }
@@ -462,7 +460,7 @@ final class Object1 implements BaseModel
     public function withFontName(FontName|string $fontName): self
     {
         $obj = clone $this;
-        $obj->fontName = $fontName instanceof FontName ? $fontName->value : $fontName;
+        $obj['font_name'] = $fontName;
 
         return $obj;
     }
@@ -470,7 +468,7 @@ final class Object1 implements BaseModel
     public function withFontSize(int $fontSize): self
     {
         $obj = clone $this;
-        $obj->fontSize = $fontSize;
+        $obj->font_size = $fontSize;
 
         return $obj;
     }
@@ -478,7 +476,7 @@ final class Object1 implements BaseModel
     public function withHideBorder(bool $hideBorder): self
     {
         $obj = clone $this;
-        $obj->hideBorder = $hideBorder;
+        $obj->hide_border = $hideBorder;
 
         return $obj;
     }
@@ -500,7 +498,7 @@ final class Object1 implements BaseModel
     public function withLabelExtra(string $labelExtra): self
     {
         $obj = clone $this;
-        $obj->labelExtra = $labelExtra;
+        $obj->label_extra = $labelExtra;
 
         return $obj;
     }
@@ -508,12 +506,12 @@ final class Object1 implements BaseModel
     /**
      * offers options for more advanced forms 1 = One of a set of field (radio group), 2 = Sum a set of fields,  3 = Conditional upon another field.
      *
-     * @param LogicAction|value-of<LogicAction> $logicAction
+     * @param 1|2|3 $logicAction
      */
-    public function withLogicAction(LogicAction|int $logicAction): self
+    public function withLogicAction(int $logicAction): self
     {
         $obj = clone $this;
-        $obj->logicAction = $logicAction instanceof LogicAction ? $logicAction->value : $logicAction;
+        $obj->logic_action = $logicAction;
 
         return $obj;
     }
@@ -524,7 +522,7 @@ final class Object1 implements BaseModel
     public function withLogicGroup(string $logicGroup): self
     {
         $obj = clone $this;
-        $obj->logicGroup = $logicGroup;
+        $obj->logic_group = $logicGroup;
 
         return $obj;
     }
@@ -535,7 +533,7 @@ final class Object1 implements BaseModel
     public function withMapTo(string $mapTo): self
     {
         $obj = clone $this;
-        $obj->mapTo = $mapTo;
+        $obj->map_to = $mapTo;
 
         return $obj;
     }
@@ -654,13 +652,12 @@ final class Object1 implements BaseModel
      *   * 91 - countries list
      *   * 92 - honorifics list
      *
-     * @param PdfFieldValidationEnum|value-of<PdfFieldValidationEnum>|null $validation
+     * @param 1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|25|26|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|90|91|92|null $validation
      */
-    public function withValidation(
-        PdfFieldValidationEnum|int|null $validation
-    ): self {
+    public function withValidation(?int $validation): self
+    {
         $obj = clone $this;
-        $obj->validation = $validation instanceof PdfFieldValidationEnum ? $validation->value : $validation;
+        $obj->validation = $validation;
 
         return $obj;
     }

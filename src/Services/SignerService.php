@@ -7,14 +7,11 @@ namespace LegalesignSDK\Services;
 use LegalesignSDK\Client;
 use LegalesignSDK\Core\Conversion\ListOf;
 use LegalesignSDK\Core\Exceptions\APIException;
-use LegalesignSDK\Core\Implementation\HasRawResponse;
 use LegalesignSDK\RequestOptions;
 use LegalesignSDK\ServiceContracts\SignerContract;
 use LegalesignSDK\Signer\SignerGetFieldsResponseItem;
 use LegalesignSDK\Signer\SignerGetResponse;
 use LegalesignSDK\Signer\SignerSendReminderParams;
-
-use const LegalesignSDK\Core\OMIT as omit;
 
 final class SignerService implements SignerContract
 {
@@ -28,29 +25,10 @@ final class SignerService implements SignerContract
      *
      * Get status and details of an individual signer
      *
-     * @return SignerGetResponse<HasRawResponse>
-     *
      * @throws APIException
      */
     public function retrieve(
         string $signerID,
-        ?RequestOptions $requestOptions = null
-    ): SignerGetResponse {
-        $params = [];
-
-        return $this->retrieveRaw($signerID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @return SignerGetResponse<HasRawResponse>
-     *
-     * @throws APIException
-     */
-    public function retrieveRaw(
-        string $signerID,
-        mixed $params,
         ?RequestOptions $requestOptions = null
     ): SignerGetResponse {
         // @phpstan-ignore-next-line;
@@ -71,21 +49,6 @@ final class SignerService implements SignerContract
      */
     public function getAccessLink(
         string $signerID,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        $params = [];
-
-        return $this->getAccessLinkRaw($signerID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @throws APIException
-     */
-    public function getAccessLinkRaw(
-        string $signerID,
-        mixed $params,
         ?RequestOptions $requestOptions = null
     ): mixed {
         // @phpstan-ignore-next-line;
@@ -110,23 +73,6 @@ final class SignerService implements SignerContract
         string $signerID,
         ?RequestOptions $requestOptions = null
     ): array {
-        $params = [];
-
-        return $this->retrieveFieldsRaw($signerID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @return list<SignerGetFieldsResponseItem>
-     *
-     * @throws APIException
-     */
-    public function retrieveFieldsRaw(
-        string $signerID,
-        mixed $params,
-        ?RequestOptions $requestOptions = null
-    ): array {
         // @phpstan-ignore-next-line;
         return $this->client->request(
             method: 'get',
@@ -141,35 +87,18 @@ final class SignerService implements SignerContract
      *
      * Send signer reminder email
      *
-     * @param string $text custom message text, html will be stripped
+     * @param array{text?: string}|SignerSendReminderParams $params
      *
      * @throws APIException
      */
     public function sendReminder(
         string $signerID,
-        $text = omit,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        $params = ['text' => $text];
-
-        return $this->sendReminderRaw($signerID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @param array<string, mixed> $params
-     *
-     * @throws APIException
-     */
-    public function sendReminderRaw(
-        string $signerID,
-        array $params,
-        ?RequestOptions $requestOptions = null
+        array|SignerSendReminderParams $params,
+        ?RequestOptions $requestOptions = null,
     ): mixed {
         [$parsed, $options] = SignerSendReminderParams::parseRequest(
             $params,
-            $requestOptions
+            $requestOptions,
         );
 
         // @phpstan-ignore-next-line;

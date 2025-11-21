@@ -6,31 +6,31 @@ namespace LegalesignSDK\Template;
 
 use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkResponse;
 use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 
 /**
- * @phpstan-type template_get_response = array{
- *   archive?: bool,
- *   created?: \DateTimeInterface,
- *   group?: string,
- *   hasFields?: bool,
- *   latestText?: string,
- *   modified?: \DateTimeInterface,
- *   resourceUri?: string,
- *   signeeCount?: int,
- *   title?: string,
- *   user?: string,
- *   uuid?: string,
+ * @phpstan-type TemplateGetResponseShape = array{
+ *   archive?: bool|null,
+ *   created?: \DateTimeInterface|null,
+ *   group?: string|null,
+ *   has_fields?: bool|null,
+ *   latest_text?: string|null,
+ *   modified?: \DateTimeInterface|null,
+ *   resource_uri?: string|null,
+ *   signee_count?: int|null,
+ *   title?: string|null,
+ *   user?: string|null,
+ *   uuid?: string|null,
  * }
- * When used in a response, this type parameter can define a $rawResponse property.
- * @template TRawResponse of object = object{}
- *
- * @mixin TRawResponse
  */
-final class TemplateGetResponse implements BaseModel
+final class TemplateGetResponse implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<template_get_response> */
+    /** @use SdkModel<TemplateGetResponseShape> */
     use SdkModel;
+
+    use SdkResponse;
 
     #[Api(optional: true)]
     public ?bool $archive;
@@ -41,20 +41,20 @@ final class TemplateGetResponse implements BaseModel
     #[Api(optional: true)]
     public ?string $group;
 
-    #[Api('has_fields', optional: true)]
-    public ?bool $hasFields;
+    #[Api(optional: true)]
+    public ?bool $has_fields;
 
-    #[Api('latest_text', optional: true)]
-    public ?string $latestText;
+    #[Api(optional: true)]
+    public ?string $latest_text;
 
     #[Api(optional: true)]
     public ?\DateTimeInterface $modified;
 
-    #[Api('resource_uri', optional: true)]
-    public ?string $resourceUri;
+    #[Api(optional: true)]
+    public ?string $resource_uri;
 
-    #[Api('signee_count', optional: true)]
-    public ?int $signeeCount;
+    #[Api(optional: true)]
+    public ?int $signee_count;
 
     #[Api(optional: true)]
     public ?string $title;
@@ -79,11 +79,11 @@ final class TemplateGetResponse implements BaseModel
         ?bool $archive = null,
         ?\DateTimeInterface $created = null,
         ?string $group = null,
-        ?bool $hasFields = null,
-        ?string $latestText = null,
+        ?bool $has_fields = null,
+        ?string $latest_text = null,
         ?\DateTimeInterface $modified = null,
-        ?string $resourceUri = null,
-        ?int $signeeCount = null,
+        ?string $resource_uri = null,
+        ?int $signee_count = null,
         ?string $title = null,
         ?string $user = null,
         ?string $uuid = null,
@@ -93,11 +93,11 @@ final class TemplateGetResponse implements BaseModel
         null !== $archive && $obj->archive = $archive;
         null !== $created && $obj->created = $created;
         null !== $group && $obj->group = $group;
-        null !== $hasFields && $obj->hasFields = $hasFields;
-        null !== $latestText && $obj->latestText = $latestText;
+        null !== $has_fields && $obj->has_fields = $has_fields;
+        null !== $latest_text && $obj->latest_text = $latest_text;
         null !== $modified && $obj->modified = $modified;
-        null !== $resourceUri && $obj->resourceUri = $resourceUri;
-        null !== $signeeCount && $obj->signeeCount = $signeeCount;
+        null !== $resource_uri && $obj->resource_uri = $resource_uri;
+        null !== $signee_count && $obj->signee_count = $signee_count;
         null !== $title && $obj->title = $title;
         null !== $user && $obj->user = $user;
         null !== $uuid && $obj->uuid = $uuid;
@@ -132,7 +132,7 @@ final class TemplateGetResponse implements BaseModel
     public function withHasFields(bool $hasFields): self
     {
         $obj = clone $this;
-        $obj->hasFields = $hasFields;
+        $obj->has_fields = $hasFields;
 
         return $obj;
     }
@@ -140,7 +140,7 @@ final class TemplateGetResponse implements BaseModel
     public function withLatestText(string $latestText): self
     {
         $obj = clone $this;
-        $obj->latestText = $latestText;
+        $obj->latest_text = $latestText;
 
         return $obj;
     }
@@ -156,7 +156,7 @@ final class TemplateGetResponse implements BaseModel
     public function withResourceUri(string $resourceUri): self
     {
         $obj = clone $this;
-        $obj->resourceUri = $resourceUri;
+        $obj->resource_uri = $resourceUri;
 
         return $obj;
     }
@@ -164,7 +164,7 @@ final class TemplateGetResponse implements BaseModel
     public function withSigneeCount(int $signeeCount): self
     {
         $obj = clone $this;
-        $obj->signeeCount = $signeeCount;
+        $obj->signee_count = $signeeCount;
 
         return $obj;
     }

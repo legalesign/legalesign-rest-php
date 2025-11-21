@@ -10,28 +10,17 @@ use LegalesignSDK\Core\Concerns\SdkParams;
 use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
- * An object containing the method's parameters.
- * Example usage:
- * ```
- * $params = (new TemplatepdfListParams); // set properties as needed
- * $client->templatepdf->list(...$params->toArray());
- * ```
  * Get PDF templates.
  *
- * @method toArray()
- *   Returns the parameters as an associative array suitable for passing to the client method.
+ * @see LegalesignSDK\Services\TemplatepdfService::list()
  *
- *   `$client->templatepdf->list(...$params->toArray());`
- *
- * @see LegalesignSDK\Templatepdf->list
- *
- * @phpstan-type templatepdf_list_params = array{
+ * @phpstan-type TemplatepdfListParamsShape = array{
  *   archive?: string, group?: string, limit?: int, offset?: int
  * }
  */
 final class TemplatepdfListParams implements BaseModel
 {
-    /** @use SdkModel<templatepdf_list_params> */
+    /** @use SdkModel<TemplatepdfListParamsShape> */
     use SdkModel;
     use SdkParams;
 

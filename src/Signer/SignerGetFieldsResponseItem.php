@@ -9,17 +9,17 @@ use LegalesignSDK\Core\Concerns\SdkModel;
 use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-type signer_get_fields_response_item = array{
+ * @phpstan-type SignerGetFieldsResponseItemShape = array{
  *   fieldorder?: int|null,
- *   label?: string,
- *   labelExtra?: string,
- *   state?: bool,
+ *   label?: string|null,
+ *   label_extra?: string|null,
+ *   state?: bool|null,
  *   value?: string|null,
  * }
  */
 final class SignerGetFieldsResponseItem implements BaseModel
 {
-    /** @use SdkModel<signer_get_fields_response_item> */
+    /** @use SdkModel<SignerGetFieldsResponseItemShape> */
     use SdkModel;
 
     #[Api(nullable: true, optional: true)]
@@ -28,8 +28,8 @@ final class SignerGetFieldsResponseItem implements BaseModel
     #[Api(optional: true)]
     public ?string $label;
 
-    #[Api('label_extra', optional: true)]
-    public ?string $labelExtra;
+    #[Api(optional: true)]
+    public ?string $label_extra;
 
     #[Api(optional: true)]
     public ?bool $state;
@@ -53,7 +53,7 @@ final class SignerGetFieldsResponseItem implements BaseModel
     public static function with(
         ?int $fieldorder = null,
         ?string $label = null,
-        ?string $labelExtra = null,
+        ?string $label_extra = null,
         ?bool $state = null,
         ?string $value = null,
     ): self {
@@ -61,7 +61,7 @@ final class SignerGetFieldsResponseItem implements BaseModel
 
         null !== $fieldorder && $obj->fieldorder = $fieldorder;
         null !== $label && $obj->label = $label;
-        null !== $labelExtra && $obj->labelExtra = $labelExtra;
+        null !== $label_extra && $obj->label_extra = $label_extra;
         null !== $state && $obj->state = $state;
         null !== $value && $obj->value = $value;
 
@@ -87,7 +87,7 @@ final class SignerGetFieldsResponseItem implements BaseModel
     public function withLabelExtra(string $labelExtra): self
     {
         $obj = clone $this;
-        $obj->labelExtra = $labelExtra;
+        $obj->label_extra = $labelExtra;
 
         return $obj;
     }

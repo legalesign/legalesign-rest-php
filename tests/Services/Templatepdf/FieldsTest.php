@@ -3,8 +3,6 @@
 namespace Tests\Services\Templatepdf;
 
 use LegalesignSDK\Client;
-use LegalesignSDK\Document\PdfFieldValidationEnum;
-use LegalesignSDK\Templatepdf\Fields\FieldCreateParams\Body;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -38,15 +36,17 @@ final class FieldsTest extends TestCase
         $result = $this->client->templatepdf->fields->create(
             '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
             [
-                Body::with(
-                    ax: 0,
-                    ay: 0,
-                    bx: 0,
-                    by: 0,
-                    elementType: 'signature',
-                    page: 0,
-                    signer: 1,
-                ),
+                'body' => [
+                    [
+                        'ax' => 0,
+                        'ay' => 0,
+                        'bx' => 0,
+                        'by' => 0,
+                        'element_type' => 'signature',
+                        'page' => 0,
+                        'signer' => 1,
+                    ],
+                ],
             ],
         );
 
@@ -63,30 +63,32 @@ final class FieldsTest extends TestCase
         $result = $this->client->templatepdf->fields->create(
             '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
             [
-                Body::with(
-                    ax: 0,
-                    ay: 0,
-                    bx: 0,
-                    by: 0,
-                    elementType: 'signature',
-                    page: 0,
-                    signer: 1,
-                )
-                    ->withAlign(1)
-                    ->withFieldorder(0)
-                    ->withFontName('')
-                    ->withFontSize(6)
-                    ->withHideBorder(true)
-                    ->withLabel('label')
-                    ->withLabelExtra('label_extra')
-                    ->withLogicAction(1)
-                    ->withLogicGroup('logic_group')
-                    ->withMapTo('map_to')
-                    ->withOptional(true)
-                    ->withOptions('options')
-                    ->withSubstantive(true)
-                    ->withValidation(PdfFieldValidationEnum::$PDF_FIELD_VALIDATION_ENUM_1)
-                    ->withValue('value'),
+                'body' => [
+                    [
+                        'ax' => 0,
+                        'ay' => 0,
+                        'bx' => 0,
+                        'by' => 0,
+                        'element_type' => 'signature',
+                        'page' => 0,
+                        'signer' => 1,
+                        'align' => 1,
+                        'fieldorder' => 0,
+                        'font_name' => '',
+                        'font_size' => 6,
+                        'hide_border' => true,
+                        'label' => 'label',
+                        'label_extra' => 'label_extra',
+                        'logic_action' => 1,
+                        'logic_group' => 'logic_group',
+                        'map_to' => 'map_to',
+                        'optional' => true,
+                        'options' => 'options',
+                        'substantive' => true,
+                        'validation' => 1,
+                        'value' => 'value',
+                    ],
+                ],
             ],
         );
 

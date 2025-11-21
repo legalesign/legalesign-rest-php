@@ -9,29 +9,29 @@ use LegalesignSDK\Core\Concerns\SdkModel;
 use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-type object1_alias = array{
- *   created?: \DateTimeInterface,
- *   isActive?: bool,
- *   modified?: \DateTimeInterface,
- *   name?: string,
- *   publicName?: string,
- *   resourceUri?: string,
- *   slug?: string,
- *   user?: string,
- *   xframeAllow?: bool,
- *   xframeAllowPdfEdit?: bool,
+ * @phpstan-type Object1Shape = array{
+ *   created?: \DateTimeInterface|null,
+ *   is_active?: bool|null,
+ *   modified?: \DateTimeInterface|null,
+ *   name?: string|null,
+ *   public_name?: string|null,
+ *   resource_uri?: string|null,
+ *   slug?: string|null,
+ *   user?: string|null,
+ *   xframe_allow?: bool|null,
+ *   xframe_allow_pdf_edit?: bool|null,
  * }
  */
 final class Object1 implements BaseModel
 {
-    /** @use SdkModel<object1_alias> */
+    /** @use SdkModel<Object1Shape> */
     use SdkModel;
 
     #[Api(optional: true)]
     public ?\DateTimeInterface $created;
 
-    #[Api('is_active', optional: true)]
-    public ?bool $isActive;
+    #[Api(optional: true)]
+    public ?bool $is_active;
 
     #[Api(optional: true)]
     public ?\DateTimeInterface $modified;
@@ -39,11 +39,11 @@ final class Object1 implements BaseModel
     #[Api(optional: true)]
     public ?string $name;
 
-    #[Api('public_name', optional: true)]
-    public ?string $publicName;
+    #[Api(optional: true)]
+    public ?string $public_name;
 
-    #[Api('resource_uri', optional: true)]
-    public ?string $resourceUri;
+    #[Api(optional: true)]
+    public ?string $resource_uri;
 
     #[Api(optional: true)]
     public ?string $slug;
@@ -51,11 +51,11 @@ final class Object1 implements BaseModel
     #[Api(optional: true)]
     public ?string $user;
 
-    #[Api('xframe_allow', optional: true)]
-    public ?bool $xframeAllow;
+    #[Api(optional: true)]
+    public ?bool $xframe_allow;
 
-    #[Api('xframe_allow_pdf_edit', optional: true)]
-    public ?bool $xframeAllowPdfEdit;
+    #[Api(optional: true)]
+    public ?bool $xframe_allow_pdf_edit;
 
     public function __construct()
     {
@@ -69,28 +69,28 @@ final class Object1 implements BaseModel
      */
     public static function with(
         ?\DateTimeInterface $created = null,
-        ?bool $isActive = null,
+        ?bool $is_active = null,
         ?\DateTimeInterface $modified = null,
         ?string $name = null,
-        ?string $publicName = null,
-        ?string $resourceUri = null,
+        ?string $public_name = null,
+        ?string $resource_uri = null,
         ?string $slug = null,
         ?string $user = null,
-        ?bool $xframeAllow = null,
-        ?bool $xframeAllowPdfEdit = null,
+        ?bool $xframe_allow = null,
+        ?bool $xframe_allow_pdf_edit = null,
     ): self {
         $obj = new self;
 
         null !== $created && $obj->created = $created;
-        null !== $isActive && $obj->isActive = $isActive;
+        null !== $is_active && $obj->is_active = $is_active;
         null !== $modified && $obj->modified = $modified;
         null !== $name && $obj->name = $name;
-        null !== $publicName && $obj->publicName = $publicName;
-        null !== $resourceUri && $obj->resourceUri = $resourceUri;
+        null !== $public_name && $obj->public_name = $public_name;
+        null !== $resource_uri && $obj->resource_uri = $resource_uri;
         null !== $slug && $obj->slug = $slug;
         null !== $user && $obj->user = $user;
-        null !== $xframeAllow && $obj->xframeAllow = $xframeAllow;
-        null !== $xframeAllowPdfEdit && $obj->xframeAllowPdfEdit = $xframeAllowPdfEdit;
+        null !== $xframe_allow && $obj->xframe_allow = $xframe_allow;
+        null !== $xframe_allow_pdf_edit && $obj->xframe_allow_pdf_edit = $xframe_allow_pdf_edit;
 
         return $obj;
     }
@@ -106,7 +106,7 @@ final class Object1 implements BaseModel
     public function withIsActive(bool $isActive): self
     {
         $obj = clone $this;
-        $obj->isActive = $isActive;
+        $obj->is_active = $isActive;
 
         return $obj;
     }
@@ -130,7 +130,7 @@ final class Object1 implements BaseModel
     public function withPublicName(string $publicName): self
     {
         $obj = clone $this;
-        $obj->publicName = $publicName;
+        $obj->public_name = $publicName;
 
         return $obj;
     }
@@ -138,7 +138,7 @@ final class Object1 implements BaseModel
     public function withResourceUri(string $resourceUri): self
     {
         $obj = clone $this;
-        $obj->resourceUri = $resourceUri;
+        $obj->resource_uri = $resourceUri;
 
         return $obj;
     }
@@ -162,7 +162,7 @@ final class Object1 implements BaseModel
     public function withXframeAllow(bool $xframeAllow): self
     {
         $obj = clone $this;
-        $obj->xframeAllow = $xframeAllow;
+        $obj->xframe_allow = $xframeAllow;
 
         return $obj;
     }
@@ -170,7 +170,7 @@ final class Object1 implements BaseModel
     public function withXframeAllowPdfEdit(bool $xframeAllowPdfEdit): self
     {
         $obj = clone $this;
-        $obj->xframeAllowPdfEdit = $xframeAllowPdfEdit;
+        $obj->xframe_allow_pdf_edit = $xframeAllowPdfEdit;
 
         return $obj;
     }

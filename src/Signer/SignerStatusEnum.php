@@ -20,25 +20,25 @@ namespace LegalesignSDK\Signer;
  */
 enum SignerStatusEnum: int
 {
-    case SIGNER_STATUS_ENUM_4 = 4;
+    case _4 = 4;
 
-    case SIGNER_STATUS_ENUM_5 = 5;
+    case _5 = 5;
 
-    case SIGNER_STATUS_ENUM_10 = 10;
+    case _10 = 10;
 
-    case SIGNER_STATUS_ENUM_15 = 15;
+    case _15 = 15;
 
-    case SIGNER_STATUS_ENUM_20 = 20;
+    case _20 = 20;
 
-    case SIGNER_STATUS_ENUM_30 = 30;
+    case _30 = 30;
 
-    case SIGNER_STATUS_ENUM_35 = 35;
+    case _35 = 35;
 
-    case SIGNER_STATUS_ENUM_39 = 39;
+    case _39 = 39;
 
-    case SIGNER_STATUS_ENUM_40 = 40;
+    case _40 = 40;
 
-    case SIGNER_STATUS_ENUM_50 = 50;
+    case _50 = 50;
 
-    case SIGNER_STATUS_ENUM_60 = 60;
+    case _60 = 60;
 }

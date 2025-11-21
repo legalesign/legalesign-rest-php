@@ -9,17 +9,17 @@ use LegalesignSDK\Core\Concerns\SdkModel;
 use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-type list_meta = array{
- *   limit?: int,
+ * @phpstan-type ListMetaShape = array{
+ *   limit?: int|null,
  *   next?: string|null,
- *   offset?: int,
+ *   offset?: int|null,
  *   previous?: string|null,
- *   totalCount?: int,
+ *   total_count?: int|null,
  * }
  */
 final class ListMeta implements BaseModel
 {
-    /** @use SdkModel<list_meta> */
+    /** @use SdkModel<ListMetaShape> */
     use SdkModel;
 
     #[Api(optional: true)]
@@ -37,8 +37,8 @@ final class ListMeta implements BaseModel
     /**
      * total number of objects.
      */
-    #[Api('total_count', optional: true)]
-    public ?int $totalCount;
+    #[Api(optional: true)]
+    public ?int $total_count;
 
     public function __construct()
     {
@@ -55,7 +55,7 @@ final class ListMeta implements BaseModel
         ?string $next = null,
         ?int $offset = null,
         ?string $previous = null,
-        ?int $totalCount = null,
+        ?int $total_count = null,
     ): self {
         $obj = new self;
 
@@ -63,7 +63,7 @@ final class ListMeta implements BaseModel
         null !== $next && $obj->next = $next;
         null !== $offset && $obj->offset = $offset;
         null !== $previous && $obj->previous = $previous;
-        null !== $totalCount && $obj->totalCount = $totalCount;
+        null !== $total_count && $obj->total_count = $total_count;
 
         return $obj;
     }
@@ -106,7 +106,7 @@ final class ListMeta implements BaseModel
     public function withTotalCount(int $totalCount): self
     {
         $obj = clone $this;
-        $obj->totalCount = $totalCount;
+        $obj->total_count = $totalCount;
 
         return $obj;
     }

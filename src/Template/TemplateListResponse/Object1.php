@@ -9,22 +9,22 @@ use LegalesignSDK\Core\Concerns\SdkModel;
 use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
- * @phpstan-type object1_alias = array{
- *   archive?: bool,
- *   created?: \DateTimeInterface,
- *   group?: string,
- *   hasFields?: bool,
- *   modified?: \DateTimeInterface,
- *   resourceUri?: string,
- *   signeeCount?: int,
- *   title?: string,
- *   user?: string,
- *   uuid?: string,
+ * @phpstan-type Object1Shape = array{
+ *   archive?: bool|null,
+ *   created?: \DateTimeInterface|null,
+ *   group?: string|null,
+ *   has_fields?: bool|null,
+ *   modified?: \DateTimeInterface|null,
+ *   resource_uri?: string|null,
+ *   signee_count?: int|null,
+ *   title?: string|null,
+ *   user?: string|null,
+ *   uuid?: string|null,
  * }
  */
 final class Object1 implements BaseModel
 {
-    /** @use SdkModel<object1_alias> */
+    /** @use SdkModel<Object1Shape> */
     use SdkModel;
 
     #[Api(optional: true)]
@@ -36,17 +36,17 @@ final class Object1 implements BaseModel
     #[Api(optional: true)]
     public ?string $group;
 
-    #[Api('has_fields', optional: true)]
-    public ?bool $hasFields;
+    #[Api(optional: true)]
+    public ?bool $has_fields;
 
     #[Api(optional: true)]
     public ?\DateTimeInterface $modified;
 
-    #[Api('resource_uri', optional: true)]
-    public ?string $resourceUri;
+    #[Api(optional: true)]
+    public ?string $resource_uri;
 
-    #[Api('signee_count', optional: true)]
-    public ?int $signeeCount;
+    #[Api(optional: true)]
+    public ?int $signee_count;
 
     #[Api(optional: true)]
     public ?string $title;
@@ -71,10 +71,10 @@ final class Object1 implements BaseModel
         ?bool $archive = null,
         ?\DateTimeInterface $created = null,
         ?string $group = null,
-        ?bool $hasFields = null,
+        ?bool $has_fields = null,
         ?\DateTimeInterface $modified = null,
-        ?string $resourceUri = null,
-        ?int $signeeCount = null,
+        ?string $resource_uri = null,
+        ?int $signee_count = null,
         ?string $title = null,
         ?string $user = null,
         ?string $uuid = null,
@@ -84,10 +84,10 @@ final class Object1 implements BaseModel
         null !== $archive && $obj->archive = $archive;
         null !== $created && $obj->created = $created;
         null !== $group && $obj->group = $group;
-        null !== $hasFields && $obj->hasFields = $hasFields;
+        null !== $has_fields && $obj->has_fields = $has_fields;
         null !== $modified && $obj->modified = $modified;
-        null !== $resourceUri && $obj->resourceUri = $resourceUri;
-        null !== $signeeCount && $obj->signeeCount = $signeeCount;
+        null !== $resource_uri && $obj->resource_uri = $resource_uri;
+        null !== $signee_count && $obj->signee_count = $signee_count;
         null !== $title && $obj->title = $title;
         null !== $user && $obj->user = $user;
         null !== $uuid && $obj->uuid = $uuid;
@@ -122,7 +122,7 @@ final class Object1 implements BaseModel
     public function withHasFields(bool $hasFields): self
     {
         $obj = clone $this;
-        $obj->hasFields = $hasFields;
+        $obj->has_fields = $hasFields;
 
         return $obj;
     }
@@ -138,7 +138,7 @@ final class Object1 implements BaseModel
     public function withResourceUri(string $resourceUri): self
     {
         $obj = clone $this;
-        $obj->resourceUri = $resourceUri;
+        $obj->resource_uri = $resourceUri;
 
         return $obj;
     }
@@ -146,7 +146,7 @@ final class Object1 implements BaseModel
     public function withSigneeCount(int $signeeCount): self
     {
         $obj = clone $this;
-        $obj->signeeCount = $signeeCount;
+        $obj->signee_count = $signeeCount;
 
         return $obj;
     }

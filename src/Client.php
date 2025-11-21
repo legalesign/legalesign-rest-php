@@ -58,7 +58,7 @@ class Client extends BaseClient
     {
         $this->apiKey = (string) ($apiKey ?? getenv('LEGALESIGN_SDK_API_KEY'));
 
-        $base = $baseUrl ?? getenv(
+        $baseUrl ??= getenv(
             'LEGALESIGN_SDK_BASE_URL'
         ) ?: 'https://eu-api.legalesign.com/api/v1';
 
@@ -70,10 +70,20 @@ class Client extends BaseClient
         );
 
         parent::__construct(
+            // x-release-please-start-version
             headers: [
-                'Content-Type' => 'application/json', 'Accept' => 'application/json',
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+                'User-Agent' => sprintf('legalesign-sdk/PHP %s', '0.1.0'),
+                'X-Stainless-Lang' => 'php',
+                'X-Stainless-Package-Version' => '0.1.0',
+                'X-Stainless-OS' => $this->getNormalizedOS(),
+                'X-Stainless-Arch' => $this->getNormalizedArchitecture(),
+                'X-Stainless-Runtime' => 'php',
+                'X-Stainless-Runtime-Version' => phpversion(),
             ],
-            baseUrl: $base,
+            // x-release-please-end
+            baseUrl: $baseUrl,
             options: $options,
         );
 
@@ -86,9 +96,9 @@ class Client extends BaseClient
         $this->templatepdf = new TemplatepdfService($this);
     }
 
-    /** @return array<string, string> */
+    /** @return array<string,string> */
     protected function authHeaders(): array
     {
-        return ['Authorization' => $this->apiKey];
+        return $this->apiKey ? ['Authorization' => $this->apiKey] : [];
     }
 }

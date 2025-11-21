@@ -6,7 +6,6 @@ namespace LegalesignSDK\Services\Templatepdf;
 
 use LegalesignSDK\Client;
 use LegalesignSDK\Core\Exceptions\APIException;
-use LegalesignSDK\Core\Implementation\HasRawResponse;
 use LegalesignSDK\RequestOptions;
 use LegalesignSDK\ServiceContracts\Templatepdf\FieldsContract;
 use LegalesignSDK\Templatepdf\Fields\FieldCreateParams;
@@ -25,35 +24,18 @@ final class FieldsService implements FieldsContract
      *
      * Replace existing pdf fields with new ones
      *
-     * @param list<Body> $body
+     * @param list<Body> $params
      *
      * @throws APIException
      */
     public function create(
-        string $pdfID,
-        $body,
-        ?RequestOptions $requestOptions = null
-    ): mixed {
-        $params = ['body' => $body];
-
-        return $this->createRaw($pdfID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @param array<string, mixed> $params
-     *
-     * @throws APIException
-     */
-    public function createRaw(
         string $pdfID,
         array $params,
         ?RequestOptions $requestOptions = null
     ): mixed {
         [$parsed, $options] = FieldCreateParams::parseRequest(
             $params,
-            $requestOptions
+            $requestOptions,
         );
 
         // @phpstan-ignore-next-line;
@@ -71,29 +53,10 @@ final class FieldsService implements FieldsContract
      *
      * Get PDF template fields
      *
-     * @return FieldListResponse<HasRawResponse>
-     *
      * @throws APIException
      */
     public function list(
         string $pdfID,
-        ?RequestOptions $requestOptions = null
-    ): FieldListResponse {
-        $params = [];
-
-        return $this->listRaw($pdfID, $params, $requestOptions);
-    }
-
-    /**
-     * @api
-     *
-     * @return FieldListResponse<HasRawResponse>
-     *
-     * @throws APIException
-     */
-    public function listRaw(
-        string $pdfID,
-        mixed $params,
         ?RequestOptions $requestOptions = null
     ): FieldListResponse {
         // @phpstan-ignore-next-line;

@@ -10,28 +10,17 @@ use LegalesignSDK\Core\Concerns\SdkParams;
 use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
- * An object containing the method's parameters.
- * Example usage:
- * ```
- * $params = (new TemplateCreateParams); // set properties as needed
- * $client->template->create(...$params->toArray());
- * ```
  * Create a new html/text template. This probably isn't the method you are looking for. You can use the 'text' attribute in /document/ to create and send your HTML as a signing document in one call.
  *
- * @method toArray()
- *   Returns the parameters as an associative array suitable for passing to the client method.
+ * @see LegalesignSDK\Services\TemplateService::create()
  *
- *   `$client->template->create(...$params->toArray());`
- *
- * @see LegalesignSDK\Template->create
- *
- * @phpstan-type template_create_params = array{
- *   group: string, latestText: string, title: string, user?: string
+ * @phpstan-type TemplateCreateParamsShape = array{
+ *   group: string, latest_text: string, title: string, user?: string
  * }
  */
 final class TemplateCreateParams implements BaseModel
 {
-    /** @use SdkModel<template_create_params> */
+    /** @use SdkModel<TemplateCreateParamsShape> */
     use SdkModel;
     use SdkParams;
 
@@ -41,8 +30,8 @@ final class TemplateCreateParams implements BaseModel
     /**
      * text/html for template.
      */
-    #[Api('latest_text')]
-    public string $latestText;
+    #[Api]
+    public string $latest_text;
 
     #[Api]
     public string $title;
@@ -58,7 +47,7 @@ final class TemplateCreateParams implements BaseModel
      *
      * To enforce required parameters use
      * ```
-     * TemplateCreateParams::with(group: ..., latestText: ..., title: ...)
+     * TemplateCreateParams::with(group: ..., latest_text: ..., title: ...)
      * ```
      *
      * Otherwise ensure the following setters are called
@@ -79,14 +68,14 @@ final class TemplateCreateParams implements BaseModel
      */
     public static function with(
         string $group,
-        string $latestText,
+        string $latest_text,
         string $title,
         ?string $user = null
     ): self {
         $obj = new self;
 
         $obj->group = $group;
-        $obj->latestText = $latestText;
+        $obj->latest_text = $latest_text;
         $obj->title = $title;
 
         null !== $user && $obj->user = $user;
@@ -108,7 +97,7 @@ final class TemplateCreateParams implements BaseModel
     public function withLatestText(string $latestText): self
     {
         $obj = clone $this;
-        $obj->latestText = $latestText;
+        $obj->latest_text = $latestText;
 
         return $obj;
     }

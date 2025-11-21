@@ -10,28 +10,17 @@ use LegalesignSDK\Core\Concerns\SdkParams;
 use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
- * An object containing the method's parameters.
- * Example usage:
- * ```
- * $params = (new DocumentListParams); // set properties as needed
- * $client->document->list(...$params->toArray());
- * ```
  * List (unarchived) signing documents. Use /status/ if you need high-level information.
  *
- * @method toArray()
- *   Returns the parameters as an associative array suitable for passing to the client method.
+ * @see LegalesignSDK\Services\DocumentService::list()
  *
- *   `$client->document->list(...$params->toArray());`
- *
- * @see LegalesignSDK\Document->list
- *
- * @phpstan-type document_list_params = array{
+ * @phpstan-type DocumentListParamsShape = array{
  *   group: string,
  *   archived?: string,
- *   createdGt?: \DateTimeInterface,
+ *   created_gt?: \DateTimeInterface,
  *   email?: string,
  *   limit?: int,
- *   modifiedGt?: \DateTimeInterface,
+ *   modified_gt?: \DateTimeInterface,
  *   nosigners?: string,
  *   offset?: int,
  *   status?: int,
@@ -39,7 +28,7 @@ use LegalesignSDK\Core\Contracts\BaseModel;
  */
 final class DocumentListParams implements BaseModel
 {
-    /** @use SdkModel<document_list_params> */
+    /** @use SdkModel<DocumentListParamsShape> */
     use SdkModel;
     use SdkParams;
 
@@ -59,7 +48,7 @@ final class DocumentListParams implements BaseModel
      * Filter for those documents created after a certain time.
      */
     #[Api(optional: true)]
-    public ?\DateTimeInterface $createdGt;
+    public ?\DateTimeInterface $created_gt;
 
     /**
      * Filter by signer email.
@@ -77,7 +66,7 @@ final class DocumentListParams implements BaseModel
      * Filter for those documents modified after a certain time.
      */
     #[Api(optional: true)]
-    public ?\DateTimeInterface $modifiedGt;
+    public ?\DateTimeInterface $modified_gt;
 
     /**
      * Add value '1' to remove signers information for a faster query.
@@ -124,10 +113,10 @@ final class DocumentListParams implements BaseModel
     public static function with(
         string $group,
         ?string $archived = null,
-        ?\DateTimeInterface $createdGt = null,
+        ?\DateTimeInterface $created_gt = null,
         ?string $email = null,
         ?int $limit = null,
-        ?\DateTimeInterface $modifiedGt = null,
+        ?\DateTimeInterface $modified_gt = null,
         ?string $nosigners = null,
         ?int $offset = null,
         ?int $status = null,
@@ -137,10 +126,10 @@ final class DocumentListParams implements BaseModel
         $obj->group = $group;
 
         null !== $archived && $obj->archived = $archived;
-        null !== $createdGt && $obj->createdGt = $createdGt;
+        null !== $created_gt && $obj->created_gt = $created_gt;
         null !== $email && $obj->email = $email;
         null !== $limit && $obj->limit = $limit;
-        null !== $modifiedGt && $obj->modifiedGt = $modifiedGt;
+        null !== $modified_gt && $obj->modified_gt = $modified_gt;
         null !== $nosigners && $obj->nosigners = $nosigners;
         null !== $offset && $obj->offset = $offset;
         null !== $status && $obj->status = $status;
@@ -176,7 +165,7 @@ final class DocumentListParams implements BaseModel
     public function withCreatedGt(\DateTimeInterface $createdGt): self
     {
         $obj = clone $this;
-        $obj->createdGt = $createdGt;
+        $obj->created_gt = $createdGt;
 
         return $obj;
     }
@@ -209,7 +198,7 @@ final class DocumentListParams implements BaseModel
     public function withModifiedGt(\DateTimeInterface $modifiedGt): self
     {
         $obj = clone $this;
-        $obj->modifiedGt = $modifiedGt;
+        $obj->modified_gt = $modifiedGt;
 
         return $obj;
     }

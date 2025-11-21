@@ -8,59 +8,58 @@ use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
 use LegalesignSDK\Core\Contracts\BaseModel;
 use LegalesignSDK\Core\Conversion\ListOf;
-use LegalesignSDK\Document\DocumentListResponse\Object1\SignersInOrder;
 use LegalesignSDK\Document\DocumentStatusEnum;
 
 /**
- * @phpstan-type object1_alias = array{
- *   archived?: bool,
- *   autoArchive?: bool,
- *   ccEmails?: string,
- *   created?: \DateTimeInterface,
- *   doEmail?: bool,
- *   downloadFinal?: bool,
- *   group?: string,
- *   modified?: \DateTimeInterface,
- *   name?: string,
- *   pdftext?: string,
- *   redirect?: string,
- *   resourceUri?: string,
- *   returnSignerLinks?: bool,
- *   signers?: list<list<string>>,
- *   signersInOrder?: value-of<SignersInOrder>,
- *   status?: value-of<DocumentStatusEnum>,
- *   tag?: string,
- *   tag1?: string,
- *   tag2?: string,
+ * @phpstan-type Object1Shape = array{
+ *   archived?: bool|null,
+ *   auto_archive?: bool|null,
+ *   cc_emails?: string|null,
+ *   created?: \DateTimeInterface|null,
+ *   do_email?: bool|null,
+ *   download_final?: bool|null,
+ *   group?: string|null,
+ *   modified?: \DateTimeInterface|null,
+ *   name?: string|null,
+ *   pdftext?: string|null,
+ *   redirect?: string|null,
+ *   resource_uri?: string|null,
+ *   return_signer_links?: bool|null,
+ *   signers?: list<list<string>>|null,
+ *   signers_in_order?: null|0|1,
+ *   status?: null|10|20|30|40|50,
+ *   tag?: string|null,
+ *   tag1?: string|null,
+ *   tag2?: string|null,
  *   template?: string|null,
  *   templatepdf?: string|null,
  *   text?: string|null,
- *   user?: string,
- *   uuid?: string,
+ *   user?: string|null,
+ *   uuid?: string|null,
  * }
  */
 final class Object1 implements BaseModel
 {
-    /** @use SdkModel<object1_alias> */
+    /** @use SdkModel<Object1Shape> */
     use SdkModel;
 
     #[Api(optional: true)]
     public ?bool $archived;
 
-    #[Api('auto_archive', optional: true)]
-    public ?bool $autoArchive;
+    #[Api(optional: true)]
+    public ?bool $auto_archive;
 
-    #[Api('cc_emails', optional: true)]
-    public ?string $ccEmails;
+    #[Api(optional: true)]
+    public ?string $cc_emails;
 
     #[Api(optional: true)]
     public ?\DateTimeInterface $created;
 
-    #[Api('do_email', optional: true)]
-    public ?bool $doEmail;
+    #[Api(optional: true)]
+    public ?bool $do_email;
 
-    #[Api('download_final', optional: true)]
-    public ?bool $downloadFinal;
+    #[Api(optional: true)]
+    public ?bool $download_final;
 
     #[Api(optional: true)]
     public ?string $group;
@@ -77,11 +76,11 @@ final class Object1 implements BaseModel
     #[Api(optional: true)]
     public ?string $redirect;
 
-    #[Api('resource_uri', optional: true)]
-    public ?string $resourceUri;
+    #[Api(optional: true)]
+    public ?string $resource_uri;
 
-    #[Api('return_signer_links', optional: true)]
-    public ?bool $returnSignerLinks;
+    #[Api(optional: true)]
+    public ?bool $return_signer_links;
 
     /**
      * nested arrays with signer details.
@@ -91,9 +90,9 @@ final class Object1 implements BaseModel
     #[Api(list: new ListOf('string'), optional: true)]
     public ?array $signers;
 
-    /** @var value-of<SignersInOrder>|null $signersInOrder */
-    #[Api('signers_in_order', enum: SignersInOrder::class, optional: true)]
-    public ?int $signersInOrder;
+    /** @var 0|1|null $signers_in_order */
+    #[Api(optional: true)]
+    public ?int $signers_in_order;
 
     /**
      * Document status options:
@@ -103,7 +102,7 @@ final class Object1 implements BaseModel
      *   * 40 - Removed (before signing)
      *   * 50 - Rejected
      *
-     * @var value-of<DocumentStatusEnum>|null $status
+     * @var 10|20|30|40|50|null $status
      */
     #[Api(enum: DocumentStatusEnum::class, optional: true)]
     public ?int $status;
@@ -143,26 +142,26 @@ final class Object1 implements BaseModel
      * You must use named parameters to construct any parameters with a default value.
      *
      * @param list<list<string>> $signers
-     * @param SignersInOrder|value-of<SignersInOrder> $signersInOrder
-     * @param DocumentStatusEnum|value-of<DocumentStatusEnum> $status
+     * @param 0|1 $signers_in_order
+     * @param 10|20|30|40|50 $status
      */
     public static function with(
         ?bool $archived = null,
-        ?bool $autoArchive = null,
-        ?string $ccEmails = null,
+        ?bool $auto_archive = null,
+        ?string $cc_emails = null,
         ?\DateTimeInterface $created = null,
-        ?bool $doEmail = null,
-        ?bool $downloadFinal = null,
+        ?bool $do_email = null,
+        ?bool $download_final = null,
         ?string $group = null,
         ?\DateTimeInterface $modified = null,
         ?string $name = null,
         ?string $pdftext = null,
         ?string $redirect = null,
-        ?string $resourceUri = null,
-        ?bool $returnSignerLinks = null,
+        ?string $resource_uri = null,
+        ?bool $return_signer_links = null,
         ?array $signers = null,
-        SignersInOrder|int|null $signersInOrder = null,
-        DocumentStatusEnum|int|null $status = null,
+        ?int $signers_in_order = null,
+        ?int $status = null,
         ?string $tag = null,
         ?string $tag1 = null,
         ?string $tag2 = null,
@@ -175,21 +174,21 @@ final class Object1 implements BaseModel
         $obj = new self;
 
         null !== $archived && $obj->archived = $archived;
-        null !== $autoArchive && $obj->autoArchive = $autoArchive;
-        null !== $ccEmails && $obj->ccEmails = $ccEmails;
+        null !== $auto_archive && $obj->auto_archive = $auto_archive;
+        null !== $cc_emails && $obj->cc_emails = $cc_emails;
         null !== $created && $obj->created = $created;
-        null !== $doEmail && $obj->doEmail = $doEmail;
-        null !== $downloadFinal && $obj->downloadFinal = $downloadFinal;
+        null !== $do_email && $obj->do_email = $do_email;
+        null !== $download_final && $obj->download_final = $download_final;
         null !== $group && $obj->group = $group;
         null !== $modified && $obj->modified = $modified;
         null !== $name && $obj->name = $name;
         null !== $pdftext && $obj->pdftext = $pdftext;
         null !== $redirect && $obj->redirect = $redirect;
-        null !== $resourceUri && $obj->resourceUri = $resourceUri;
-        null !== $returnSignerLinks && $obj->returnSignerLinks = $returnSignerLinks;
+        null !== $resource_uri && $obj->resource_uri = $resource_uri;
+        null !== $return_signer_links && $obj->return_signer_links = $return_signer_links;
         null !== $signers && $obj->signers = $signers;
-        null !== $signersInOrder && $obj->signersInOrder = $signersInOrder instanceof SignersInOrder ? $signersInOrder->value : $signersInOrder;
-        null !== $status && $obj->status = $status instanceof DocumentStatusEnum ? $status->value : $status;
+        null !== $signers_in_order && $obj->signers_in_order = $signers_in_order;
+        null !== $status && $obj->status = $status;
         null !== $tag && $obj->tag = $tag;
         null !== $tag1 && $obj->tag1 = $tag1;
         null !== $tag2 && $obj->tag2 = $tag2;
@@ -213,7 +212,7 @@ final class Object1 implements BaseModel
     public function withAutoArchive(bool $autoArchive): self
     {
         $obj = clone $this;
-        $obj->autoArchive = $autoArchive;
+        $obj->auto_archive = $autoArchive;
 
         return $obj;
     }
@@ -221,7 +220,7 @@ final class Object1 implements BaseModel
     public function withCcEmails(string $ccEmails): self
     {
         $obj = clone $this;
-        $obj->ccEmails = $ccEmails;
+        $obj->cc_emails = $ccEmails;
 
         return $obj;
     }
@@ -237,7 +236,7 @@ final class Object1 implements BaseModel
     public function withDoEmail(bool $doEmail): self
     {
         $obj = clone $this;
-        $obj->doEmail = $doEmail;
+        $obj->do_email = $doEmail;
 
         return $obj;
     }
@@ -245,7 +244,7 @@ final class Object1 implements BaseModel
     public function withDownloadFinal(bool $downloadFinal): self
     {
         $obj = clone $this;
-        $obj->downloadFinal = $downloadFinal;
+        $obj->download_final = $downloadFinal;
 
         return $obj;
     }
@@ -293,7 +292,7 @@ final class Object1 implements BaseModel
     public function withResourceUri(string $resourceUri): self
     {
         $obj = clone $this;
-        $obj->resourceUri = $resourceUri;
+        $obj->resource_uri = $resourceUri;
 
         return $obj;
     }
@@ -301,7 +300,7 @@ final class Object1 implements BaseModel
     public function withReturnSignerLinks(bool $returnSignerLinks): self
     {
         $obj = clone $this;
-        $obj->returnSignerLinks = $returnSignerLinks;
+        $obj->return_signer_links = $returnSignerLinks;
 
         return $obj;
     }
@@ -320,12 +319,12 @@ final class Object1 implements BaseModel
     }
 
     /**
-     * @param SignersInOrder|value-of<SignersInOrder> $signersInOrder
+     * @param 0|1 $signersInOrder
      */
-    public function withSignersInOrder(SignersInOrder|int $signersInOrder): self
+    public function withSignersInOrder(int $signersInOrder): self
     {
         $obj = clone $this;
-        $obj->signersInOrder = $signersInOrder instanceof SignersInOrder ? $signersInOrder->value : $signersInOrder;
+        $obj->signers_in_order = $signersInOrder;
 
         return $obj;
     }
@@ -338,12 +337,12 @@ final class Object1 implements BaseModel
      *   * 40 - Removed (before signing)
      *   * 50 - Rejected
      *
-     * @param DocumentStatusEnum|value-of<DocumentStatusEnum> $status
+     * @param 10|20|30|40|50 $status
      */
-    public function withStatus(DocumentStatusEnum|int $status): self
+    public function withStatus(int $status): self
     {
         $obj = clone $this;
-        $obj->status = $status instanceof DocumentStatusEnum ? $status->value : $status;
+        $obj->status = $status;
 
         return $obj;
     }

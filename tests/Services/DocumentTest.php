@@ -3,8 +3,6 @@
 namespace Tests\Services;
 
 use LegalesignSDK\Client;
-use LegalesignSDK\Document\DocumentCreateParams\Signer;
-use LegalesignSDK\Document\DocumentCreateParams\Signer\Reviewer;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -35,17 +33,17 @@ final class DocumentTest extends TestCase
             $this->markTestSkipped('Prism tests are disabled');
         }
 
-        $result = $this->client->document->create(
-            group: 'https://example.com',
-            name: 'x',
-            signers: [
-                Signer::with(
-                    email: 'dev@stainless.com',
-                    firstname: 'firstname',
-                    lastname: 'lastname',
-                ),
+        $result = $this->client->document->create([
+            'group' => 'https://example.com',
+            'name' => 'x',
+            'signers' => [
+                [
+                    'email' => 'dev@stainless.com',
+                    'firstname' => 'firstname',
+                    'lastname' => 'lastname',
+                ],
             ],
-        );
+        ]);
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }
@@ -57,35 +55,35 @@ final class DocumentTest extends TestCase
             $this->markTestSkipped('Prism tests are disabled');
         }
 
-        $result = $this->client->document->create(
-            group: 'https://example.com',
-            name: 'x',
-            signers: [
-                Signer::with(
-                    email: 'dev@stainless.com',
-                    firstname: 'firstname',
-                    lastname: 'lastname',
-                )
-                    ->withAttachments(['/api/v1/attachment/IK-GV--w1tvt/'])
-                    ->withBehalfof('behalfof')
-                    ->withDecideLater(true)
-                    ->withExpires(new \DateTimeImmutable('2019-12-27T18:11:19.117Z'))
-                    ->withMessage('message')
-                    ->withOrder(0)
-                    ->withReviewers(
+        $result = $this->client->document->create([
+            'group' => 'https://example.com',
+            'name' => 'x',
+            'signers' => [
+                [
+                    'email' => 'dev@stainless.com',
+                    'firstname' => 'firstname',
+                    'lastname' => 'lastname',
+                    'attachments' => ['/api/v1/attachment/IK-GV--w1tvt/'],
+                    'behalfof' => 'behalfof',
+                    'decide_later' => true,
+                    'expires' => '2019-12-27T18:11:19.117Z',
+                    'message' => 'message',
+                    'order' => 0,
+                    'reviewers' => [
                         [
-                            Reviewer::with(email: 'dev@stainless.com')
-                                ->withFirstname('firstname')
-                                ->withIncludeLink(true)
-                                ->withLastname('lastname'),
+                            'email' => 'dev@stainless.com',
+                            'firstname' => 'firstname',
+                            'include_link' => true,
+                            'lastname' => 'lastname',
                         ],
-                    )
-                    ->withRole('witness')
-                    ->withSMS('sms')
-                    ->withSubject('subject')
-                    ->withTimezone('timezone'),
+                    ],
+                    'role' => 'witness',
+                    'sms' => 'sms',
+                    'subject' => 'subject',
+                    'timezone' => 'timezone',
+                ],
             ],
-        );
+        ]);
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }
@@ -111,7 +109,7 @@ final class DocumentTest extends TestCase
             $this->markTestSkipped('Prism tests are disabled');
         }
 
-        $result = $this->client->document->list(group: 'group');
+        $result = $this->client->document->list(['group' => 'group']);
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }
@@ -123,7 +121,7 @@ final class DocumentTest extends TestCase
             $this->markTestSkipped('Prism tests are disabled');
         }
 
-        $result = $this->client->document->list(group: 'group');
+        $result = $this->client->document->list(['group' => 'group']);
 
         $this->assertTrue(true); // @phpstan-ignore method.alreadyNarrowedType
     }

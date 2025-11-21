@@ -6,23 +6,23 @@ namespace LegalesignSDK\Group;
 
 use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkResponse;
 use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 use LegalesignSDK\Document\ListMeta;
 use LegalesignSDK\Group\GroupListResponse\Object1;
 
 /**
- * @phpstan-type group_list_response = array{
- *   meta?: ListMeta, objects?: list<Object1>
+ * @phpstan-type GroupListResponseShape = array{
+ *   meta?: ListMeta|null, objects?: list<Object1>|null
  * }
- * When used in a response, this type parameter can define a $rawResponse property.
- * @template TRawResponse of object = object{}
- *
- * @mixin TRawResponse
  */
-final class GroupListResponse implements BaseModel
+final class GroupListResponse implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<group_list_response> */
+    /** @use SdkModel<GroupListResponseShape> */
     use SdkModel;
+
+    use SdkResponse;
 
     #[Api(optional: true)]
     public ?ListMeta $meta;

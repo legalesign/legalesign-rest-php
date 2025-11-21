@@ -6,37 +6,37 @@ namespace LegalesignSDK\Status;
 
 use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkResponse;
 use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 use LegalesignSDK\Signer\SignerStatusEnum;
 
 /**
- * @phpstan-type status_get_response = array{
- *   archived?: bool,
- *   downloadFinal?: bool,
- *   resourceUri?: string,
- *   status?: value-of<SignerStatusEnum>,
- *   tag?: string,
- *   tag1?: string,
- *   tag2?: string,
+ * @phpstan-type StatusGetResponseShape = array{
+ *   archived?: bool|null,
+ *   download_final?: bool|null,
+ *   resource_uri?: string|null,
+ *   status?: null|4|5|10|15|20|30|35|39|40|50|60,
+ *   tag?: string|null,
+ *   tag1?: string|null,
+ *   tag2?: string|null,
  * }
- * When used in a response, this type parameter can define a $rawResponse property.
- * @template TRawResponse of object = object{}
- *
- * @mixin TRawResponse
  */
-final class StatusGetResponse implements BaseModel
+final class StatusGetResponse implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<status_get_response> */
+    /** @use SdkModel<StatusGetResponseShape> */
     use SdkModel;
+
+    use SdkResponse;
 
     #[Api(optional: true)]
     public ?bool $archived;
 
-    #[Api('download_final', optional: true)]
-    public ?bool $downloadFinal;
+    #[Api(optional: true)]
+    public ?bool $download_final;
 
-    #[Api('resource_uri', optional: true)]
-    public ?string $resourceUri;
+    #[Api(optional: true)]
+    public ?string $resource_uri;
 
     /**
      * Signer status options:
@@ -52,7 +52,7 @@ final class StatusGetResponse implements BaseModel
      *  * 50 - downloaded
      *  * 60 - rejected
      *
-     * @var value-of<SignerStatusEnum>|null $status
+     * @var 4|5|10|15|20|30|35|39|40|50|60|null $status
      */
     #[Api(enum: SignerStatusEnum::class, optional: true)]
     public ?int $status;
@@ -76,13 +76,13 @@ final class StatusGetResponse implements BaseModel
      *
      * You must use named parameters to construct any parameters with a default value.
      *
-     * @param SignerStatusEnum|value-of<SignerStatusEnum> $status
+     * @param 4|5|10|15|20|30|35|39|40|50|60 $status
      */
     public static function with(
         ?bool $archived = null,
-        ?bool $downloadFinal = null,
-        ?string $resourceUri = null,
-        SignerStatusEnum|int|null $status = null,
+        ?bool $download_final = null,
+        ?string $resource_uri = null,
+        ?int $status = null,
         ?string $tag = null,
         ?string $tag1 = null,
         ?string $tag2 = null,
@@ -90,9 +90,9 @@ final class StatusGetResponse implements BaseModel
         $obj = new self;
 
         null !== $archived && $obj->archived = $archived;
-        null !== $downloadFinal && $obj->downloadFinal = $downloadFinal;
-        null !== $resourceUri && $obj->resourceUri = $resourceUri;
-        null !== $status && $obj->status = $status instanceof SignerStatusEnum ? $status->value : $status;
+        null !== $download_final && $obj->download_final = $download_final;
+        null !== $resource_uri && $obj->resource_uri = $resource_uri;
+        null !== $status && $obj->status = $status;
         null !== $tag && $obj->tag = $tag;
         null !== $tag1 && $obj->tag1 = $tag1;
         null !== $tag2 && $obj->tag2 = $tag2;
@@ -111,7 +111,7 @@ final class StatusGetResponse implements BaseModel
     public function withDownloadFinal(bool $downloadFinal): self
     {
         $obj = clone $this;
-        $obj->downloadFinal = $downloadFinal;
+        $obj->download_final = $downloadFinal;
 
         return $obj;
     }
@@ -119,7 +119,7 @@ final class StatusGetResponse implements BaseModel
     public function withResourceUri(string $resourceUri): self
     {
         $obj = clone $this;
-        $obj->resourceUri = $resourceUri;
+        $obj->resource_uri = $resourceUri;
 
         return $obj;
     }
@@ -138,12 +138,12 @@ final class StatusGetResponse implements BaseModel
      *  * 50 - downloaded
      *  * 60 - rejected
      *
-     * @param SignerStatusEnum|value-of<SignerStatusEnum> $status
+     * @param 4|5|10|15|20|30|35|39|40|50|60 $status
      */
-    public function withStatus(SignerStatusEnum|int $status): self
+    public function withStatus(int $status): self
     {
         $obj = clone $this;
-        $obj->status = $status instanceof SignerStatusEnum ? $status->value : $status;
+        $obj->status = $status;
 
         return $obj;
     }

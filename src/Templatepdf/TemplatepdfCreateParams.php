@@ -10,33 +10,22 @@ use LegalesignSDK\Core\Concerns\SdkParams;
 use LegalesignSDK\Core\Contracts\BaseModel;
 
 /**
- * An object containing the method's parameters.
- * Example usage:
- * ```
- * $params = (new TemplatepdfCreateParams); // set properties as needed
- * $client->templatepdf->create(...$params->toArray());
- * ```
  * Upload a PDF document you want to send to be signed.
  *
- * @method toArray()
- *   Returns the parameters as an associative array suitable for passing to the client method.
+ * @see LegalesignSDK\Services\TemplatepdfService::create()
  *
- *   `$client->templatepdf->create(...$params->toArray());`
- *
- * @see LegalesignSDK\Templatepdf->create
- *
- * @phpstan-type templatepdf_create_params = array{
+ * @phpstan-type TemplatepdfCreateParamsShape = array{
  *   group: string,
- *   pdfFile: string,
- *   archiveUponSend?: bool,
- *   processTags?: bool,
+ *   pdf_file: string,
+ *   archive_upon_send?: bool,
+ *   process_tags?: bool,
  *   title?: string,
  *   user?: string,
  * }
  */
 final class TemplatepdfCreateParams implements BaseModel
 {
-    /** @use SdkModel<templatepdf_create_params> */
+    /** @use SdkModel<TemplatepdfCreateParamsShape> */
     use SdkModel;
     use SdkParams;
 
@@ -46,17 +35,17 @@ final class TemplatepdfCreateParams implements BaseModel
     /**
      * base64 encoded PDF file data.
      */
-    #[Api('pdf_file')]
-    public string $pdfFile;
+    #[Api]
+    public string $pdf_file;
 
     /**
      * archive PDF when sent.
      */
-    #[Api('archive_upon_send', optional: true)]
-    public ?bool $archiveUponSend;
+    #[Api(optional: true)]
+    public ?bool $archive_upon_send;
 
-    #[Api('process_tags', optional: true)]
-    public ?bool $processTags;
+    #[Api(optional: true)]
+    public ?bool $process_tags;
 
     #[Api(optional: true)]
     public ?string $title;
@@ -72,7 +61,7 @@ final class TemplatepdfCreateParams implements BaseModel
      *
      * To enforce required parameters use
      * ```
-     * TemplatepdfCreateParams::with(group: ..., pdfFile: ...)
+     * TemplatepdfCreateParams::with(group: ..., pdf_file: ...)
      * ```
      *
      * Otherwise ensure the following setters are called
@@ -93,19 +82,19 @@ final class TemplatepdfCreateParams implements BaseModel
      */
     public static function with(
         string $group,
-        string $pdfFile,
-        ?bool $archiveUponSend = null,
-        ?bool $processTags = null,
+        string $pdf_file,
+        ?bool $archive_upon_send = null,
+        ?bool $process_tags = null,
         ?string $title = null,
         ?string $user = null,
     ): self {
         $obj = new self;
 
         $obj->group = $group;
-        $obj->pdfFile = $pdfFile;
+        $obj->pdf_file = $pdf_file;
 
-        null !== $archiveUponSend && $obj->archiveUponSend = $archiveUponSend;
-        null !== $processTags && $obj->processTags = $processTags;
+        null !== $archive_upon_send && $obj->archive_upon_send = $archive_upon_send;
+        null !== $process_tags && $obj->process_tags = $process_tags;
         null !== $title && $obj->title = $title;
         null !== $user && $obj->user = $user;
 
@@ -126,7 +115,7 @@ final class TemplatepdfCreateParams implements BaseModel
     public function withPdfFile(string $pdfFile): self
     {
         $obj = clone $this;
-        $obj->pdfFile = $pdfFile;
+        $obj->pdf_file = $pdfFile;
 
         return $obj;
     }
@@ -137,7 +126,7 @@ final class TemplatepdfCreateParams implements BaseModel
     public function withArchiveUponSend(bool $archiveUponSend): self
     {
         $obj = clone $this;
-        $obj->archiveUponSend = $archiveUponSend;
+        $obj->archive_upon_send = $archiveUponSend;
 
         return $obj;
     }
@@ -145,7 +134,7 @@ final class TemplatepdfCreateParams implements BaseModel
     public function withProcessTags(bool $processTags): self
     {
         $obj = clone $this;
-        $obj->processTags = $processTags;
+        $obj->process_tags = $processTags;
 
         return $obj;
     }

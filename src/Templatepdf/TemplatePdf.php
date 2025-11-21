@@ -6,31 +6,31 @@ namespace LegalesignSDK\Templatepdf;
 
 use LegalesignSDK\Core\Attributes\Api;
 use LegalesignSDK\Core\Concerns\SdkModel;
+use LegalesignSDK\Core\Concerns\SdkResponse;
 use LegalesignSDK\Core\Contracts\BaseModel;
+use LegalesignSDK\Core\Conversion\Contracts\ResponseConverter;
 
 /**
- * @phpstan-type template_pdf = array{
- *   created?: \DateTimeInterface,
- *   group?: string,
- *   modified?: \DateTimeInterface,
- *   pageCount?: int,
- *   parties?: string,
- *   resourceUri?: string,
- *   signerCount?: int,
- *   title?: string,
- *   user?: string,
- *   uuid?: string,
- *   valid?: bool,
+ * @phpstan-type TemplatePdfShape = array{
+ *   created?: \DateTimeInterface|null,
+ *   group?: string|null,
+ *   modified?: \DateTimeInterface|null,
+ *   page_count?: int|null,
+ *   parties?: string|null,
+ *   resource_uri?: string|null,
+ *   signer_count?: int|null,
+ *   title?: string|null,
+ *   user?: string|null,
+ *   uuid?: string|null,
+ *   valid?: bool|null,
  * }
- * When used in a response, this type parameter can define a $rawResponse property.
- * @template TRawResponse of object = object{}
- *
- * @mixin TRawResponse
  */
-final class TemplatePdf implements BaseModel
+final class TemplatePdf implements BaseModel, ResponseConverter
 {
-    /** @use SdkModel<template_pdf> */
+    /** @use SdkModel<TemplatePdfShape> */
     use SdkModel;
+
+    use SdkResponse;
 
     #[Api(optional: true)]
     public ?\DateTimeInterface $created;
@@ -41,8 +41,8 @@ final class TemplatePdf implements BaseModel
     #[Api(optional: true)]
     public ?\DateTimeInterface $modified;
 
-    #[Api('page_count', optional: true)]
-    public ?int $pageCount;
+    #[Api(optional: true)]
+    public ?int $page_count;
 
     /**
      * JSON stringified array of document parties.
@@ -50,11 +50,11 @@ final class TemplatePdf implements BaseModel
     #[Api(optional: true)]
     public ?string $parties;
 
-    #[Api('resource_uri', optional: true)]
-    public ?string $resourceUri;
+    #[Api(optional: true)]
+    public ?string $resource_uri;
 
-    #[Api('signer_count', optional: true)]
-    public ?int $signerCount;
+    #[Api(optional: true)]
+    public ?int $signer_count;
 
     #[Api(optional: true)]
     public ?string $title;
@@ -91,10 +91,10 @@ final class TemplatePdf implements BaseModel
         ?\DateTimeInterface $created = null,
         ?string $group = null,
         ?\DateTimeInterface $modified = null,
-        ?int $pageCount = null,
+        ?int $page_count = null,
         ?string $parties = null,
-        ?string $resourceUri = null,
-        ?int $signerCount = null,
+        ?string $resource_uri = null,
+        ?int $signer_count = null,
         ?string $title = null,
         ?string $user = null,
         ?string $uuid = null,
@@ -105,10 +105,10 @@ final class TemplatePdf implements BaseModel
         null !== $created && $obj->created = $created;
         null !== $group && $obj->group = $group;
         null !== $modified && $obj->modified = $modified;
-        null !== $pageCount && $obj->pageCount = $pageCount;
+        null !== $page_count && $obj->page_count = $page_count;
         null !== $parties && $obj->parties = $parties;
-        null !== $resourceUri && $obj->resourceUri = $resourceUri;
-        null !== $signerCount && $obj->signerCount = $signerCount;
+        null !== $resource_uri && $obj->resource_uri = $resource_uri;
+        null !== $signer_count && $obj->signer_count = $signer_count;
         null !== $title && $obj->title = $title;
         null !== $user && $obj->user = $user;
         null !== $uuid && $obj->uuid = $uuid;
@@ -144,7 +144,7 @@ final class TemplatePdf implements BaseModel
     public function withPageCount(int $pageCount): self
     {
         $obj = clone $this;
-        $obj->pageCount = $pageCount;
+        $obj->page_count = $pageCount;
 
         return $obj;
     }
@@ -163,7 +163,7 @@ final class TemplatePdf implements BaseModel
     public function withResourceUri(string $resourceUri): self
     {
         $obj = clone $this;
-        $obj->resourceUri = $resourceUri;
+        $obj->resource_uri = $resourceUri;
 
         return $obj;
     }
@@ -171,7 +171,7 @@ final class TemplatePdf implements BaseModel
     public function withSignerCount(int $signerCount): self
     {
         $obj = clone $this;
-        $obj->signerCount = $signerCount;
+        $obj->signer_count = $signerCount;
 
         return $obj;
     }
